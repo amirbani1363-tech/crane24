@@ -1,0 +1,66 @@
+{
+  "name": "جرثقیل ۲۴ | خدمات تخصصی جرثقیل",
+  "short_name": "جرثقیل ۲۴",
+  "description": "سیستم مدیریت کامل کسب‌وکار اجاره جرثقیل - مشتریان، رانندگان، سفارشات، فاکتور و حسابداری",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "jarsaghil24-app",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#1A1A1A",
+  "theme_color": "#FFC107",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "categories": ["business", "productivity", "finance"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "سفارش جدید",
+      "short_name": "سفارش",
+      "description": "ثبت سریع سفارش جدید",
+      "url": "./index.html?action=new-order",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "فاکتور جدید",
+      "short_name": "فاکتور",
+      "description": "صدور فاکتور جدید",
+      "url": "./index.html?action=new-invoice",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "مشتری جدید",
+      "short_name": "مشتری",
+      "description": "افزودن مشتری جدید",
+      "url": "./index.html?action=new-customer",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
