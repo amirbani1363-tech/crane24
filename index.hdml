@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جرثقیل ۲۴ | خدمات تخصصی جرثقیل</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Vazirmatn Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & ROOT ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --yellow: #FFC107;
+      --yellow-light: #FFD54F;
+      --black: #1A1A1A;
+      --black-light: #2C2C2C;
+      --red: #E53935;
+      --bg: #F7F8FA;
+      --card: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #7A7A7A;
+      --border: #E8E8E8;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --transition: 0.25s ease;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ========== SCROLLBAR ========== */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* ========== LAYOUT ========== */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+      width: 260px;
+      background: var(--black);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .sidebar-brand {
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+
+    .sidebar-logo {
+      width: 48px;
+      height: 48px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--black);
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(255,193,7,0.3);
+    }
+
+    .sidebar-brand-text h1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .sidebar-brand-text span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: right;
+      font-family: inherit;
+    }
+
+    .nav-item i {
+      width: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--yellow);
+      transition: var(--transition);
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .nav-item.active i {
+      color: var(--black);
+    }
+
+    .sidebar-footer {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main-content {
+      flex: 1;
+      margin-right: 260px;
+      padding: 24px;
+      min-height: 100vh;
+      transition: margin 0.3s ease;
+    }/* ========== TOP BAR (mobile) ========== */
+    .topbar {
+      display: none;
+      background: var(--black);
+      color: #fff;
+      padding: 12px 16px;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .topbar-logo .mini-logo {
+      width: 34px;
+      height: 34px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--black);
+    }
+
+    .topbar-toggle {
+      background: none;
+      border: none;
+      color: var(--yellow);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .page-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .page-header h2 i {
+      color: var(--yellow);
+      background: var(--black);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+    }
+    .btn-primary:hover {
+      background: var(--yellow-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(255,193,7,0.4);
+    }
+
+    .btn-secondary {
+      background: var(--black);
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: var(--black-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-danger {
+      background: var(--red);
+      color: #fff;
+    }
+    .btn-danger:hover {
+      background: #c62828;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      background: #FFF8E1;
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 8px;
+    }
+
+    .btn-icon {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    /* ========== CARDS ========== */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--yellow);
+    }
+
+    .stat-card.danger::after { background: var(--red); }
+    .stat-card.dark::after { background: var(--black); }.stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .stat-icon.yellow { background: #FFF8E1; color: #F57F17; }
+    .stat-icon.dark { background: #F0F0F0; color: var(--black); }
+    .stat-icon.red { background: #FFEBEE; color: var(--red); }
+    .stat-icon.green { background: #E8F5E9; color: #2E7D32; }
+
+    .stat-info h3 {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .stat-info .value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .stat-info .value small {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* ========== CHARTS ========== */
+    .chart-container {
+      position: relative;
+      height: 280px;
+      width: 100%;
+    }
+
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 240px;
+      padding: 10px 0;
+      gap: 8px;
+    }
+
+    .bar-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .bar-wrapper {
+      display: flex;
+      gap: 3px;
+      align-items: flex-end;
+      height: 200px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .bar {
+      width: 14px;
+      border-radius: 4px 4px 0 0;
+      transition: height 0.5s ease;
+      min-height: 2px;
+      position: relative;
+    }
+
+    .bar.income { background: var(--yellow); }
+    .bar.expense { background: var(--black); }
+
+    .bar-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* ========== TABLES ========== */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: #FAFAFA;
+      padding: 12px 14px;
+      text-align: right;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 12px;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #FAFAFA; }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state i {
+      font-size: 40px;
+      color: var(--border);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ========== BADGES ========== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .badge-pending { background: #FFF8E1; color: #F57F17; }
+    .badge-active { background: #E3F2FD; color: #1565C0; }
+    .badge-done { background: #E8F5E9; color: #2E7D32; }
+    .badge-cancel { background: #FFEBEE; color: var(--red); }
+    .badge-debt { background: #FFEBEE; color: var(--red); }
+    .badge-ok { background: #E8F5E9; color: #2E7D32; }
+
+    /* ========== FORMS ========== */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }.form-group label .req {
+      color: var(--red);
+      margin-right: 2px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13px;
+      background: #fff;
+      transition: var(--transition);
+      color: var(--text);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(255,193,7,0.15);
+    }
+
+    .form-control::placeholder { color: #bbb; }
+
+    textarea.form-control { resize: vertical; min-height: 80px; }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237A7A7A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 14px center;
+      padding-left: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ========== MODAL ========== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal {
+      background: var(--card);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      animation: slideUp 0.3s ease;
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      z-index: 10;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .modal-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-header h3 i { color: var(--yellow); }
+
+    .modal-close {
+      background: #F5F5F5;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover { background: #FFEBEE; color: var(--red); }
+
+    .modal-body { padding: 24px; }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      position: sticky;
+      bottom: 0;
+      background: var(--card);
+      border-radius: 0 0 16px 16px;
+    }
+
+    /* ========== SEARCH BAR ========== */
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .search-box i {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 40px 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13px;
+      background: #fff;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(255,193,7,0.15);
+    }/* ========== INVOICE ========== */
+    .invoice-preview {
+      background: #fff;
+      padding: 30px;
+      border-radius: var(--radius);
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 13px;
+      border: 1px solid var(--border);
+    }
+
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--yellow);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .invoice-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .invoice-logo .logo-circle {
+      width: 60px;
+      height: 60px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+
+    .invoice-logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .invoice-logo h2 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .invoice-logo p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .invoice-meta {
+      text-align: left;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .invoice-meta strong { color: var(--text); }
+    .invoice-meta .inv-num {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-block;
+    }
+
+    .invoice-parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .party-box {
+      background: #FAFAFA;
+      padding: 16px;
+      border-radius: 10px;
+      border-right: 3px solid var(--yellow);
+    }
+
+    .party-box h4 {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .party-box p {
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .invoice-table th {
+      background: var(--black);
+      color: #fff;
+      padding: 10px 12px;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .invoice-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .invoice-table tbody tr:last-child td { border-bottom: none; }
+
+    .invoice-totals {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .totals-box {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .totals-row.final {
+      background: var(--yellow);
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 15px;
+      border-bottom: none;
+      margin-top: 8px;
+      color: var(--black);
+    }
+
+    .amount-in-words {
+      background: #FFF8E1;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 20px;
+      border-right: 3px solid var(--yellow);
+    }
+
+    .amount-in-words strong { color: #F57F17; }
+
+    .invoice-bank {
+      background: #FAFAFA;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .invoice-bank .bank-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .invoice-bank .bank-row span:first-child {
+      color: var(--text-muted);
+      min-width: 90px;
+    }
+
+    .invoice-bank .bank-row span:last-child {
+      font-weight: 600;
+      direction: ltr;
+      text-align: left;
+      font-family: monospace;
+    }.invoice-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .invoice-sign {
+      text-align: center;
+    }
+
+    .invoice-sign p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .invoice-sign img {
+      max-width: 120px;
+      max-height: 70px;
+      object-fit: contain;
+    }
+
+    .invoice-stamp {
+      text-align: center;
+    }
+
+    .invoice-stamp img {
+      max-width: 130px;
+      max-height: 130px;
+      object-fit: contain;
+    }
+
+    .invoice-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* ========== TABS ========== */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+      overflow-x: auto;
+      padding-bottom: 0;
+    }
+
+    .tab {
+      padding: 10px 18px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .tab:hover { color: var(--text); }
+
+    .tab.active {
+      color: var(--text);
+      border-bottom-color: var(--yellow);
+    }
+
+    /* ========== TOAST ========== */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: var(--black);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      animation: slideUp 0.3s ease;
+      border-right: 4px solid var(--yellow);
+      max-width: 360px;
+    }
+
+    .toast.success { border-right-color: #2E7D32; }
+    .toast.error { border-right-color: var(--red); }
+    .toast i { font-size: 16px; }
+    .toast.success i { color: #66BB6A; }
+    .toast.error i { color: #EF5350; }
+
+    /* ========== PAGES ========== */
+    .page { display: none; animation: fadeIn 0.3s ease; }
+    .page.active { display: block; }
+
+    /* ========== MISC ========== */
+    .text-muted { color: var(--text-muted); }
+    .text-red { color: var(--red); }
+    .text-green { color: #2E7D32; }
+    .text-yellow { color: #F57F17; }
+    .fw-bold { font-weight: 700; }
+    .fs-11 { font-size: 11px; }
+    .fs-12 { font-size: 12px; }
+    .mt-2 { margin-top: 8px; }
+    .mt-3 { margin-top: 16px; }
+    .mb-2 { margin-bottom: 8px; }
+    .mb-3 { margin-bottom: 16px; }
+    .d-flex { display: flex; }
+    .gap-2 { gap: 8px; }
+    .gap-3 { gap: 16px; }
+    .align-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .flex-wrap { flex-wrap: wrap; }
+    .w-100 { width: 100%; }
+    .cursor-pointer { cursor: pointer; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(100%);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .main-content {
+        margin-right: 0;padding: 16px;
+        padding-top: 70px;
+      }
+      .topbar {
+        display: flex;
+      }
+      .form-row, .form-row-3 {
+        grid-template-columns: 1fr;
+      }
+      .invoice-parties {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-header h2 { font-size: 18px; }
+      .stat-info .value { font-size: 17px; }
+      .modal-body { padding: 16px; }
+      .modal-header { padding: 16px; }
+      .modal-footer { padding: 12px 16px; flex-wrap: wrap; }
+      .invoice-preview { padding: 16px; }
+      .invoice-header { flex-direction: column; }
+      .invoice-meta { text-align: right; width: 100%; }
+      .btn { padding: 9px 14px; font-size: 12px; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      body * { visibility: hidden; }
+      #invoicePrintArea, #invoicePrintArea * { visibility: visible; }
+      #invoicePrintArea {
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .no-print { display: none !important; }
+      .invoice-preview {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== TOP BAR (mobile) ========== -->
+<div class="topbar no-print">
+  <div class="topbar-logo">
+    <div class="mini-logo">۲۴</div>
+    <span>جرثقیل ۲۴</span>
+  </div>
+  <button class="topbar-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<!-- ========== APP ========== -->
+<div class="app-container">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar no-print" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo" id="sidebarLogo">۲۴</div>
+      <div class="sidebar-brand-text">
+        <h1 id="sidebarBrandName">جرثقیل ۲۴</h1>
+        <span>خدمات تخصصی جرثقیل</span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+        <i class="fas fa-chart-pie"></i> داشبورد
+      </button>
+      <button class="nav-item" data-page="customers" onclick="navigateTo('customers')">
+        <i class="fas fa-users"></i> مشتریان
+      </button>
+      <button class="nav-item" data-page="drivers" onclick="navigateTo('drivers')">
+        <i class="fas fa-truck"></i> رانندگان
+      </button>
+      <button class="nav-item" data-page="orders" onclick="navigateTo('orders')">
+        <i class="fas fa-clipboard-list"></i> سفارشات
+      </button>
+      <button class="nav-item" data-page="invoices" onclick="navigateTo('invoices')">
+        <i class="fas fa-file-invoice"></i> فاکتورها
+      </button>
+      <button class="nav-item" data-page="accounting" onclick="navigateTo('accounting')">
+        <i class="fas fa-calculator"></i> حسابداری
+      </button>
+      <button class="nav-item" data-page="settings" onclick="navigateTo('settings')">
+        <i class="fas fa-cog"></i> تنظیمات
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      نسخه ۱.۰.۰ | ساخته شده با ❤️
+    </div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ============================================================ -->
+    <!-- PAGE: DASHBOARD -->
+    <!-- ============================================================ -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h2><i class="fas fa-chart-pie"></i> داشبورد مدیریت</h2>
+        <span class="text-muted fs-12" id="todayDateDisplay"></span>
+      </div>
+
+      <!-- STATS --><div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon yellow"><i class="fas fa-coins"></i></div>
+          <div class="stat-info">
+            <h3>سود امروز</h3>
+            <div class="value" id="statTodayProfit">۰ <small>تومان</small></div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon dark"><i class="fas fa-clipboard-check"></i></div>
+          <div class="stat-info">
+            <h3>تعداد کار امروز</h3>
+            <div class="value" id="statTodayCount">۰ <small>سفارش</small></div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
+          <div class="stat-info">
+            <h3>سود این ماه</h3>
+            <div class="value" id="statMonthProfit">۰ <small>تومان</small></div>
+          </div>
+        </div>
+        <div class="stat-card danger">
+          <div class="stat-icon red"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="stat-info">
+            <h3>بدهی مشتریان</h3>
+            <div class="value text-red" id="statTotalDebt">۰ <small>تومان</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART -->
+      <div class="card mb-3">
+        <div class="d-flex justify-between align-center mb-2">
+          <h3 class="fw-bold" style="font-size:15px;">
+            <i class="fas fa-chart-bar text-yellow"></i>
+            نمودار درآمد / هزینه ۶ ماه اخیر
+          </h3>
+        </div>
+        <div class="chart-container">
+          <div class="bar-chart" id="dashboardChart"></div>
+          <div class="chart-legend">
+            <span><span class="legend-dot" style="background:var(--yellow);"></span> درآمد (کرایه دریافتی)</span>
+            <span><span class="legend-dot" style="background:var(--black);"></span> هزینه (کرایه پرداختی)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECENT ORDERS + ALERTS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" id="dashboardBottom">
+        <div class="card">
+          <h3 class="fw-bold mb-3" style="font-size:15px;">
+            <i class="fas fa-clock text-yellow"></i> آخرین سفارشات
+          </h3>
+          <div id="recentOrdersList"></div>
+        </div>
+        <div class="card">
+          <h3 class="fw-bold mb-3" style="font-size:15px;">
+            <i class="fas fa-bell text-red"></i> هشدار فاکتورهای پرداخت‌نشده
+          </h3>
+          <div id="unpaidInvoicesList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: CUSTOMERS -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-customers">
+      <div class="page-header">
+        <h2><i class="fas fa-users"></i> مدیریت مشتریان</h2>
+        <button class="btn btn-primary" onclick="openCustomerModal()">
+          <i class="fas fa-plus"></i> مشتری جدید
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="customerSearch" placeholder="جستجوی نام، شرکت، موبایل..." oninput="renderCustomers()">
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th>شرکت</th>
+              <th>موبایل</th>
+              <th>مانده حساب</th>
+              <th>تعداد کار</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody id="customersTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: DRIVERS -->
+    <!-- ============================================================ --><div class="page" id="page-drivers">
+      <div class="page-header">
+        <h2><i class="fas fa-truck"></i> مدیریت رانندگان</h2>
+        <button class="btn btn-primary" onclick="openDriverModal()">
+          <i class="fas fa-plus"></i> راننده جدید
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="driverSearch" placeholder="جستجوی نام، پلاک، نوع جرثقیل..." oninput="renderDrivers()">
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th>موبایل</th>
+              <th>نوع جرثقیل</th>
+              <th>پلاک</th>
+              <th>مانده (بدهی من)</th>
+              <th>تعداد کار</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody id="driversTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: ORDERS -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-orders">
+      <div class="page-header">
+        <h2><i class="fas fa-clipboard-list"></i> مدیریت سفارشات</h2>
+        <button class="btn btn-primary" onclick="openOrderModal()">
+          <i class="fas fa-plus"></i> سفارش جدید
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="orderSearch" placeholder="جستجو..." oninput="renderOrders()">
+        </div>
+        <select class="form-control" style="max-width:180px;" id="orderFilterStatus" onchange="renderOrders()">
+          <option value="">همه وضعیت‌ها</option>
+          <option value="pending">در انتظار</option>
+          <option value="active">در حال انجام</option>
+          <option value="done">تمام شده</option>
+          <option value="cancelled">لغو شده</option>
+        </select>
+        <select class="form-control" style="max-width:180px;" id="orderFilterCustomer" onchange="renderOrders()">
+          <option value="">همه مشتریان</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>تاریخ</th>
+              <th>مشتری</th>
+              <th>راننده</th>
+              <th>نوع نرخ</th>
+              <th>کرایه مشتری</th>
+              <th>کرایه راننده</th>
+              <th>سود</th>
+              <th>وضعیت</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: INVOICES -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-invoices">
+      <div class="page-header">
+        <h2><i class="fas fa-file-invoice"></i> صدور فاکتور</h2>
+        <button class="btn btn-primary" onclick="openInvoiceModal()">
+          <i class="fas fa-plus"></i> فاکتور جدید
+        </button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>شماره</th>
+              <th>تاریخ</th>
+              <th>مشتری</th>
+              <th>مبلغ نهایی</th>
+              <th>وضعیت</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody id="invoicesTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: ACCOUNTING -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-accounting">
+      <div class="page-header">
+        <h2><i class="fas fa-calculator"></i> حسابداری</h2>
+        <button class="btn btn-outline" onclick="exportCSV()">
+          <i class="fas fa-download"></i> خروجی CSV
+        </button>
+      </div><div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon yellow"><i class="fas fa-arrow-down"></i></div>
+          <div class="stat-info">
+            <h3>کل دریافتی</h3>
+            <div class="value" id="accTotalIncome">۰</div>
+          </div>
+        </div>
+        <div class="stat-card dark">
+          <div class="stat-icon dark"><i class="fas fa-arrow-up"></i></div>
+          <div class="stat-info">
+            <h3>کل پرداختی</h3>
+            <div class="value" id="accTotalExpense">۰</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+          <div class="stat-info">
+            <h3>سود کل</h3>
+            <div class="value text-green" id="accTotalProfit">۰</div>
+          </div>
+        </div>
+        <div class="stat-card danger">
+          <div class="stat-icon red"><i class="fas fa-hand-holding-usd"></i></div>
+          <div class="stat-info">
+            <h3>بدهی من به رانندگان</h3>
+            <div class="value text-red" id="accDriverDebt">۰</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="switchAccTab('summary')">خلاصه</button>
+        <button class="tab" onclick="switchAccTab('customerDebt')">بدهی مشتریان</button>
+        <button class="tab" onclick="switchAccTab('driverDebt')">بدهی رانندگان</button>
+        <button class="tab" onclick="switchAccTab('transactions')">تراکنش‌ها</button>
+      </div>
+
+      <div id="accTab-summary" class="acc-tab">
+        <div class="card">
+          <h3 class="fw-bold mb-3">سود ماهانه</h3>
+          <div id="monthlyProfitList"></div>
+        </div>
+      </div>
+
+      <div id="accTab-customerDebt" class="acc-tab" style="display:none;">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>مشتری</th><th>بدهی</th><th>تعداد فاکتور پرداخت‌نشده</th></tr>
+            </thead>
+            <tbody id="customerDebtBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="accTab-driverDebt" class="acc-tab" style="display:none;">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>راننده</th><th>بدهی من به ایشان</th></tr>
+            </thead>
+            <tbody id="driverDebtBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="accTab-transactions" class="acc-tab" style="display:none;">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>تاریخ</th><th>نوع</th><th>طرف حساب</th><th>مبلغ</th><th>روش</th></tr>
+            </thead>
+            <tbody id="transactionsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: SETTINGS -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-settings">
+      <div class="page-header">
+        <h2><i class="fas fa-cog"></i> تنظیمات</h2>
+      </div>
+
+      <div class="card mb-3">
+        <h3 class="fw-bold mb-3"><i class="fas fa-building text-yellow"></i> اطلاعات کسب‌وکار</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>نام تجاری</label>
+            <input type="text" class="form-control" id="setBizName" value="جرثقیل ۲۴">
+          </div>
+          <div class="form-group">
+            <label>تلفن</label>
+            <input type="text" class="form-control" id="setBizPhone" placeholder="۰۲۱-۱۲۳۴۵۶۷۸">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>آدرس</label>
+          <input type="text" class="form-control" id="setBizAddress" placeholder="تهران، ...">
+        </div><div class="form-row">
+          <div class="form-group">
+            <label>شماره شبا</label>
+            <input type="text" class="form-control" id="setBizSheba" placeholder="IR..." style="direction:ltr;text-align:left;">
+          </div>
+          <div class="form-group">
+            <label>شماره کارت</label>
+            <input type="text" class="form-control" id="setBizCard" placeholder="---- ---- ---- ----" style="direction:ltr;text-align:left;">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>کد اقتصادی</label>
+            <input type="text" class="form-control" id="setBizEcoCode">
+          </div>
+          <div class="form-group">
+            <label>درصد مالیات بر ارزش افزوده</label>
+            <input type="number" class="form-control" id="setTaxPercent" value="0" min="0" max="100">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>پیش‌شماره فاکتور</label>
+            <input type="number" class="form-control" id="setInvoicePrefix" value="1000">
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <h3 class="fw-bold mb-3"><i class="fas fa-image text-yellow"></i> لوگو، مهر و امضا</h3>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>لوگو (تصویر)</label>
+            <input type="file" class="form-control" accept="image/*" onchange="uploadImage(this, 'logo')">
+            <div id="logoPreview" class="mt-2"></div>
+          </div>
+          <div class="form-group">
+            <label>مهر (PNG شفاف)</label>
+            <input type="file" class="form-control" accept="image/*" onchange="uploadImage(this, 'stamp')">
+            <div id="stampPreview" class="mt-2"></div>
+          </div>
+          <div class="form-group">
+            <label>امضا (اختیاری)</label>
+            <input type="file" class="form-control" accept="image/*" onchange="uploadImage(this, 'signature')">
+            <div id="signaturePreview" class="mt-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <h3 class="fw-bold mb-3"><i class="fas fa-database text-yellow"></i> پشتیبان‌گیری و بازیابی</h3>
+        <div class="d-flex gap-2 flex-wrap">
+          <button class="btn btn-secondary" onclick="backupData()">
+            <i class="fas fa-download"></i> دانلود پشتیبان JSON
+          </button>
+          <label class="btn btn-outline" style="cursor:pointer;">
+            <i class="fas fa-upload"></i> بازیابی از فایل
+            <input type="file" accept=".json" style="display:none;" onchange="restoreData(this)">
+          </label>
+          <button class="btn btn-danger" onclick="confirmClearData()">
+            <i class="fas fa-trash"></i> پاک کردن همه داده‌ها
+          </button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100" onclick="saveSettings()">
+        <i class="fas fa-save"></i> ذخیره تنظیمات
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<!-- ========== MODALS ========== -->
+
+<!-- CUSTOMER MODAL -->
+<div class="modal-overlay" id="customerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-user-plus"></i> <span id="customerModalTitle">مشتری جدید</span></h3>
+      <button class="modal-close" onclick="closeModal('customerModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="customerId">
+      <div class="form-row">
+        <div class="form-group">
+          <label>نام <span class="req">*</span></label>
+          <input type="text" class="form-control" id="customerName">
+        </div>
+        <div class="form-group">
+          <label>نام شرکت</label>
+          <input type="text" class="form-control" id="customerCompany"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>موبایل (واتساپ)</label>
+          <input type="text" class="form-control" id="customerMobile" placeholder="09..." style="direction:ltr;text-align:left;">
+        </div>
+        <div class="form-group">
+          <label>تلفن ثابت</label>
+          <input type="text" class="form-control" id="customerPhone" style="direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>آدرس</label>
+        <input type="text" class="form-control" id="customerAddress">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>کد ملی / اقتصادی</label>
+          <input type="text" class="form-control" id="customerNationalId">
+        </div>
+        <div class="form-group">
+          <label>ایمیل</label>
+          <input type="email" class="form-control" id="customerEmail" style="direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>یادداشت</label>
+        <textarea class="form-control" id="customerNote"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveCustomer()"><i class="fas fa-save"></i> ذخیره</button>
+      <button class="btn btn-outline" onclick="closeModal('customerModal')">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRIVER MODAL -->
+<div class="modal-overlay" id="driverModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-truck"></i> <span id="driverModalTitle">راننده جدید</span></h3>
+      <button class="modal-close" onclick="closeModal('driverModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="driverId">
+      <div class="form-row">
+        <div class="form-group">
+          <label>نام <span class="req">*</span></label>
+          <input type="text" class="form-control" id="driverName">
+        </div>
+        <div class="form-group">
+          <label>موبایل</label>
+          <input type="text" class="form-control" id="driverMobile" placeholder="09..." style="direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>نوع جرثقیل و تناژ</label>
+          <input type="text" class="form-control" id="driverCraneType" placeholder="مثلاً: تلسکوپی ۱۰ تن">
+        </div>
+        <div class="form-group">
+          <label>شماره پلاک</label>
+          <input type="text" class="form-control" id="driverPlate" style="direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>شبا / شماره کارت</label>
+        <input type="text" class="form-control" id="driverBank" style="direction:ltr;text-align:left;">
+      </div>
+      <div class="form-group">
+        <label>یادداشت</label>
+        <textarea class="form-control" id="driverNote"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveDriver()"><i class="fas fa-save"></i> ذخیره</button>
+      <button class="btn btn-outline" onclick="closeModal('driverModal')">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-clipboard-list"></i> <span id="orderModalTitle">سفارش جدید</span></h3>
+      <button class="modal-close" onclick="closeModal('orderModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="orderId">
+      <div class="form-row-3">
+        <div class="form-group">
+          <label>تاریخ شمسی <span class="req">*</span></label><input type="text" class="form-control" id="orderDate" placeholder="۱۴۰۳/۰۱/۰۱" style="direction:ltr;text-align:center;">
+        </div>
+        <div class="form-group">
+          <label>ساعت شروع</label>
+          <input type="text" class="form-control" id="orderTime" placeholder="۰۸:۳۰" style="direction:ltr;text-align:center;">
+        </div>
+        <div class="form-group">
+          <label>وضعیت</label>
+          <select class="form-control" id="orderStatus">
+            <option value="pending">در انتظار</option>
+            <option value="active">در حال انجام</option>
+            <option value="done">تمام شده</option>
+            <option value="cancelled">لغو شده</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>مشتری <span class="req">*</span></label>
+          <select class="form-control" id="orderCustomer"></select>
+        </div>
+        <div class="form-group">
+          <label>راننده <span class="req">*</span></label>
+          <select class="form-control" id="orderDriver"></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>نوع جرثقیل و تناژ</label>
+          <input type="text" class="form-control" id="orderCraneType" placeholder="مثلاً: تلسکوپی ۱۰ تن">
+        </div>
+        <div class="form-group">
+          <label>محل کار / پروژه</label>
+          <input type="text" class="form-control" id="orderLocation">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>نوع نرخ <span class="req">*</span></label>
+        <select class="form-control" id="orderRateType" onchange="renderRateFields()">
+          <option value="hourly">ساعتی</option>
+          <option value="daily">روزانه</option>
+          <option value="monthly">ماهانه</option>
+          <option value="per_lift">تک‌قلابه</option>
+        </select>
+      </div>
+      <div id="rateFieldsContainer"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>کرایه کل دریافتی از مشتری <span class="req">*</span></label>
+          <input type="number" class="form-control" id="orderCustomerFare" oninput="calcOrderProfit()" style="direction:ltr;text-align:left;">
+        </div>
+        <div class="form-group">
+          <label>کرایه پرداختی به راننده <span class="req">*</span></label>
+          <input type="number" class="form-control" id="orderDriverFare" oninput="calcOrderProfit()" style="direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>سود من (خودکار)</label>
+        <input type="text" class="form-control" id="orderProfit" readonly style="background:#FFF8E1;font-weight:700;direction:ltr;text-align:left;">
+      </div>
+      <div class="form-group">
+        <label>توضیحات</label>
+        <textarea class="form-control" id="orderNote"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveOrder()"><i class="fas fa-save"></i> ذخیره</button>
+      <button class="btn btn-outline" onclick="closeModal('orderModal')">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- INVOICE MODAL -->
+<div class="modal-overlay" id="invoiceModal">
+  <div class="modal" style="max-width:900px;">
+    <div class="modal-header">
+      <h3><i class="fas fa-file-invoice"></i> صدور فاکتور</h3>
+      <button class="modal-close" onclick="closeModal('invoiceModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="invoiceId">
+      <div class="form-row">
+        <div class="form-group">
+          <label>مشتری <span class="req">*</span></label>
+          <select class="form-control" id="invoiceCustomer" onchange="onInvoiceCustomerChange()"></select></div>
+        <div class="form-group">
+          <label>شماره فاکتور</label>
+          <input type="text" class="form-control" id="invoiceNumber" readonly style="background:#FFF8E1;font-weight:700;text-align:center;">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>تاریخ شمسی</label>
+          <input type="text" class="form-control" id="invoiceDate" placeholder="۱۴۰۳/۰۱/۰۱" style="direction:ltr;text-align:center;">
+        </div>
+        <div class="form-group">
+          <label>وضعیت پرداخت</label>
+          <select class="form-control" id="invoicePaid">
+            <option value="unpaid">پرداخت‌نشده</option>
+            <option value="paid">پرداخت‌شده</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>شرح خدمات (هر خط یک آیتم)</label>
+        <textarea class="form-control" id="invoiceItems" rows="3" placeholder="مثلاً: اجاره جرثقیل تلسکوپی ۱۰ تن - ۴ ساعت"></textarea>
+      </div>
+      <div class="form-row-3">
+        <div class="form-group">
+          <label>مدت / تعداد</label>
+          <input type="number" class="form-control" id="invoiceQty" value="1" oninput="calcInvoice()" style="direction:ltr;text-align:left;">
+        </div>
+        <div class="form-group">
+          <label>نرخ واحد (تومان)</label>
+          <input type="number" class="form-control" id="invoiceRate" oninput="calcInvoice()" style="direction:ltr;text-align:left;">
+        </div>
+        <div class="form-group">
+          <label>جمع کل</label>
+          <input type="text" class="form-control" id="invoiceTotal" readonly style="background:#FFF8E1;font-weight:700;direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>درصد مالیات</label>
+          <input type="number" class="form-control" id="invoiceTaxPercent" value="0" oninput="calcInvoice()" style="direction:ltr;text-align:left;">
+        </div>
+        <div class="form-group">
+          <label>مبلغ نهایی</label>
+          <input type="text" class="form-control" id="invoiceFinal" readonly style="background:#FFF8E1;font-weight:800;direction:ltr;text-align:left;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>مبلغ به حروف</label>
+        <input type="text" class="form-control" id="invoiceWords" readonly style="background:#FAFAFA;">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="previewInvoice()"><i class="fas fa-eye"></i> پیش‌نمایش</button>
+      <button class="btn btn-secondary" onclick="saveInvoice()"><i class="fas fa-save"></i> ذخیره</button>
+      <button class="btn btn-outline" onclick="closeModal('invoiceModal')">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- INVOICE PREVIEW MODAL -->
+<div class="modal-overlay" id="invoicePreviewModal">
+  <div class="modal" style="max-width:850px;">
+    <div class="modal-header no-print">
+      <h3><i class="fas fa-eye"></i> پیش‌نمایش فاکتور</h3>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary btn-sm" onclick="printInvoice()"><i class="fas fa-print"></i> چاپ / PDF</button>
+        <button class="btn btn-secondary btn-sm" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i> واتساپ</button>
+        <button class="btn btn-outline btn-sm" onclick="shareInvoice()"><i class="fas fa-share-alt"></i> اشتراک</button>
+        <button class="btn btn-outline btn-sm" onclick="copyInvoiceText()"><i class="fas fa-copy"></i> کپی متن</button>
+        <button class="modal-close" onclick="closeModal('invoicePreviewModal')"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="modal-body" style="background:#F7F8FA;">
+      <div id="invoicePrintArea"></div>
+    </div>
+  </div>
+</div><!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal" style="max-width:420px;">
+    <div class="modal-header">
+      <h3><i class="fas fa-exclamation-triangle text-red"></i> تأیید عملیات</h3>
+      <button class="modal-close" onclick="closeModal('confirmModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p id="confirmMessage" style="font-size:14px;"></p>
+      <div class="form-group mt-3" id="confirmInputWrap" style="display:none;">
+        <label>برای تأیید، عبارت <strong id="confirmKeyword"></strong> را وارد کنید:</label>
+        <input type="text" class="form-control" id="confirmInput">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" id="confirmBtn" onclick="executeConfirm()">تأیید</button>
+      <button class="btn btn-outline" onclick="closeModal('confirmModal')">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ================================================================
+   جرثقیل ۲۴ - Business Management WebApp
+   Single-file, localStorage, RTL, Jalali
+   ================================================================ */
+
+// ==================== JALALI DATE HELPERS ====================
+function toJalali(gy, gm, gd) {
+  const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+  let jy = (gy <= 1600) ? 0 : 979;
+  gy -= (gy <= 1600) ? 621 : 1600;
+  const gy2 = (gm > 2) ? (gy + 1) : gy;
+  let days = (365*gy) + Math.floor((gy2+3)/4) - Math.floor((gy2+99)/100) + Math.floor((gy2+399)/400) - 80 + gd + g_d_m[gm-1];
+  jy += 33 * Math.floor(days/12053);
+  days %= 12053;
+  jy += 4 * Math.floor(days/1461);
+  days %= 1461;
+  if (days > 365) {
+    jy += Math.floor((days-1)/365);
+    days = (days-1) % 365;
+  }
+  const jm = (days < 186) ? 1 + Math.floor(days/31) : 7 + Math.floor((days-186)/30);
+  const jd = 1 + ((days < 186) ? (days % 31) : ((days-186) % 30));
+  return [jy, jm, jd];
+}
+
+function toGregorian(jy, jm, jd) {
+  let gy = (jy <= 979) ? 621 : 1600;
+  jy -= (jy <= 979) ? 0 : 979;
+  let days = (365*jy) + (Math.floor(jy/33)*8) + Math.floor(((jy%33)+3)/4) + 78 + jd + ((jm<7) ? (jm-1)*31 : ((jm-7)*30)+186);
+  gy += 400 * Math.floor(days/146097);
+  days %= 146097;
+  if (days > 36524) {
+    gy += 100 * Math.floor(--days/36524);
+    days %= 36524;
+    if (days >= 365) days++;
+  }
+  gy += 4 * Math.floor(days/1461);
+  days %= 1461;
+  if (days > 365) {
+    gy += Math.floor((days-1)/365);
+    days = (days-1) % 365;
+  }
+  let gd = days + 1;
+  const sal_a = [0,31,((gy%4===0 && gy%100!==0)||(gy%400===0))?29:28,31,30,31,30,31,31,30,31,30,31];
+  let gm;
+  for (gm = 0; gm < 13 && gd > sal_a[gm]; gm++) gd -= sal_a[gm];
+  return [gy, gm, gd];
+}
+
+function getTodayJalali() {
+  const now = new Date();
+  const [jy, jm, jd] = toJalali(now.getFullYear(), now.getMonth()+1, now.getDate());
+  return ${jy}/${String(jm).padStart(2,'0')}/${String(jd).padStart(2,'0')};
+}
+
+function jalaliToDate(jalaliStr) {
+  const parts = jalaliStr.split('/').map(Number);
+  if (parts.length !== 3 || parts.some(isNaN)) return null;
+  const [gy, gm, gd] = toGregorian(parts[0], parts[1], parts[2]);
+  return new Date(gy, gm-1, gd);
+}
+
+// ==================== PERSIAN NUMBERS & WORDS ====================
+const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+function toPersianNum(num) {
+  return String(num).replace(/\d/g, d => persianDigits[d]);
+}
+function toEnglishNum(str) {
+  return String(str).replace(/[۰-۹]/g, d => persianDigits.indexOf(d));
+}
+
+function numberToWords(num) {
+  if (num === 0) return 'صفر';
+  const ones = ['','یک','دو','سه','چهار','پنج','شش','هفت','هشت','نه'];
+  const teens = ['ده','یازده','دوازده','سیزده','چهارده','پانزده','شانزده','هفده','هجده','نوزده'];
+  const tens = ['','','بیست','سی','چهل','پنجاه','شصت','هفتاد','هشتاد','نود'];
+  const hundreds = ['','صد','دویست','سیصد','چهارصد','پانصد','ششصد','هفتصد','هشتصد','نهصد'];
+  const scales = ['','هزار','میلیون','میلیارد','بیلیون'];function threeDigit(n) {
+    let s = '';
+    const h = Math.floor(n/100);
+    const r = n % 100;
+    if (h > 0) s += hundreds[h];
+    if (r > 0) {
+      if (s) s += ' و ';
+      if (r < 10) s += ones[r];
+      else if (r < 20) s += teens[r-10];
+      else {
+        s += tens[Math.floor(r/10)];
+        if (r % 10 > 0) s += ' و ' + ones[r%10];
+      }
+    }
+    return s;
+  }
+
+  let result = '';
+  let scaleIndex = 0;
+  let n = Math.floor(Math.abs(num));
+  while (n > 0) {
+    const chunk = n % 1000;
+    if (chunk > 0) {
+      const chunkStr = threeDigit(chunk);
+      if (result) result = chunkStr + ' ' + scales[scaleIndex] + ' و ' + result;
+      else result = chunkStr + ' ' + scales[scaleIndex];
+    }
+    n = Math.floor(n / 1000);
+    scaleIndex++;
+  }
+  return result.trim() || 'صفر';
+}
+
+function formatMoney(amount) {
+  if (amount === undefined  amount === null  isNaN(amount)) return '۰';
+  return toPersianNum(Math.round(amount).toLocaleString('en-US'));
+}
+
+// ==================== DATA LAYER ====================
+const DB = {
+  customers: [],
+  drivers: [],
+  orders: [],
+  invoices: [],
+  transactions: [],
+  settings: {
+    bizName: 'جرثقیل ۲۴',
+    bizPhone: '',
+    bizAddress: '',
+    bizSheba: '',
+    bizCard: '',
+    bizEcoCode: '',
+    taxPercent: 0,
+    invoicePrefix: 1000,
+    logo: null,
+    stamp: null,
+    signature: null,
+    nextInvoiceNumber: 1001
+  }
+};
+
+function loadDB() {
+  try {
+    const raw = localStorage.getItem('jarsaghil24_db');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      Object.assign(DB, parsed);
+      if (!DB.settings) DB.settings = {};
+      // defaults
+      const defaults = {
+        bizName: 'جرثقیل ۲۴', bizPhone: '', bizAddress: '', bizSheba: '',
+        bizCard: '', bizEcoCode: '', taxPercent: 0, invoicePrefix: 1000,
+        logo: null, stamp: null, signature: null, nextInvoiceNumber: 1001
+      };
+      DB.settings = Object.assign(defaults, DB.settings);
+    }
+  } catch (e) { console.warn('DB load error', e); }
+}
+
+function saveDB() {
+  try {
+    localStorage.setItem('jarsaghil24_db', JSON.stringify(DB));
+  } catch (e) { console.warn('DB save error', e); }
+}
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+}
+
+// ==================== TOAST ====================
+function showToast(msg, type = 'success') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = toast ${type};
+  const icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-times-circle' : 'fa-info-circle');
+  toast.innerHTML = <i class="fas ${icon}"></i> <span>${msg}</span>;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(10px)';
+    setTimeout(() => toast.remove(), 300);
+  }, 2800);
+}
+
+// ==================== NAVIGATION ====================
+function navigateTo(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const pageEl = document.getElementById('page-' + page);
+  if (pageEl) pageEl.classList.add('active');
+  const navBtn = document.querySelector(.nav-item[data-page="${page}"]);
+  if (navBtn) navBtn.classList.add('active');
+
+  // close mobile sidebar
+  document.getElementById('sidebar').classList.remove('open');
+
+  // refresh page content
+  if (page === 'dashboard') renderDashboard();
+  if (page === 'customers') renderCustomers();
+  if (page === 'drivers') renderDrivers();
+  if (page === 'orders') { populateOrderFilters(); renderOrders(); }
+  if (page === 'invoices') renderInvoices();
+  if (page === 'accounting') renderAccounting();
+  if (page === 'settings') loadSettingsUI();
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}// ==================== MODAL ====================
+function openModal(id) {
+  document.getElementById(id).classList.add('show');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+}
+
+// ==================== CUSTOMERS ====================
+function openCustomerModal(id) {
+  const modal = document.getElementById('customerModal');
+  if (id) {
+    const c = DB.customers.find(x => x.id === id);
+    if (!c) return;
+    document.getElementById('customerModalTitle').textContent = 'ویرایش مشتری';
+    document.getElementById('customerId').value = c.id;
+    document.getElementById('customerName').value = c.name || '';
+    document.getElementById('customerCompany').value = c.company || '';
+    document.getElementById('customerMobile').value = c.mobile || '';
+    document.getElementById('customerPhone').value = c.phone || '';
+    document.getElementById('customerAddress').value = c.address || '';
+    document.getElementById('customerNationalId').value = c.nationalId || '';
+    document.getElementById('customerEmail').value = c.email || '';
+    document.getElementById('customerNote').value = c.note || '';
+  } else {
+    document.getElementById('customerModalTitle').textContent = 'مشتری جدید';
+    document.getElementById('customerId').value = '';
+    ['customerName','customerCompany','customerMobile','customerPhone','customerAddress','customerNationalId','customerEmail','customerNote'].forEach(f => document.getElementById(f).value = '');
+  }
+  openModal('customerModal');
+}
+
+function saveCustomer() {
+  const name = document.getElementById('customerName').value.trim();
+  if (!name) { showToast('نام مشتری الزامی است', 'error'); return; }
+  const id = document.getElementById('customerId').value;
+  const data = {
+    name,
+    company: document.getElementById('customerCompany').value.trim(),
+    mobile: document.getElementById('customerMobile').value.trim(),
+    phone: document.getElementById('customerPhone').value.trim(),
+    address: document.getElementById('customerAddress').value.trim(),
+    nationalId: document.getElementById('customerNationalId').value.trim(),
+    email: document.getElementById('customerEmail').value.trim(),
+    note: document.getElementById('customerNote').value.trim()
+  };
+  if (id) {
+    const idx = DB.customers.findIndex(c => c.id === id);
+    if (idx > -1) DB.customers[idx] = { ...DB.customers[idx], ...data };
+  } else {
+    DB.customers.push({ id: uid(), ...data, createdAt: new Date().toISOString() });
+  }
+  saveDB();
+  closeModal('customerModal');
+  renderCustomers();
+  populateOrderFilters();
+  showToast('مشتری ذخیره شد');
+}
+
+function deleteCustomer(id) {
+  confirmAction('آیا از حذف این مشتری مطمئن هستید؟', () => {
+    DB.customers = DB.customers.filter(c => c.id !== id);
+    saveDB();
+    renderCustomers();
+    showToast('مشتری حذف شد');
+  });
+}
+
+function getCustomerBalance(customerId) {
+  const custInvoices = DB.invoices.filter(i => i.customerId === customerId && i.paid !== 'paid');
+  return custInvoices.reduce((sum, i) => sum + (i.finalAmount || 0), 0);
+}
+
+function getCustomerOrderCount(customerId) {
+  return DB.orders.filter(o => o.customerId === customerId).length;
+}
+
+function renderCustomers() {
+  const search = toEnglishNum((document.getElementById('customerSearch')?.value || '').toLowerCase());
+  const tbody = document.getElementById('customersTableBody');
+  if (!tbody) return;
+  let list = DB.customers.slice();
+  if (search) {
+    list = list.filter(c =>
+      (c.name'').toLowerCase().includes(search) 
+      (c.company'').toLowerCase().includes(search) 
+      (c.mobile||'').toLowerCase().includes(search)
+    );
+  }
+  if (!list.length) {
+    tbody.innerHTML = <tr><td colspan="6"><div class="empty-state"><i class="fas fa-users"></i>مشتری‌ای یافت نشد</div></td></tr>;
+    return;}
+  tbody.innerHTML = list.map(c => {
+    const balance = getCustomerBalance(c.id);
+    const count = getCustomerOrderCount(c.id);
+    const badgeClass = balance > 0 ? 'badge-debt' : 'badge-ok';
+    const badgeText = balance > 0 ? ${formatMoney(balance)} بدهکار : 'تسویه';
+    return <tr>
+      <td class="fw-bold">${c.name || '-'}</td>
+      <td>${c.company || '-'}</td>
+      <td style="direction:ltr;text-align:left;">${toPersianNum(c.mobile) || '-'}</td>
+      <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+      <td>${toPersianNum(count)}</td>
+      <td>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline btn-icon" onclick="openCustomerModal('${c.id}')" title="ویرایش"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-outline btn-icon" onclick="deleteCustomer('${c.id}')" title="حذف" style="color:var(--red);"><i class="fas fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>;
+  }).join('');
+}
+
+// ==================== DRIVERS ====================
+function openDriverModal(id) {
+  if (id) {
+    const d = DB.drivers.find(x => x.id === id);
+    if (!d) return;
+    document.getElementById('driverModalTitle').textContent = 'ویرایش راننده';
+    document.getElementById('driverId').value = d.id;
+    document.getElementById('driverName').value = d.name || '';
+    document.getElementById('driverMobile').value = d.mobile || '';
+    document.getElementById('driverCraneType').value = d.craneType || '';
+    document.getElementById('driverPlate').value = d.plate || '';
+    document.getElementById('driverBank').value = d.bank || '';
+    document.getElementById('driverNote').value = d.note || '';
+  } else {
+    document.getElementById('driverModalTitle').textContent = 'راننده جدید';
+    document.getElementById('driverId').value = '';
+    ['driverName','driverMobile','driverCraneType','driverPlate','driverBank','driverNote'].forEach(f => document.getElementById(f).value = '');
+  }
+  openModal('driverModal');
+}
+
+function saveDriver() {
+  const name = document.getElementById('driverName').value.trim();
+  if (!name) { showToast('نام راننده الزامی است', 'error'); return; }
+  const id = document.getElementById('driverId').value;
+  const data = {
+    name,
+    mobile: document.getElementById('driverMobile').value.trim(),
+    craneType: document.getElementById('driverCraneType').value.trim(),
+    plate: document.getElementById('driverPlate').value.trim(),
+    bank: document.getElementById('driverBank').value.trim(),
+    note: document.getElementById('driverNote').value.trim()
+  };
+  if (id) {
+    const idx = DB.drivers.findIndex(d => d.id === id);
+    if (idx > -1) DB.drivers[idx] = { ...DB.drivers[idx], ...data };
+  } else {
+    DB.drivers.push({ id: uid(), ...data, createdAt: new Date().toISOString() });
+  }
+  saveDB();
+  closeModal('driverModal');
+  renderDrivers();
+  populateOrderFilters();
+  showToast('راننده ذخیره شد');
+}
+
+function deleteDriver(id) {
+  confirmAction('آیا از حذف این راننده مطمئن هستید؟', () => {
+    DB.drivers = DB.drivers.filter(d => d.id !== id);
+    saveDB();
+    renderDrivers();
+    showToast('راننده حذف شد');
+  });
+}
+
+function getDriverDebt(driverId) {
+  // money we owe driver = sum of driverFare for orders not yet fully paid
+  const orders = DB.orders.filter(o => o.driverId === driverId && o.status !== 'cancelled');
+  const totalFare = orders.reduce((s, o) => s + (o.driverFare || 0), 0);
+  const paid = DB.transactions.filter(t => t.driverId === driverId).reduce((s, t) => s + (t.amount || 0), 0);
+  return Math.max(0, totalFare - paid);
+}
+
+function renderDrivers() {
+  const search = toEnglishNum((document.getElementById('driverSearch')?.value || '').toLowerCase());
+  const tbody = document.getElementById('driversTableBody');
+  if (!tbody) return;
+  let list = DB.drivers.slice();if (search) {
+    list = list.filter(d =>
+      (d.name'').toLowerCase().includes(search) 
+      (d.plate'').toLowerCase().includes(search) 
+      (d.craneType||'').toLowerCase().includes(search)
+    );
+  }
+  if (!list.length) {
+    tbody.innerHTML = <tr><td colspan="7"><div class="empty-state"><i class="fas fa-truck"></i>راننده‌ای یافت نشد</div></td></tr>;
+    return;
+  }
+  tbody.innerHTML = list.map(d => {
+    const debt = getDriverDebt(d.id);
+    const count = DB.orders.filter(o => o.driverId === d.id).length;
+    const badge = debt > 0 ? <span class="badge badge-debt">${formatMoney(debt)} بدهکار</span> : <span class="badge badge-ok">تسویه</span>;
+    return <tr>
+      <td class="fw-bold">${d.name || '-'}</td>
+      <td style="direction:ltr;text-align:left;">${toPersianNum(d.mobile) || '-'}</td>
+      <td>${d.craneType || '-'}</td>
+      <td>${d.plate || '-'}</td>
+      <td>${badge}</td>
+      <td>${toPersianNum(count)}</td>
+      <td>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline btn-icon" onclick="openDriverModal('${d.id}')"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-outline btn-icon" onclick="deleteDriver('${d.id}')" style="color:var(--red);"><i class="fas fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>;
+  }).join('');
+}
+
+// ==================== ORDERS ====================
+function populateOrderFilters() {
+  const custSel = document.getElementById('orderFilterCustomer');
+  const orderCustSel = document.getElementById('orderCustomer');
+  const orderDriverSel = document.getElementById('orderDriver');
+  const invCustSel = document.getElementById('invoiceCustomer');
+
+  // order filter
+  if (custSel) {
+    const cur = custSel.value;
+    custSel.innerHTML = '<option value="">همه مشتریان</option>' +
+      DB.customers.map(c => <option value="${c.id}">${c.name}</option>).join('');
+    custSel.value = cur;
+  }
+  // order customer select
+  if (orderCustSel) {
+    orderCustSel.innerHTML = '<option value="">انتخاب کنید...</option>' +
+      DB.customers.map(c => <option value="${c.id}">${c.name}${c.company ? ' - ' + c.company : ''}</option>).join('');
+  }
+  // order driver select
+  if (orderDriverSel) {
+    orderDriverSel.innerHTML = '<option value="">انتخاب کنید...</option>' +
+      DB.drivers.map(d => <option value="${d.id}">${d.name}${d.craneType ? ' - ' + d.craneType : ''}</option>).join('');
+  }
+  // invoice customer
+  if (invCustSel) {
+    invCustSel.innerHTML = '<option value="">انتخاب کنید...</option>' +
+      DB.customers.map(c => <option value="${c.id}">${c.name}${c.company ? ' - ' + c.company : ''}</option>).join('');
+  }
+}
+
+function renderRateFields() {
+  const type = document.getElementById('orderRateType').value;
+  const container = document.getElementById('rateFieldsContainer');
+  let html = '';
+  if (type === 'hourly') {
+    html = <div class="form-row">
+      <div class="form-group"><label>تعداد ساعت</label><input type="number" class="form-control" id="rateQty" placeholder="مثلاً ۴"></div>
+      <div class="form-group"><label>نرخ هر ساعت (تومان)</label><input type="number" class="form-control" id="rateUnit" placeholder="مثلاً ۵۰۰۰۰۰"></div>
+    </div>;
+  } else if (type === 'daily') {
+    html = <div class="form-row">
+      <div class="form-group"><label>تعداد روز</label><input type="number" class="form-control" id="rateQty" placeholder="مثلاً ۲"></div>
+      <div class="form-group"><label>نرخ هر روز (تومان)</label><input type="number" class="form-control" id="rateUnit" placeholder="مثلاً ۳۰۰۰۰۰۰"></div>
+    </div>;
+  } else if (type === 'monthly') {
+    html = `<div class="form-row">
+      <div class="form-group"><label>تعداد ماه</label><input type="number" class="form-control" id="rateQty" placeholder="مثلاً ۱"></div><div class="form-group"><label>نرخ هر ماه (تومان)</label><input type="number" class="form-control" id="rateUnit" placeholder="مثلاً ۵۰۰۰۰۰۰۰"></div>
+    </div>;
+  } else if (type === 'per_lift') {
+    html = <div class="form-row">
+      <div class="form-group"><label>تعداد قلاب</label><input type="number" class="form-control" id="rateQty" placeholder="مثلاً ۱۰"></div>
+      <div class="form-group"><label>نرخ هر قلاب (تومان)</label><input type="number" class="form-control" id="rateUnit" placeholder="مثلاً ۲۰۰۰۰۰"></div>
+    </div>`;
+  }
+  container.innerHTML = html;
+}
+
+function calcOrderProfit() {
+  const custFare = parseFloat(document.getElementById('orderCustomerFare').value) || 0;
+  const drvFare = parseFloat(document.getElementById('orderDriverFare').value) || 0;
+  const profit = custFare - drvFare;
+  document.getElementById('orderProfit').value = formatMoney(profit) + ' تومان';
+}
+
+function openOrderModal(id) {
+  populateOrderFilters();
+  if (id) {
+    const o = DB.orders.find(x => x.id === id);
+    if (!o) return;
+    document.getElementById('orderModalTitle').textContent = 'ویرایش سفارش';
+    document.getElementById('orderId').value = o.id;
+    document.getElementById('orderDate').value = o.date || '';
+    document.getElementById('orderTime').value = o.time || '';
+    document.getElementById('orderStatus').value = o.status || 'pending';
+    document.getElementById('orderCustomer').value = o.customerId || '';
+    document.getElementById('orderDriver').value = o.driverId || '';
+    document.getElementById('orderCraneType').value = o.craneType || '';
+    document.getElementById('orderLocation').value = o.location || '';
+    document.getElementById('orderRateType').value = o.rateType || 'hourly';
+    renderRateFields();
+    if (o.rateQty !== undefined) document.getElementById('rateQty').value = o.rateQty;
+    if (o.rateUnit !== undefined) document.getElementById('rateUnit').value = o.rateUnit;
+    document.getElementById('orderCustomerFare').value = o.customerFare || '';
+    document.getElementById('orderDriverFare').value = o.driverFare || '';
+    document.getElementById('orderNote').value = o.note || '';
+    calcOrderProfit();
+  } else {
+    document.getElementById('orderModalTitle').textContent = 'سفارش جدید';
+    document.getElementById('orderId').value = '';
+    document.getElementById('orderDate').value = getTodayJalali();
+    document.getElementById('orderTime').value = '';
+    document.getElementById('orderStatus').value = 'pending';
+    document.getElementById('orderCustomer').value = '';
+    document.getElementById('orderDriver').value = '';
+    document.getElementById('orderCraneType').value = '';
+    document.getElementById('orderLocation').value = '';
+    document.getElementById('orderRateType').value = 'hourly';
+    renderRateFields();
+    document.getElementById('orderCustomerFare').value = '';
+    document.getElementById('orderDriverFare').value = '';
+    document.getElementById('orderNote').value = '';
+    calcOrderProfit();
+  }
+  openModal('orderModal');
+}
+
+function saveOrder() {
+  const date = document.getElementById('orderDate').value.trim();
+  const customerId = document.getElementById('orderCustomer').value;
+  const driverId = document.getElementById('orderDriver').value;
+  if (!date) { showToast('تاریخ الزامی است', 'error'); return; }
+  if (!customerId) { showToast('مشتری را انتخاب کنید', 'error'); return; }
+  if (!driverId) { showToast('راننده را انتخاب کنید', 'error'); return; }
+
+  const custFare = parseFloat(document.getElementById('orderCustomerFare').value) || 0;
+  const drvFare = parseFloat(document.getElementById('orderDriverFare').value) || 0;
+
+  const data = {
+    date,
+    time: document.getElementById('orderTime').value.trim(),
+    status: document.getElementById('orderStatus').value,
