@@ -759,7 +759,17 @@ function editDriver(id) {
   let d = getDriver(id);
   if (d) openModal('ویرایش راننده', driverFields(), d, x => Object.assign(d, x));
 }
-function deleteDriver(id) {/* ========== Orders ========== */
+function deleteDriver(id) {
+  if (db.orders.some(o => o.driverId === id)) {
+    toast('این راننده سابقه سفارش دارد.', true); return;
+  }
+  confirmDelete('راننده', () => db.drivers = db.drivers.filter(x => x.id !== id));
+}
+function historyDriver(id) {
+  let d = getDriver(id), os = db.orders.filter(o => o.driverId === id);
+  alert('سابقه ' + (d?.name || 'راننده') + '\nتعداد سفارش‌ها: ' + os.length + '\nبدهی باقی‌مانده: ' + money(driverBalance(id)) + '\n\n' +
+    os.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | کرایه راننده: ' + money(o.driverCost)).join('\n'));
+}/* ========== Orders ========== */
 function updateOrderFilters() {
   const c = $('#orderCustomerFilter'), d = $('#orderDriverFilter');
   if (!c || !d) return;
@@ -1481,14 +1491,3 @@ if ('serviceWorker' in navigator) {
 </script>
 </body>
 </html>
-
-  if (db.orders.some(o => o.driverId === id)) {
-    toast('این راننده سابقه سفارش دارد.', true); return;
-  }
-  confirmDelete('راننده', () => db.drivers = db.drivers.filter(x => x.id !== id));
-}
-function historyDriver(id) {
-  let d = getDriver(id), os = db.orders.filter(o => o.driverId === id);
-  alert('سابقه ' + (d?.name || 'راننده') + '\nتعداد سفارش‌ها: ' + os.length + '\nبدهی باقی‌مانده: ' + money(driverBalance(id)) + '\n\n' +
-    os.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | کرایه راننده: ' + money(o.driverCost)).join('\n'));
-}
