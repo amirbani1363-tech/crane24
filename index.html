@@ -2,166 +2,260 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1E40AF">
-<meta name="description" content="سامانه مدیریت کسب‌وکار Crane 24">
-<title>Crane 24 | مدیریت کسب‌وکار</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1A1A1A">
+<meta name="description" content="جرثقیل ۲۴ - سامانه مدیریت کسب‌وکار دلالی جرثقیل">
+<title>جرثقیل ۲۴ | مدیریت کسب‌وکار</title>
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-:root{--primary:#1E40AF;--primary-dark:#1E3A8A;--primary-light:#3B82F6;--primary-bg:#EFF6FF;--yellow:#F5B800;--yellow-hover:#D9A200;--yellow-bg:#FFF8E1;--red:#E53935;--red-dark:#C62828;--red-bg:#FFEBEE;--bg:#F8F9FB;--card:#fff;--text:#1A1A1A;--muted:#6B7280;--line:#E5E7EB;--green:#10B981;--warning:#F59E0B;--blue:#3B82F6;--radius:14px;--shadow:0 8px 28px rgba(20,24,35,.06)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Shabnam','Vazirmatn',Tahoma,sans-serif;font-size:14px;line-height:1.7}
+:root{
+  --primary:#FFC107;--primary-dark:#E0A800;--primary-light:#FFD54F;--primary-bg:#FFF8E1;
+  --black:#1A1A1A;--black-soft:#262626;
+  --red:#E53935;--red-dark:#C62828;--red-bg:#FFEBEE;
+  --green:#10B981;--green-bg:#E7F8F1;
+  --warning:#F59E0B;--warning-bg:#FFF7E6;
+  --blue:#3B82F6;--blue-bg:#EFF6FF;
+  --bg:#F7F8FA;--card:#FFFFFF;--text:#1A1A1A;--muted:#6B7280;--line:#E5E7EB;
+  --radius:14px;--radius-sm:10px;--radius-lg:20px;
+  --shadow:0 8px 28px rgba(20,24,35,.06);
+  --shadow-lg:0 16px 45px rgba(20,24,35,.12);
+  --transition:.22s cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;font-size:14px;line-height:1.7;overflow-x:hidden}
 button,input,select,textarea{font-family:inherit;font-size:inherit}
-button{cursor:pointer;border:0}
+button{cursor:pointer;border:0;background:transparent}
+img{max-width:100%}
 .app{min-height:100vh}
-.sidebar{position:fixed;right:0;top:0;bottom:0;width:248px;background:linear-gradient(180deg,var(--primary-dark),var(--primary));color:#fff;padding:22px 14px;z-index:20;display:flex;flex-direction:column;transition:.25s;box-shadow:-4px 0 30px rgba(30,64,175,.15)}
-.brand{display:flex;align-items:center;gap:14px;padding:3px 9px 24px;border-bottom:1px solid rgba(255,255,255,.15)}
-.brand-mark{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),#FF9F00);display:grid;place-items:center;color:#1A1A1A;font-size:26px;box-shadow:0 0 0 4px rgba(245,184,0,.2),0 8px 20px rgba(245,184,0,.35);transition:.3s;flex-shrink:0}
-.brand:hover .brand-mark{transform:scale(1.08) rotate(-5deg)}
-.brand strong{font-size:20px;letter-spacing:.2px;color:#fff}
-.brand small{display:block;color:#BFDBFE;font-size:11px}
-.nav{display:grid;gap:6px;margin-top:20px}
-.nav button{color:#DBEAFE;background:transparent;text-align:right;border-radius:10px;padding:12px 13px;display:flex;align-items:center;gap:12px;transition:.18s;width:100%}
-.nav button i{width:21px;text-align:center;color:var(--yellow);font-size:16px}
-.nav button:hover{background:rgba(255,255,255,.1);color:#fff}
-.nav button.active{background:var(--yellow);color:#1A1A1A;font-weight:700;box-shadow:0 8px 20px rgba(245,184,0,.3)}
+
+/* ---------- Sidebar ---------- */
+.sidebar{position:fixed;right:0;top:0;bottom:0;width:252px;background:linear-gradient(180deg,#1A1A1A,#262626);color:#fff;padding:22px 14px;z-index:20;display:flex;flex-direction:column;transition:var(--transition);box-shadow:-4px 0 30px rgba(0,0,0,.25)}
+.sidebar.open{transform:translateX(0)!important}
+.brand{display:flex;align-items:center;gap:14px;padding:3px 9px 22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.brand-mark{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#FFC107,#FF9800);display:grid;place-items:center;color:#1A1A1A;font-size:24px;font-weight:900;box-shadow:0 0 0 4px rgba(255,193,7,.18),0 8px 20px rgba(255,193,7,.4);transition:var(--transition);flex-shrink:0;letter-spacing:-1px}
+.brand:hover .brand-mark{transform:scale(1.08) rotate(-6deg)}
+.brand strong{font-size:19px;letter-spacing:.2px;color:#fff;display:block}
+.brand small{display:block;color:#FFC107;font-size:11px;margin-top:2px}
+.nav{display:grid;gap:5px;margin-top:18px}
+.nav button{color:#D1D5DB;text-align:right;border-radius:11px;padding:12px 13px;display:flex;align-items:center;gap:12px;transition:var(--transition);width:100%;font-size:13.5px}
+.nav button i{width:20px;text-align:center;color:#FFC107;font-size:15px;transition:var(--transition)}
+.nav button:hover{background:rgba(255,193,7,.12);color:#fff;transform:translateX(-3px)}
+.nav button.active{background:linear-gradient(135deg,#FFC107,#FF9800);color:#1A1A1A;font-weight:700;box-shadow:0 8px 20px rgba(255,193,7,.4)}
 .nav button.active i{color:#1A1A1A}
-.side-bottom{margin-top:auto;padding:14px 10px 0;border-top:1px solid rgba(255,255,255,.15);color:#BFDBFE;font-size:11px;line-height:2}
-.main{margin-right:248px;padding:25px 28px 50px;min-height:100vh}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}
-.page-title h1{font-size:24px;margin:0 0 5px;font-weight:800;color:var(--primary-dark)}
+.side-bottom{margin-top:auto;padding:14px 10px 0;border-top:1px solid rgba(255,255,255,.12);color:#9CA3AF;font-size:11px;line-height:2}
+.storage-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(255,193,7,.15);color:#FFC107;margin-top:4px}
+
+/* ---------- Main ---------- */
+.main{margin-right:252px;padding:24px 28px 60px;min-height:100vh;transition:var(--transition)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px;flex-wrap:wrap}
+.page-title h1{font-size:24px;margin:0 0 4px;font-weight:800;color:var(--black)}
 .page-title p{margin:0;color:var(--muted);font-size:12px}
-.top-actions{display:flex;align-items:center;gap:10px}
-.date-pill{background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
-.date-pill i{color:var(--yellow)}
-.menu-toggle{display:none;background:var(--primary);color:#fff;border-radius:10px;padding:10px 12px}
-.btn{padding:10px 15px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;transition:.18s;white-space:nowrap}
-.btn-primary{background:linear-gradient(135deg,var(--yellow),#FF9F00);color:#1A1A1A;box-shadow:0 6px 16px rgba(245,184,0,.3)}
-.btn-primary:hover{background:linear-gradient(135deg,var(--yellow-hover),var(--yellow));transform:translateY(-1px)}
-.btn-dark{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 6px 16px rgba(30,64,175,.25)}
+.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.date-pill{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:12px;color:var(--muted);display:flex;gap:8px;align-items:center;font-size:12.5px}
+.date-pill i{color:var(--primary-dark)}
+.menu-toggle{display:none;background:var(--black);color:var(--primary);border-radius:10px;padding:10px 12px}
+
+/* ---------- Buttons ---------- */
+.btn{padding:10px 15px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;transition:var(--transition);white-space:nowrap;font-size:13px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#FFC107,#FF9800);color:#1A1A1A;box-shadow:0 6px 16px rgba(255,193,7,.35)}
+.btn-primary:hover{background:linear-gradient(135deg,#E0A800,#FFC107);transform:translateY(-1px);box-shadow:0 10px 24px rgba(255,193,7,.45)}
+.btn-dark{background:linear-gradient(135deg,#1A1A1A,#333);color:#FFC107;box-shadow:0 6px 16px rgba(26,26,26,.3)}
 .btn-dark:hover{transform:translateY(-1px)}
 .btn-outline{background:#fff;border:1px solid var(--line);color:var(--text)}
-.btn-outline:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-bg)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary-dark);background:var(--primary-bg)}
 .btn-danger{background:var(--red-bg);color:var(--red-dark)}
-.btn-sm{padding:7px 10px;font-size:12px;border-radius:8px}
-.view{display:none;animation:fade .25s}
+.btn-danger:hover{background:var(--red);color:#fff}
+.btn-sm{padding:7px 11px;font-size:12px;border-radius:8px}
+.btn-lg{padding:13px 20px;font-size:14px}
+
+/* ---------- Views ---------- */
+.view{display:none;animation:fade .28s ease}
 .view.active{display:block}
-@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes slideIn{from{transform:translateX(-20px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ---------- Sections ---------- */
 .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
-.section-head h2{font-size:17px;margin:0;color:var(--primary-dark)}
+.section-head h2{font-size:17px;margin:0;color:var(--black);font-weight:800}
 .section-head p{color:var(--muted);margin:4px 0 0;font-size:12px}
+
+/* ---------- Stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.3s cubic-bezier(.4,0,.2,1)}
-.stat:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,64,175,.12)}
-.stat::after{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow),#FF9F00)}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:var(--transition)}
+.stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.stat::after{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#FFC107,#FF9800)}
 .stat.red::after{background:linear-gradient(180deg,var(--red),var(--red-dark))}
-.stat.blue::after{background:linear-gradient(180deg,var(--primary),var(--primary-dark))}
-.stat .stat-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--yellow-bg);color:#1A1A1A;border-radius:11px;font-size:19px;margin-bottom:13px;transition:.3s}
-.stat:hover .stat-icon{transform:scale(1.1) rotate(-5deg);background:var(--yellow)}
+.stat.blue::after{background:linear-gradient(180deg,var(--blue),#1E40AF)}
+.stat.green::after{background:linear-gradient(180deg,var(--green),#059669)}
+.stat .stat-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--primary-bg);color:#1A1A1A;border-radius:11px;font-size:18px;margin-bottom:12px;transition:var(--transition)}
+.stat:hover .stat-icon{transform:scale(1.1) rotate(-5deg);background:var(--primary)}
 .stat.red .stat-icon{background:var(--red-bg);color:var(--red)}
-.stat.blue .stat-icon{background:var(--primary-bg);color:var(--primary)}
-.stat label{color:var(--muted);font-size:12px}
-.stat strong{display:block;font-size:22px;margin:7px 0 0;line-height:1.4;color:var(--primary-dark)}
+.stat.blue .stat-icon{background:var(--blue-bg);color:var(--blue)}
+.stat.green .stat-icon{background:var(--green-bg);color:var(--green)}
+.stat label{color:var(--muted);font-size:12px;display:block}
+.stat strong{display:block;font-size:21px;margin:6px 0 0;line-height:1.4;color:var(--black);font-weight:800}
 .stat small{color:var(--muted);font-size:11px}
-.grid-two{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:18px;margin-bottom:20px}
+
+/* ---------- Panels ---------- */
+.grid-two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:18px;margin-bottom:20px}
 .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow);min-width:0}
 .panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.panel-head h3{margin:0;font-size:15px;color:var(--primary-dark)}
+.panel-head h3{margin:0;font-size:15px;color:var(--black);font-weight:700}
 .panel-head small{color:var(--muted)}
-.chart{height:235px;display:flex;align-items:flex-end;gap:13px;padding:15px 4px 0;border-bottom:1px solid var(--line);position:relative}
+
+/* ---------- Chart ---------- */
+.chart{height:235px;display:flex;align-items:flex-end;gap:13px;padding:15px 4px 0;border-bottom:1px solid var(--line)}
 .chart-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px;min-width:0}
 .bars{height:185px;display:flex;align-items:flex-end;gap:5px;width:100%;justify-content:center}
-.bar{width:min(24px,42%);min-height:3px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--yellow),#FF9F00);position:relative;transition:.3s}
-.bar.cost{background:linear-gradient(180deg,var(--primary),var(--primary-dark))}
+.bar{width:min(24px,42%);min-height:3px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#FFC107,#FF9800);transition:height .5s ease}
+.bar.cost{background:linear-gradient(180deg,#1A1A1A,#333)}
 .chart-col span{font-size:10px;color:var(--muted)}
 .legend{display:flex;gap:16px;font-size:11px;color:var(--muted)}
-.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-left:5px}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-left:5px}
+
+/* ---------- Alerts ---------- */
 .alert-list{display:grid;gap:10px}
-.alert{display:flex;gap:11px;align-items:flex-start;background:#FFF5F5;border:1px solid #FFE0E0;padding:12px;border-radius:10px}
+.alert{display:flex;gap:11px;align-items:flex-start;background:#FFF5F5;border:1px solid #FFE0E0;padding:12px;border-radius:11px;transition:var(--transition)}
+.alert:hover{background:#FFECEC}
 .alert i{color:var(--red);margin-top:4px}
-.alert strong{font-size:12px;display:block;color:var(--red-dark)}
+.alert strong{font-size:12.5px;display:block;color:var(--red-dark)}
 .alert small{color:var(--muted);font-size:11px}
-.empty{padding:28px 12px;text-align:center;color:var(--muted)}
-.empty i{font-size:28px;color:#D1D5DB;display:block;margin-bottom:10px}
+
+/* ---------- Empty ---------- */
+.empty{padding:30px 12px;text-align:center;color:var(--muted)}
+.empty i{font-size:32px;color:#D1D5DB;display:block;margin-bottom:12px}
+
+/* ---------- Forms ---------- */
 .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:15px}
 .search{position:relative;flex:1;min-width:180px}
 .search i{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
 .search input{padding-right:38px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field label{font-size:12px;font-weight:600;color:#4B5563}
-.field input,.field select,.field textarea,.search input{width:100%;border:1px solid #DFE3E8;border-radius:9px;padding:10px 11px;background:#fff;outline:none;transition:.15s;color:var(--text);min-width:0;font-family:inherit}
-.field textarea{resize:vertical;min-height:78px}
-.field input:focus,.field select:focus,.field textarea:focus,.search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.15)}
+.field input,.field select,.field textarea,.search input{width:100%;border:1px solid #DFE3E8;border-radius:10px;padding:10px 12px;background:#fff;outline:none;transition:var(--transition);color:var(--text);min-width:0;font-family:inherit}
+.field textarea{resize:vertical;min-height:80px}
+.field input:focus,.field select:focus,.field textarea:focus,.search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,193,7,.22)}
 .filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.filters select,.filters input{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;max-width:190px;font-family:inherit}
-.filters select:focus,.filters input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.15)}
+.filters select,.filters input{border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:#fff;max-width:190px;font-family:inherit}
+.filters select:focus,.filters input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,193,7,.22)}
+
+/* ---------- Tables ---------- */
 .table-wrap{overflow:visible}
-table{border-collapse:collapse;width:100%;font-size:12px}
-th{background:#F8FAFC;color:var(--primary-dark);font-weight:700;text-align:right;padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th{background:#FAFAFA;color:var(--black);font-weight:700;text-align:right;padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:12px 10px;border-bottom:1px solid #F0F1F3;vertical-align:middle}
-tbody tr:hover{background:#FFFDF6}
-.table-actions{display:flex;gap:5px}
-.icon-btn{width:30px;height:30px;border-radius:8px;background:#F3F4F6;color:#4B5563;display:inline-flex;align-items:center;justify-content:center;transition:.18s}
-.icon-btn:hover{background:var(--primary-bg);color:var(--primary)}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:#FFFDF5}
+.table-actions{display:flex;gap:5px;flex-wrap:wrap}
+.icon-btn{width:30px;height:30px;border-radius:8px;background:#F3F4F6;color:#4B5563;display:inline-flex;align-items:center;justify-content:center;transition:var(--transition)}
+.icon-btn:hover{background:var(--primary-bg);color:var(--primary-dark);transform:scale(1.08)}
 .icon-btn.del:hover{background:var(--red-bg);color:var(--red)}
-.badge{display:inline-flex;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap}
-.badge.pending{background:#FFF7E6;color:#B77900}
-.badge.progress{background:#E8F2FF;color:#2563EB}
-.badge.done{background:#E7F8F1;color:#059669}
-.badge.cancel{background:var(--red-bg);color:var(--red)}
-.badge.debt{background:var(--red-bg);color:var(--red)}
-.badge.credit{background:#E7F8F1;color:#059669}
-.badge.blue{background:var(--primary-bg);color:var(--primary)}
-.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(5px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+
+/* ---------- Badges ---------- */
+.badge{display:inline-flex;padding:4px 9px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.badge.pending{background:var(--warning-bg);color:#B77900}
+.badge.progress{background:var(--blue-bg);color:#2563EB}
+.badge.done{background:var(--green-bg);color:#059669}
+.badge.cancel,.badge.debt{background:var(--red-bg);color:var(--red)}
+.badge.credit{background:var(--green-bg);color:#059669}
+.badge.blue{background:var(--primary-bg);color:var(--primary-dark)}
+
+/* ---------- Modal ---------- */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto;animation:fade .2s}
 .modal-backdrop.show{display:flex}
-.modal{width:min(760px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 25px 80px rgba(0,0,0,.3);animation:fade .2s;margin:auto}
-.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2;border-radius:16px 16px 0 0}
-.modal-head h3{margin:0;font-size:16px;color:var(--primary-dark)}
+.modal{width:min(760px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.35);animation:fade .22s;margin:auto}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2;border-radius:18px 18px 0 0}
+.modal-head h3{margin:0;font-size:16px;color:var(--black);font-weight:700}
 .modal-body{padding:22px}
 .modal-foot{padding:15px 22px;border-top:1px solid var(--line);display:flex;gap:9px;justify-content:flex-start;flex-wrap:wrap}
 .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .form-grid .full{grid-column:1/-1}
+
+/* ---------- Toast ---------- */
 .toast-area{position:fixed;left:20px;bottom:20px;z-index:200;display:grid;gap:8px;max-width:340px}
-.toast{background:var(--primary-dark);color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 12px 30px rgba(30,64,175,.3);animation:fade .2s;font-size:13px;display:flex;align-items:center;gap:8px}
-.toast i{color:var(--yellow)}
+.toast{background:#1A1A1A;color:#fff;padding:13px 17px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.35);animation:slideIn .25s;font-size:13px;display:flex;align-items:center;gap:9px;border-right:4px solid var(--primary)}
+.toast i{color:var(--primary);font-size:15px}
+.toast.error{border-right-color:var(--red)}
+.toast.error i{color:var(--red)}
+.toast.success{border-right-color:var(--green)}
+.toast.success i{color:var(--green)}
+
+/* ---------- Settings ---------- */
 .setting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .setting-grid .panel{align-self:start}
-.logo-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff;border-radius:8px}
-.stamp-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff;border-radius:8px}
-.photo-thumb{width:80px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer;transition:.2s}
-.photo-thumb:hover{transform:scale(1.05);border-color:var(--primary)}
+.logo-preview,.stamp-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff;border-radius:9px}
+.danger-zone{border:1px solid #FECACA;background:#FFFAFA;border-radius:11px;padding:14px}
+.danger-zone b{color:var(--red);display:block;margin-bottom:6px}
+
+/* ---------- Backup banner ---------- */
+.backup-banner{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;margin-bottom:20px;font-size:13px;flex-wrap:wrap;transition:var(--transition)}
+.backup-banner.ok{background:linear-gradient(135deg,#E7F8F1,#D1F2E0);border:1px solid #A7E5C4;color:#065F46}
+.backup-banner.warn{background:linear-gradient(135deg,#FFF7E6,#FFEDCC);border:1px solid #FCD34D;color:#92400E}
+.backup-banner.danger{background:linear-gradient(135deg,#FFEBEE,#FFD6DA);border:1px solid #FCA5A5;color:#991B1B}
+.backup-banner i{font-size:22px}
+.backup-banner .bb-content{flex:1;min-width:200px}
+.backup-banner .bb-content strong{display:block;font-size:13.5px;margin-bottom:2px}
+.backup-banner .bb-content small{font-size:11.5px;opacity:.85}
+.backup-banner .bb-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- Storage info ---------- */
+.storage-info{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.storage-item{background:#FAFAFA;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12px}
+.storage-item label{color:var(--muted);font-size:11px;display:block;margin-bottom:3px}
+.storage-item strong{font-weight:700;color:var(--black);font-size:13px;word-break:break-word}
+.storage-item.ok strong{color:var(--green)}
+.storage-item.warn strong{color:var(--warning)}
+.storage-item.err strong{color:var(--red)}
+
+/* ---------- Backup list ---------- */
+.backup-list{display:grid;gap:8px;max-height:300px;overflow-y:auto;margin-top:10px}
+.backup-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#FAFAFA;border:1px solid var(--line);border-radius:10px;font-size:12px;transition:var(--transition)}
+.backup-item:hover{background:var(--primary-bg);border-color:var(--primary)}
+.backup-item .bi-meta{flex:1;min-width:0}
+.backup-item .bi-meta strong{display:block;font-size:12.5px}
+.backup-item .bi-meta small{color:var(--muted);font-size:10.5px}
+
+/* ---------- Photos ---------- */
+.photo-thumb{width:80px;height:60px;object-fit:cover;border-radius:9px;border:1px solid var(--line);cursor:pointer;transition:var(--transition)}
+.photo-thumb:hover{transform:scale(1.06);border-color:var(--primary);box-shadow:0 6px 16px rgba(255,193,7,.35)}
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px}
-.photo-btn{background:var(--yellow-bg);color:#1A1A1A;border:1px dashed var(--yellow);padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s;font-family:inherit}
-.photo-btn:hover{background:var(--yellow)}
-.gps-badge{display:inline-flex;align-items:center;gap:4px;background:#E3F2FD;color:#1565C0;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
-.location-btn{background:#E3F2FD;color:#1565C0;border:1px dashed #64B5F6;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s;font-family:inherit}
+.photo-btn{background:var(--primary-bg);color:#1A1A1A;border:1px dashed var(--primary-dark);padding:9px 14px;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:var(--transition);font-family:inherit}
+.photo-btn:hover{background:var(--primary)}
+
+/* ---------- GPS ---------- */
+.gps-badge{display:inline-flex;align-items:center;gap:4px;background:var(--blue-bg);color:#1565C0;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.location-btn{background:var(--blue-bg);color:#1565C0;border:1px dashed #64B5F6;padding:8px 14px;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:var(--transition);font-family:inherit}
 .location-btn:hover{background:#BBDEFB}
+
 .muted{color:var(--muted)}
 .money{font-variant-numeric:tabular-nums;white-space:nowrap}
 .quick-actions{display:flex;gap:8px;flex-wrap:wrap}
-.subnote{font-size:11px;color:var(--muted);line-height:1.8}
+.subnote{font-size:11.5px;color:var(--muted);line-height:1.85}
 hr{border:0;border-top:1px solid var(--line);margin:18px 0}
-.danger-zone{border:1px solid #FECACA;background:#FFFAFA;border-radius:10px;padding:14px}
-.danger-zone b{color:var(--red);display:block;margin-bottom:6px}
 .hidden{display:none!important}
 .invoice-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .invoice-preview-wrap{overflow:auto;padding-bottom:10px}
-.invoice-sheet{width:148mm;min-height:210mm;background:#fff;color:#1A1A1A;margin:0 auto;padding:7mm 7mm 5mm;border:1px solid #E5E7EB;box-shadow:0 8px 35px rgba(30,64,175,.15);font-family:'Shabnam','Vazirmatn',Tahoma,sans-serif;font-size:9pt;display:flex;flex-direction:column}
+
+/* ---------- Invoice sheet ---------- */
+.invoice-sheet{width:148mm;min-height:210mm;background:#fff;color:#1A1A1A;margin:0 auto;padding:7mm 7mm 5mm;border:1px solid #E5E7EB;box-shadow:0 8px 35px rgba(0,0,0,.15);font-family:'Vazirmatn',Tahoma,sans-serif;font-size:9pt;display:flex;flex-direction:column}
 .invoice-sheet *{box-sizing:border-box}
 .inv-head{text-align:center;border-bottom:1px solid #D1D5DB;padding-bottom:3mm;position:relative}
 .inv-logo{width:29mm;height:22mm;object-fit:contain;display:block;margin:0 auto 1mm}
-.inv-company{font-size:16pt;font-weight:800;line-height:1.3;color:var(--primary-dark)}
+.inv-company{font-size:16pt;font-weight:800;line-height:1.3;color:var(--black)}
 .inv-slogan{font-size:9pt;font-weight:600}
 .inv-site{font-size:8pt;color:#555}
 .inv-meta{display:flex;justify-content:space-between;gap:8px;text-align:right;font-size:8pt;margin-top:3mm;padding:2mm 0}
 .inv-section{border:1px solid #D1D5DB;margin-top:2.5mm}
-.inv-label{font-weight:700;font-size:8.5pt;margin-bottom:1.5mm;color:var(--primary-dark)}
+.inv-label{font-weight:700;font-size:8.5pt;margin-bottom:1.5mm;color:var(--black)}
 .inv-customer{padding:2.5mm;min-height:13mm}
 .inv-value{border:1px solid #E5E7EB;min-height:7mm;padding:1.3mm 2mm}
 .inv-service{padding:2.5mm;min-height:33mm}
@@ -170,31 +264,100 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
 .inv-total-line{display:flex;justify-content:space-between;gap:8px}
 .inv-total-line strong{font-size:10pt}
 .inv-bank{padding:2.5mm}
-.inv-bank-title{text-align:center;font-weight:800;margin-bottom:2mm;font-size:8.5pt;color:var(--primary-dark)}
+.inv-bank-title{text-align:center;font-weight:800;margin-bottom:2mm;font-size:8.5pt;color:var(--black)}
 .bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
 .bank-card{border:1px solid #D1D5DB;padding:2mm;min-width:0}
-.bank-card b{display:block;border-bottom:1px solid #E5E7EB;padding-bottom:1mm;margin-bottom:1mm;color:var(--primary-dark)}
+.bank-card b{display:block;border-bottom:1px solid #E5E7EB;padding-bottom:1mm;margin-bottom:1mm;color:var(--black)}
 .bank-card div{font-size:7.2pt;overflow-wrap:anywhere;line-height:1.8}
 .inv-address{display:flex;gap:4mm;align-items:stretch;padding:2.5mm}
 .inv-address-text{flex:1;line-height:1.8}
 .stamp-box{width:25mm;min-height:18mm;border:1px dashed #9CA3AF;display:grid;place-items:center;color:#9CA3AF;font-size:8pt;padding:1mm;border-radius:4px}
 .stamp-box img{max-width:100%;max-height:100%;object-fit:contain}
-.inv-promo{margin-top:auto;background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:3mm 3mm 2.5mm;text-align:center;border-top:2mm solid var(--yellow);border-radius:0 0 4px 4px}
-.inv-promo h4{margin:0 0 2mm;color:var(--yellow);font-size:10pt}
+.inv-promo{margin-top:auto;background:linear-gradient(135deg,#1A1A1A,#333);color:#fff;padding:3mm 3mm 2.5mm;text-align:center;border-top:2mm solid var(--primary);border-radius:0 0 4px 4px}
+.inv-promo h4{margin:0 0 2mm;color:var(--primary);font-size:10pt}
 .service-chips{display:flex;justify-content:center;gap:2mm;flex-wrap:wrap;margin-bottom:2mm}
-.service-chips span{border:1px solid rgba(245,184,0,.6);padding:1mm 2mm;font-size:7.5pt;color:#fff;border-radius:4px}
+.service-chips span{border:1px solid rgba(255,193,7,.6);padding:1mm 2mm;font-size:7.5pt;color:#fff;border-radius:4px}
 .inv-promo p{margin:1mm 0;font-size:7.5pt}
-.inv-promo .inv-contact{color:var(--yellow);font-weight:700;direction:ltr}
+.inv-promo .inv-contact{color:var(--primary);font-weight:700;direction:ltr}
 .inv-promo .inv-web{direction:ltr;font-size:8pt}
 .inv-watermark{color:rgba(255,255,255,.3);font-size:7pt;margin-top:1mm}
-@media(max-width:1100px){.sidebar{width:220px}.main{margin-right:220px;padding:22px 18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-two{grid-template-columns:1fr}.setting-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.sidebar{transform:translateX(100%);width:260px}.sidebar.open{transform:translateX(0);box-shadow:-15px 0 50px rgba(0,0,0,.2)}.main{margin-right:0;padding:17px 13px 35px}.menu-toggle{display:inline-flex}.topbar{align-items:flex-start}.page-title h1{font-size:20px}.date-pill{display:none}.top-actions{gap:6px}.top-actions .btn{padding:9px 10px;font-size:12px}.stats{gap:10px}.stat{padding:14px}.stat strong{font-size:18px}.panel{padding:14px}.section-head{align-items:flex-start}.toolbar{align-items:stretch}.toolbar .btn{flex:0 0 auto}.filters{width:100%}.filters select,.filters input{flex:1;max-width:none;min-width:120px}.table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block}.table-wrap thead{display:none}.table-wrap tbody{display:grid;gap:10px}.table-wrap tr{border:1px solid var(--line);border-radius:12px;padding:7px 12px;background:#fff}.table-wrap td{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid #F1F2F4;white-space:normal;text-align:left}.table-wrap td:last-child{border-bottom:0}.table-wrap td:before{content:attr(data-label);font-weight:700;color:var(--primary);text-align:right;min-width:90px}.table-actions{justify-content:flex-end}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.invoice-sheet{margin:0;transform-origin:top center;width:148mm;max-width:none}.invoice-actions .btn{flex:1}.setting-grid{grid-template-columns:1fr}}
-@media print{@page{size:A5 portrait;margin:0}body{background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sidebar,.main>.topbar,.main>.view:not(#view-invoices),#view-invoices>.section-head,#view-invoices>.invoice-actions,.toast-area,.modal-backdrop{display:none!important}.main{margin:0!important;padding:0!important}.app{min-height:0}.view#view-invoices{display:block!important}.invoice-preview-wrap{overflow:visible!important;padding:0!important}.invoice-sheet{width:148mm!important;height:210mm!important;min-height:210mm!important;margin:0!important;padding:6mm!important;border:0!important;box-shadow:none!important;page-break-after:avoid;break-after:avoid}.inv-promo{break-inside:avoid}.inv-section,.bank-card{break-inside:avoid}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1100px){
+  .sidebar{width:230px}
+  .main{margin-right:230px;padding:22px 18px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-two{grid-template-columns:1fr}
+  .setting-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .sidebar{transform:translateX(100%);width:270px}
+  .sidebar.open{transform:translateX(0);box-shadow:-15px 0 50px rgba(0,0,0,.35)}
+  .main{margin-right:0;padding:16px 13px 40px}
+  .menu-toggle{display:inline-flex}
+  .topbar{align-items:flex-start}
+  .page-title h1{font-size:19px}
+  .date-pill{display:none}
+  .top-actions{gap:6px}
+  .top-actions .btn{padding:9px 11px;font-size:12px}
+  .stats{gap:10px}
+  .stat{padding:14px}
+  .stat strong{font-size:17px}
+  .panel{padding:15px}
+  .section-head{align-items:flex-start}
+  .toolbar{align-items:stretch}
+  .filters{width:100%}
+  .filters select,.filters input{flex:1;max-width:none;min-width:120px}
+  .table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block}
+  .table-wrap thead{display:none}
+  .table-wrap tbody{display:grid;gap:10px}
+  .table-wrap tr{border:1px solid var(--line);border-radius:12px;padding:7px 12px;background:#fff;transition:var(--transition)}
+  .table-wrap tr:hover{border-color:var(--primary);box-shadow:0 6px 20px rgba(255,193,7,.15)}
+  .table-wrap td{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid #F1F2F4;white-space:normal;text-align:left}
+  .table-wrap td:last-child{border-bottom:0}
+  .table-wrap td:before{content:attr(data-label);font-weight:700;color:var(--black);text-align:right;min-width:90px;font-size:11.5px}
+  .table-actions{justify-content:flex-end}
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+  .invoice-sheet{margin:0;transform-origin:top center;width:148mm;max-width:none}
+  .invoice-actions .btn{flex:1}
+  .setting-grid{grid-template-columns:1fr}
+  .storage-info{grid-template-columns:1fr}
+  .backup-banner{flex-direction:column;align-items:flex-start;text-align:right}
+  .toast-area{left:10px;right:10px;bottom:10px;max-width:none}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  @page{size:A5 portrait;margin:0}
+  body{background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sidebar,.main>.topbar,.main>.view:not(#view-invoices),#view-invoices>.section-head,#view-invoices>.invoice-actions,.toast-area,.modal-backdrop,.backup-banner{display:none!important}
+  .main{margin:0!important;padding:0!important}
+  .app{min-height:0}
+  .view#view-invoices{display:block!important}
+  .invoice-preview-wrap{overflow:visible!important;padding:0!important}
+  .invoice-sheet{width:148mm!important;height:210mm!important;min-height:210mm!important;margin:0!important;padding:6mm!important;border:0!important;box-shadow:none!important}
+  .inv-promo,.inv-section,.bank-card{break-inside:avoid}
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:#F1F1F1;border-radius:6px}
+::-webkit-scrollbar-thumb{background:#C8C8C8;border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-dark)}
 </style>
-</head>
-<body><div class="app">
+</head><body>
+<div class="app">
+
+<!-- ============ Sidebar ============ -->
 <aside class="sidebar" id="sidebar">
-  <div class="brand"><div class="brand-mark"><i class="fa-solid fa-truck-monster"></i></div><div><strong>Crane 24</strong><small>خدمات تخصصی جرثقیل</small></div></div>
+  <div class="brand">
+    <div class="brand-mark">۲۴</div>
+    <div>
+      <strong>جرثقیل ۲۴</strong>
+      <small>خدمات تخصصی جرثقیل</small>
+    </div>
+  </div>
   <nav class="nav" id="nav">
     <button class="active" data-view="dashboard"><i class="fa-solid fa-chart-pie"></i>داشبورد</button>
     <button data-view="customers"><i class="fa-solid fa-users"></i>مشتریان</button>
@@ -204,48 +367,112 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
     <button data-view="accounting"><i class="fa-solid fa-wallet"></i>حسابداری</button>
     <button data-view="settings"><i class="fa-solid fa-gear"></i>تنظیمات</button>
   </nav>
-  <div class="side-bottom">Crane 24 © <span id="sideYear"></span><br>نسخه محلی · اطلاعات روی همین دستگاه ذخیره می‌شود.</div>
+  <div class="side-bottom">
+    جرثقیل ۲۴ © <span id="sideYear"></span>
+    <div class="storage-badge"><i class="fa-solid fa-database"></i><span id="sidebarStorage">IndexedDB</span></div>
+  </div>
 </aside>
+
+<!-- ============ Main ============ -->
 <main class="main">
   <header class="topbar">
-    <div style="display:flex;align-items:flex-start;gap:10px"><button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button><div class="page-title"><h1 id="pageHeading">داشبورد</h1><p id="pageSub">نمای کلی کسب‌وکار شما در یک نگاه</p></div></div>
-    <div class="top-actions"><div class="date-pill"><i class="fa-regular fa-calendar"></i><span id="todayText"></span></div><button class="btn btn-primary" id="quickOrder"><i class="fa-solid fa-plus"></i> سفارش جدید</button></div>
+    <div style="display:flex;align-items:flex-start;gap:10px">
+      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+      <div class="page-title">
+        <h1 id="pageHeading">داشبورد</h1>
+        <p id="pageSub">نمای کلی کسب‌وکار شما در یک نگاه</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="date-pill"><i class="fa-regular fa-calendar"></i><span id="todayText"></span></div>
+      <button class="btn btn-primary" id="quickOrder"><i class="fa-solid fa-plus"></i> سفارش جدید</button>
+    </div>
   </header>
 
+  <!-- ============ Dashboard ============ -->
   <section class="view active" id="view-dashboard">
+    <div id="backupBannerArea"></div>
     <div class="stats">
       <div class="stat"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><label>سود امروز</label><strong id="statToday">۰ تومان</strong><small>بر اساس سفارش‌های ثبت‌شده</small></div>
       <div class="stat blue"><div class="stat-icon"><i class="fa-solid fa-truck"></i></div><label>کارهای امروز</label><strong id="statJobs">۰</strong><small>سفارش‌های امروز</small></div>
-      <div class="stat"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><label>سود ماه</label><strong id="statMonth">۰ تومان</strong><small>ماه جاری شمسی</small></div>
+      <div class="stat green"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><label>سود ماه</label><strong id="statMonth">۰ تومان</strong><small>ماه جاری شمسی</small></div>
       <div class="stat red"><div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><label>بدهی مشتریان</label><strong id="statDebt">۰ تومان</strong><small>مانده فاکتورهای صادرشده</small></div>
     </div>
     <div class="grid-two">
-      <div class="panel"><div class="panel-head"><h3>درآمد و هزینه · ۶ ماه اخیر</h3><div class="legend"><span><i style="background:var(--yellow)"></i>درآمد</span><span><i style="background:var(--primary)"></i>هزینه</span></div></div><div class="chart" id="chart"></div></div>
-      <div class="panel"><div class="panel-head"><h3>هشدارهای مالی</h3><small>نیازمند پیگیری</small></div><div class="alert-list" id="alerts"></div></div>
+      <div class="panel">
+        <div class="panel-head">
+          <h3>درآمد و هزینه · ۶ ماه اخیر</h3>
+          <div class="legend">
+            <span><i style="background:var(--primary)"></i>درآمد</span>
+            <span><i style="background:var(--black)"></i>هزینه</span>
+          </div>
+        </div>
+        <div class="chart" id="chart"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>هشدارهای مالی</h3><small>نیازمند پیگیری</small></div>
+        <div class="alert-list" id="alerts"></div>
+      </div>
     </div>
-    <div class="panel"><div class="panel-head"><h3>۵ سفارش آخر</h3><button class="btn btn-outline btn-sm" data-goto="orders">مشاهده همه <i class="fa-solid fa-arrow-left"></i></button></div><div class="table-wrap" id="recentOrders"></div></div>
+    <div class="panel">
+      <div class="panel-head"><h3>۵ سفارش آخر</h3><button class="btn btn-outline btn-sm" data-goto="orders">مشاهده همه <i class="fa-solid fa-arrow-left"></i></button></div>
+      <div class="table-wrap" id="recentOrders"></div>
+    </div>
   </section>
 
+  <!-- ============ Customers ============ -->
   <section class="view" id="view-customers">
-    <div class="section-head"><div><h2>مدیریت مشتریان</h2><p>ثبت مشخصات، سابقه اجاره و مانده حساب</p></div><button class="btn btn-primary" id="addCustomer"><i class="fa-solid fa-plus"></i> مشتری جدید</button></div>
-    <div class="toolbar"><div class="search"><i class="fa-solid fa-search"></i><input id="customerSearch" placeholder="جستجوی نام، شرکت یا موبایل..."></div></div>
+    <div class="section-head">
+      <div><h2>مدیریت مشتریان</h2><p>ثبت مشخصات، سابقه اجاره و مانده حساب</p></div>
+      <button class="btn btn-primary" id="addCustomer"><i class="fa-solid fa-plus"></i> مشتری جدید</button>
+    </div>
+    <div class="toolbar">
+      <div class="search"><i class="fa-solid fa-search"></i><input id="customerSearch" placeholder="جستجوی نام، شرکت یا موبایل..."></div>
+    </div>
     <div class="panel"><div class="table-wrap" id="customersTable"></div></div>
   </section>
 
+  <!-- ============ Drivers ============ -->
   <section class="view" id="view-drivers">
-    <div class="section-head"><div><h2>مدیریت رانندگان</h2><p>مشخصات راننده، وسیله و مانده پرداخت</p></div><button class="btn btn-primary" id="addDriver"><i class="fa-solid fa-plus"></i> راننده جدید</button></div>
-    <div class="toolbar"><div class="search"><i class="fa-solid fa-search"></i><input id="driverSearch" placeholder="جستجوی نام، موبایل یا پلاک..."></div></div>
+    <div class="section-head">
+      <div><h2>مدیریت رانندگان</h2><p>مشخصات راننده، وسیله و مانده پرداخت</p></div>
+      <button class="btn btn-primary" id="addDriver"><i class="fa-solid fa-plus"></i> راننده جدید</button>
+    </div>
+    <div class="toolbar">
+      <div class="search"><i class="fa-solid fa-search"></i><input id="driverSearch" placeholder="جستجوی نام، موبایل یا پلاک..."></div>
+    </div>
     <div class="panel"><div class="table-wrap" id="driversTable"></div></div>
   </section>
 
+  <!-- ============ Orders ============ -->
   <section class="view" id="view-orders">
-    <div class="section-head"><div><h2>سفارشات و عملیات</h2><p>مدیریت کارها و محاسبه خودکار سود هر سفارش</p></div><button class="btn btn-primary" id="addOrder"><i class="fa-solid fa-plus"></i> سفارش جدید</button></div>
-    <div class="toolbar"><div class="search"><i class="fa-solid fa-search"></i><input id="orderSearch" placeholder="جستجوی محل کار یا شرح..."></div><div class="filters"><select id="orderCustomerFilter"><option value="">همه مشتریان</option></select><select id="orderDriverFilter"><option value="">همه رانندگان</option></select><select id="orderStatusFilter"><option value="">همه وضعیت‌ها</option><option>در انتظار</option><option>در حال انجام</option><option>تمام شده</option><option>لغو</option></select><input type="text" id="orderDateFrom" placeholder="از تاریخ" style="max-width:140px"><input type="text" id="orderDateTo" placeholder="تا تاریخ" style="max-width:140px"><button class="btn btn-outline btn-sm" id="orderDateClear" type="button"><i class="fa-solid fa-times"></i></button></div></div>
+    <div class="section-head">
+      <div><h2>سفارشات و عملیات</h2><p>مدیریت کارها و محاسبه خودکار سود هر سفارش</p></div>
+      <button class="btn btn-primary" id="addOrder"><i class="fa-solid fa-plus"></i> سفارش جدید</button>
+    </div>
+    <div class="toolbar">
+      <div class="search"><i class="fa-solid fa-search"></i><input id="orderSearch" placeholder="جستجوی محل کار یا شرح..."></div>
+      <div class="filters">
+        <select id="orderCustomerFilter"><option value="">همه مشتریان</option></select>
+        <select id="orderDriverFilter"><option value="">همه رانندگان</option></select>
+        <select id="orderStatusFilter">
+          <option value="">همه وضعیت‌ها</option>
+          <option>در انتظار</option><option>در حال انجام</option><option>تمام شده</option><option>لغو</option>
+        </select>
+        <input type="text" id="orderDateFrom" placeholder="از تاریخ" style="max-width:140px">
+        <input type="text" id="orderDateTo" placeholder="تا تاریخ" style="max-width:140px">
+        <button class="btn btn-outline btn-sm" id="orderDateClear" type="button"><i class="fa-solid fa-times"></i></button>
+      </div>
+    </div>
     <div class="panel"><div class="table-wrap" id="ordersTable"></div></div>
   </section>
 
+  <!-- ============ Invoices ============ -->
   <section class="view" id="view-invoices">
-    <div class="section-head"><div><h2>فاکتور رسمی خدمات</h2><p>قالب A5 با هویت بصری Crane 24</p></div><button class="btn btn-primary" id="newInvoice"><i class="fa-solid fa-plus"></i> فاکتور جدید</button></div>
+    <div class="section-head">
+      <div><h2>فاکتور رسمی خدمات</h2><p>قالب A5 با هویت بصری جرثقیل ۲۴</p></div>
+      <button class="btn btn-primary" id="newInvoice"><i class="fa-solid fa-plus"></i> فاکتور جدید</button>
+    </div>
     <div class="invoice-actions">
       <button class="btn btn-primary" id="printInvoice"><i class="fa-solid fa-image"></i> چاپ / تصویر فاکتور</button>
       <button class="btn btn-dark" id="editInvoiceBtn"><i class="fa-solid fa-pen"></i> ویرایش فاکتور</button>
@@ -254,37 +481,219 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
       <button class="btn btn-outline" id="copyInvoice"><i class="fa-regular fa-copy"></i> کپی متن</button>
       <button class="btn btn-outline" id="saveInvoice"><i class="fa-solid fa-floppy-disk"></i> ذخیره فاکتور</button>
     </div>
-    <div class="invoice-preview-wrap"><article class="invoice-sheet" id="invoiceSheet">
-      <header class="inv-head"><img class="inv-logo" id="invLogo" alt="لوگوی Crane 24"><div class="inv-company" id="invCompany">Crane 24</div><div class="inv-slogan" id="invSlogan">خدمات تخصصی جرثقیل</div><div class="inv-site" id="invSite">www.crane24.com</div></header>
-      <div class="inv-meta"><span>شماره: <b id="invNumber">۱۰۰۱</b></span><span>تاریخ: <b id="invDate"></b></span></div>
-      <section class="inv-section inv-customer"><div class="inv-label">درخواست‌کننده:</div><div class="inv-value" id="invCustomer">نام مشتری / نام شرکت</div><div style="display:flex;gap:4mm;margin-top:1.5mm;font-size:8pt"><span>تلفن: <b id="invPhone">—</b></span><span>محل پروژه: <b id="invLocation">—</b></span></div></section>
-      <section class="inv-section inv-service"><div class="inv-label">شرح خدمات:</div><div class="inv-service-text" id="invDescription">شرح خدمات ارائه‌شده در این قسمت درج می‌شود.</div></section>
-      <section class="inv-section inv-total"><div class="inv-total-line"><span>جمع کل:</span><strong><span id="invTotal">۰</span> تومان</strong></div><div class="inv-total-line"><span>مالیات بر ارزش افزوده (<span id="invTaxRate">۰</span>٪):</span><span><b id="invTax">۰</b> تومان</span></div><div class="inv-total-line" style="border-top:1px solid #D1D5DB;padding-top:1.5mm"><strong>مبلغ نهایی:</strong><strong><span id="invFinal">۰</span> تومان</strong></div><div class="inv-total-line" style="font-size:8pt"><span>جمع کل به حروف:</span><b id="invWords">صفر تومان</b></div></section>
-      <section class="inv-section inv-bank"><div class="inv-bank-title">💳 شماره حساب‌های زیر جهت تسویه حساب می‌باشد</div><div class="bank-grid"><div class="bank-card"><b id="invBank1Name">بانک ملت</b><div>شبا: <span id="invBank1Iban"></span></div><div>کارت: <span id="invBank1Card"></span></div></div><div class="bank-card"><b id="invBank2Name">بانک سپه</b><div>شبا: <span id="invBank2Iban"></span></div><div>کارت: <span id="invBank2Card"></span></div></div></div></section>
-      <section class="inv-section inv-address"><div class="inv-address-text"><b>آدرس:</b> <span id="invAddress"></span><br><b>تماس:</b> <span id="invPhones"></span> <span style="direction:ltr;display:inline-block" id="invWebBottom"></span></div><div class="stamp-box" id="invStampBox">محل مهر و امضا</div></section>
-      <footer class="inv-promo"><h4>✦ خدمات تخصصی Crane 24 ✦</h4><div class="service-chips"><span>اجاره جرثقیل ۱ تا ۲۰۰ تن</span><span>لیفتراک</span><span>کامیونت</span><span>تریلر</span></div><p>با کادری مجرب و متخصص، آماده خدمت‌رسانی در تمام ایام هفته</p><p class="inv-contact" id="invContactPromo"></p><p class="inv-web" id="invPromoWeb">www.crane24.com</p><div class="inv-watermark">اعتماد شما، اعتبار ماست</div></footer>
-    </article></div>
-    <div class="panel" style="margin-top:18px"><div class="panel-head"><h3>سوابق فاکتورها</h3><small>فاکتورهای ذخیره‌شده در این دستگاه</small></div><div class="table-wrap" id="invoicesTable"></div></div>
+    <div class="invoice-preview-wrap">
+      <article class="invoice-sheet" id="invoiceSheet">
+        <header class="inv-head">
+          <img class="inv-logo" id="invLogo" alt="لوگوی جرثقیل ۲۴">
+          <div class="inv-company" id="invCompany">جرثقیل ۲۴</div>
+          <div class="inv-slogan" id="invSlogan">خدمات تخصصی جرثقیل</div>
+          <div class="inv-site" id="invSite">www.crane24.com</div>
+        </header>
+        <div class="inv-meta">
+          <span>شماره: <b id="invNumber">۱۰۰۱</b></span>
+          <span>تاریخ: <b id="invDate"></b></span>
+        </div>
+        <section class="inv-section inv-customer">
+          <div class="inv-label">درخواست‌کننده:</div>
+          <div class="inv-value" id="invCustomer">نام مشتری / نام شرکت</div>
+          <div style="display:flex;gap:4mm;margin-top:1.5mm;font-size:8pt">
+            <span>تلفن: <b id="invPhone">—</b></span>
+            <span>محل پروژه: <b id="invLocation">—</b></span>
+          </div>
+        </section>
+        <section class="inv-section inv-service">
+          <div class="inv-label">شرح خدمات:</div>
+          <div class="inv-service-text" id="invDescription">شرح خدمات ارائه‌شده در این قسمت درج می‌شود.</div>
+        </section>
+        <section class="inv-section inv-total">
+          <div class="inv-total-line"><span>جمع کل:</span><strong><span id="invTotal">۰</span> تومان</strong></div>
+          <div class="inv-total-line"><span>مالیات بر ارزش افزوده (<span id="invTaxRate">۰</span>٪):</span><span><b id="invTax">۰</b> تومان</span></div>
+          <div class="inv-total-line" style="border-top:1px solid #D1D5DB;padding-top:1.5mm"><strong>مبلغ نهایی:</strong><strong><span id="invFinal">۰</span> تومان</strong></div>
+          <div class="inv-total-line" style="font-size:8pt"><span>جمع کل به حروف:</span><b id="invWords">صفر تومان</b></div>
+        </section>
+        <section class="inv-section inv-bank">
+          <div class="inv-bank-title">💳 شماره حساب‌های زیر جهت تسویه حساب می‌باشد</div>
+          <div class="bank-grid">
+            <div class="bank-card"><b id="invBank1Name">بانک ملت</b><div>شبا: <span id="invBank1Iban"></span></div><div>کارت: <span id="invBank1Card"></span></div></div>
+            <div class="bank-card"><b id="invBank2Name">بانک سپه</b><div>شبا: <span id="invBank2Iban"></span></div><div>کارت: <span id="invBank2Card"></span></div></div>
+          </div>
+        </section>
+        <section class="inv-section inv-address">
+          <div class="inv-address-text">
+            <b>آدرس:</b> <span id="invAddress"></span><br>
+            <b>تماس:</b> <span id="invPhones"></span> <span style="direction:ltr;display:inline-block" id="invWebBottom"></span>
+          </div>
+          <div class="stamp-box" id="invStampBox">محل مهر و امضا</div>
+        </section>
+        <footer class="inv-promo">
+          <h4>✦ خدمات تخصصی جرثقیل ۲۴ ✦</h4>
+          <div class="service-chips">
+            <span>اجاره جرثقیل ۱ تا ۲۰۰ تن</span><span>لیفتراک</span><span>کامیونت</span><span>تریلر</span>
+          </div>
+          <p>با کادری مجرب و متخصص، آماده خدمت‌رسانی در تمام ایام هفته</p>
+          <p class="inv-contact" id="invContactPromo"></p>
+          <p class="inv-web" id="invPromoWeb">www.crane24.com</p>
+          <div class="inv-watermark">اعتماد شما، اعتبار ماست</div>
+        </footer>
+      </article>
+    </div>
+    <div class="panel" style="margin-top:18px">
+      <div class="panel-head"><h3>سوابق فاکتورها</h3><small>فاکتورهای ذخیره‌شده در این دستگاه</small></div>
+      <div class="table-wrap" id="invoicesTable"></div>
+    </div>
   </section>
 
+  <!-- ============ Accounting ============ -->
   <section class="view" id="view-accounting">
-    <div class="section-head"><div><h2>حسابداری و گردش مالی</h2><p>ثبت دریافت‌ها و پرداخت‌ها و گزارش سود</p></div><div class="quick-actions"><button class="btn btn-primary" id="addReceipt"><i class="fa-solid fa-arrow-down"></i> ثبت دریافتی</button><button class="btn btn-dark" id="addPayment"><i class="fa-solid fa-arrow-up"></i> ثبت پرداختی</button></div></div>
-    <div class="stats"><div class="stat"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-down"></i></div><label>کل دریافتی</label><strong id="accReceipts">۰</strong></div><div class="stat blue"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-up"></i></div><label>کل پرداختی</label><strong id="accPayments">۰</strong></div><div class="stat"><div class="stat-icon"><i class="fa-solid fa-scale-balanced"></i></div><label>سود خالص ثبت‌شده</label><strong id="accProfit">۰</strong></div><div class="stat red"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><label>بدهی مشتریان</label><strong id="accDebt">۰</strong></div></div>
-    <div class="toolbar"><div class="filters" style="flex:1"><input type="text" id="txDateFrom" placeholder="از تاریخ" style="max-width:160px"><input type="text" id="txDateTo" placeholder="تا تاریخ" style="max-width:160px"><select id="txKindFilter"><option value="">همه انواع</option><option value="receipt">دریافتی</option><option value="payment">پرداختی</option></select><button class="btn btn-outline btn-sm" id="txDateClear" type="button"><i class="fa-solid fa-times"></i></button></div><button class="btn btn-outline" id="exportCsv"><i class="fa-solid fa-file-csv"></i> خروجی CSV</button></div><div class="panel"><div class="panel-head"><h3>گردش‌های مالی</h3><small id="txCount"></small></div><div class="table-wrap" id="transactionsTable"></div></div>
+    <div class="section-head">
+      <div><h2>حسابداری و گردش مالی</h2><p>ثبت دریافت‌ها و پرداخت‌ها و گزارش سود</p></div>
+      <div class="quick-actions">
+        <button class="btn btn-primary" id="addReceipt"><i class="fa-solid fa-arrow-down"></i> ثبت دریافتی</button>
+        <button class="btn btn-dark" id="addPayment"><i class="fa-solid fa-arrow-up"></i> ثبت پرداختی</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat green"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-down"></i></div><label>کل دریافتی</label><strong id="accReceipts">۰</strong></div>
+      <div class="stat blue"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-up"></i></div><label>کل پرداختی</label><strong id="accPayments">۰</strong></div>
+      <div class="stat"><div class="stat-icon"><i class="fa-solid fa-scale-balanced"></i></div><label>سود خالص ثبت‌شده</label><strong id="accProfit">۰</strong></div>
+      <div class="stat red"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><label>بدهی مشتریان</label><strong id="accDebt">۰</strong></div>
+    </div>
+    <div class="toolbar">
+      <div class="filters" style="flex:1">
+        <input type="text" id="txDateFrom" placeholder="از تاریخ" style="max-width:160px">
+        <input type="text" id="txDateTo" placeholder="تا تاریخ" style="max-width:160px">
+        <select id="txKindFilter">
+          <option value="">همه انواع</option>
+          <option value="receipt">دریافتی</option>
+          <option value="payment">پرداختی</option>
+        </select>
+        <button class="btn btn-outline btn-sm" id="txDateClear" type="button"><i class="fa-solid fa-times"></i></button>
+      </div>
+      <button class="btn btn-outline" id="exportCsv"><i class="fa-solid fa-file-csv"></i> خروجی CSV</button>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3>گردش‌های مالی</h3><small id="txCount"></small></div>
+      <div class="table-wrap" id="transactionsTable"></div>
+    </div>
   </section>
 
+  <!-- ============ Settings ============ -->
   <section class="view" id="view-settings">
-    <div class="section-head"><div><h2>تنظیمات سامانه</h2><p>اطلاعات کسب‌وکار، حساب‌ها، لوگو و پشتیبان‌گیری</p></div><button class="btn btn-primary" id="saveSettings"><i class="fa-solid fa-check"></i> ذخیره تنظیمات</button></div>
+    <div class="section-head">
+      <div><h2>تنظیمات سامانه</h2><p>اطلاعات کسب‌وکار، حساب‌ها، لوگو و پشتیبان‌گیری</p></div>
+      <button class="btn btn-primary" id="saveSettings"><i class="fa-solid fa-check"></i> ذخیره تنظیمات</button>
+    </div>
     <div class="setting-grid">
-      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-building" style="color:var(--yellow)"></i> اطلاعات کسب‌وکار</h3></div><div class="form-grid" id="businessSettings"></div></div>
-      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-building-columns" style="color:var(--yellow)"></i> حساب‌های بانکی</h3></div><div class="form-grid" id="bankSettings"></div></div>
-      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-image" style="color:var(--yellow)"></i> لوگو، مهر و امضا</h3></div><div class="field"><label>لوگوی شرکت (تصویر)</label><div style="display:flex;gap:12px;align-items:center"><img id="settingsLogoPreview" class="logo-preview" alt="پیش‌نمایش لوگو"><input type="file" id="logoUpload" accept="image/*"></div></div><div class="field" style="margin-top:14px"><label>تصویر مهر / امضا (اختیاری)</label><div style="display:flex;gap:12px;align-items:center"><img id="settingsStampPreview" class="stamp-preview" alt="پیش‌نمایش مهر"><input type="file" id="stampUpload" accept="image/*"></div></div><p class="subnote">تصاویر در localStorage همین مرورگر ذخیره می‌شوند. از فایل‌های کم‌حجم استفاده کنید.</p></div>
-      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-database" style="color:var(--yellow)"></i> پشتیبان‌گیری و داده‌ها</h3></div><p class="subnote">پشتیبان JSON شامل مشتریان، رانندگان، سفارش‌ها، فاکتورها، تراکنش‌ها و تنظیمات است.</p><div class="quick-actions"><button class="btn btn-dark" id="backupBtn"><i class="fa-solid fa-download"></i> دانلود پشتیبان JSON</button><button class="btn btn-outline" id="restoreBtn"><i class="fa-solid fa-upload"></i> بازیابی پشتیبان</button><input type="file" id="restoreFile" accept=".json,application/json" class="hidden"></div><hr><div class="danger-zone"><b>حذف همه داده‌ها</b><p class="subnote" style="margin:6px 0 10px">این کار همه اطلاعات ذخیره‌شده روی این مرورگر را پاک می‌کند و قابل بازگشت نیست.</p><button class="btn btn-danger" id="clearData"><i class="fa-solid fa-trash"></i> پاک کردن همه داده‌ها</button></div></div>
+
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-building" style="color:var(--primary-dark)"></i> اطلاعات کسب‌وکار</h3></div>
+        <div class="form-grid" id="businessSettings"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-building-columns" style="color:var(--primary-dark)"></i> حساب‌های بانکی</h3></div>
+        <div class="form-grid" id="bankSettings"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-image" style="color:var(--primary-dark)"></i> لوگو، مهر و امضا</h3></div>
+        <div class="field">
+          <label>لوگوی شرکت (تصویر)</label>
+          <div style="display:flex;gap:12px;align-items:center">
+            <img id="settingsLogoPreview" class="logo-preview" alt="پیش‌نمایش لوگو">
+            <input type="file" id="logoUpload" accept="image/*">
+          </div>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label>تصویر مهر / امضا (اختیاری)</label>
+          <div style="display:flex;gap:12px;align-items:center">
+            <img id="settingsStampPreview" class="stamp-preview" alt="پیش‌نمایش مهر">
+            <input type="file" id="stampUpload" accept="image/*">
+          </div>
+        </div>
+        <p class="subnote">تصاویر در IndexedDB همین مرورگر ذخیره می‌شوند. از فایل‌های کم‌حجم استفاده کنید.</p>
+      </div>
+
+      <!-- پنل وضعیت ذخیره‌سازی -->
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-server" style="color:var(--primary-dark)"></i> وضعیت ذخیره‌سازی</h3><button class="btn btn-outline btn-sm" id="refreshStorage"><i class="fa-solid fa-rotate"></i></button></div>
+        <div class="storage-info" id="storageInfo">
+          <div class="storage-item"><label>موتور ذخیره‌سازی</label><strong id="siEngine">—</strong></div>
+          <div class="storage-item"><label>حجم داده‌ها</label><strong id="siSize">—</strong></div>
+          <div class="storage-item"><label>آخرین ذخیره خودکار</label><strong id="siLastSave">—</strong></div>
+          <div class="storage-item"><label>آخرین پشتیبان‌گیری</label><strong id="siLastBackup">—</strong></div>
+          <div class="storage-item"><label>تعداد پشتیبان‌ها</label><strong id="siBackupCount">—</strong></div>
+          <div class="storage-item"><label>تعداد کل رکوردها</label><strong id="siRecords">—</strong></div>
+          <div class="storage-item"><label>وضعیت اتصال فایل</label><strong id="siFileLink">—</strong></div>
+          <div class="storage-item"><label>ذخیره‌سازی دائمی</label><strong id="siPersist">—</strong></div>
+        </div>
+      </div>
+
+      <!-- پنل اتصال به فایل -->
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-link" style="color:var(--primary-dark)"></i> اتصال به فایل پشتیبان</h3></div>
+        <p class="subnote">با اتصال به یک فایل JSON، از این پس تمام تغییرات به‌صورت خودکار در همان فایل نوشته می‌شود. در صورت پشتیبانی نشدن مرورگر، از IndexedDB استفاده می‌شود.</p>
+        <div class="quick-actions" style="margin-top:12px">
+          <button class="btn btn-primary" id="connectFile"><i class="fa-solid fa-file-circle-plus"></i> اتصال به فایل پشتیبان</button>
+          <button class="btn btn-outline" id="disconnectFile"><i class="fa-solid fa-link-slash"></i> قطع اتصال</button>
+        </div>
+        <div id="fileStatus" style="margin-top:10px"></div>
+      </div>
+
+      <!-- تنظیمات پشتیبان‌گیری -->
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--primary-dark)"></i> تنظیمات پشتیبان‌گیری</h3></div>
+        <div class="field">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="settingAutoBackup" style="width:auto">
+            فعال‌سازی پشتیبان‌گیری خودکار
+          </label>
+        </div>
+        <div class="field" style="margin-top:10px">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="settingAutoDownload" style="width:auto">
+            دانلود خودکار فایل JSON روزانه
+          </label>
+        </div>
+        <div class="form-grid" style="margin-top:12px">
+          <div class="field">
+            <label>ساعت پشتیبان‌گیری</label>
+            <input type="time" id="settingBackupHour" value="23:00">
+          </div>
+          <div class="field">
+            <label>تعداد نسخه‌های نگه‌داری (۳ تا ۳۰)</label>
+            <input type="number" id="settingBackupCount" min="3" max="30" value="7">
+          </div>
+        </div>
+        <div class="quick-actions" style="margin-top:12px">
+          <button class="btn btn-primary" id="manualBackup"><i class="fa-solid fa-download"></i> پشتیبان‌گیری دستی</button>
+        </div>
+      </div>
+
+      <!-- بازیابی -->
+      <div class="panel">
+        <div class="panel-head"><h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--primary-dark)"></i> بازیابی از پشتیبان</h3><small id="backupListCount"></small></div>
+        <div class="backup-list" id="backupList"></div>
+        <hr>
+        <div class="quick-actions">
+          <button class="btn btn-dark" id="backupBtn"><i class="fa-solid fa-download"></i> دانلود پشتیبان JSON</button>
+          <button class="btn btn-outline" id="restoreBtn"><i class="fa-solid fa-upload"></i> بازیابی از فایل</button>
+          <input type="file" id="restoreFile" accept=".json,application/json" class="hidden">
+        </div>
+        <hr>
+        <div class="danger-zone">
+          <b>حذف همه داده‌ها</b>
+          <p class="subnote" style="margin:6px 0 10px">این کار همه اطلاعات ذخیره‌شده روی این مرورگر را پاک می‌کند و قابل بازگشت نیست.</p>
+          <button class="btn btn-danger" id="clearData"><i class="fa-solid fa-trash"></i> پاک کردن همه داده‌ها</button>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
 </div>
 
+<!-- ============ Modal ============ -->
 <div class="modal-backdrop" id="modalBackdrop">
   <div class="modal">
     <div class="modal-head">
@@ -301,9 +710,31 @@ hr{border:0;border-top:1px solid var(--line);margin:18px 0}
   </div>
 </div>
 
+<!-- ============ Restore Confirm Modal ============ -->
+<div class="modal-backdrop" id="restoreBackdrop">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-head">
+      <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i> تأیید بازیابی</h3>
+      <button type="button" class="icon-btn" id="restoreCancel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="margin:0 0 12px;font-size:13.5px;line-height:2">این عملیات تمام داده‌های فعلی را با نسخه پشتیبان جایگزین می‌کند. قبل از بازیابی، یک نسخه ایمنی ساخته می‌شود.</p>
+      <p style="margin:0 0 12px;font-size:13px;color:var(--red);font-weight:700">برای تأیید، کلمه «بازیابی» را تایپ کنید:</p>
+      <input type="text" id="restoreConfirmInput" placeholder="بازیابی" style="width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;font-family:inherit;font-size:14px;text-align:center">
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn-outline" id="restoreCancel2">انصراف</button>
+      <button type="button" class="btn btn-danger" id="restoreConfirmBtn">بازیابی</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast-area" id="toastArea"></div><script>
 'use strict';
-const DB_KEY = 'crane24_db';
+
+/* ============================================================
+   ۱. ابزارهای پایه
+============================================================ */
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const faDigits = s => String(s ?? '').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[+d]);
@@ -312,7 +743,11 @@ const num = v => Number(enDigits(v).replace(/[,\s٬]/g, '')) || 0;
 const money = v => faDigits(Math.round(Number(v) || 0).toLocaleString('en-US')) + ' تومان';
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+/* ============================================================
+   ۲. تاریخ شمسی
+============================================================ */
 function jalaali(g_y, g_m, g_d) {
   g_y = +g_y; g_m = +g_m; g_d = +g_d;
   const gdm = [0, 31, (g_y % 4 === 0 && g_y % 100 !== 0 || g_y % 400 === 0) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -334,9 +769,12 @@ function todayJ() {
   const d = new Date(), a = jalaali(d.getFullYear(), d.getMonth() + 1, d.getDate());
   return a.map(x => String(x).padStart(2, '0')).join('/');
 }
-function dateStamp() { return todayJ(); }
+const dateStamp = () => todayJ();
 const monthNames = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
 
+/* ============================================================
+   ۳. مبلغ به حروف
+============================================================ */
 function amountWords(n) {
   n = Math.floor(Math.abs(Number(n) || 0));
   if (n === 0) return 'صفر';
@@ -354,8 +792,7 @@ function amountWords(n) {
     }
     return a.join(' و ');
   }
-  let out = [], units = ['', 'هزار', 'میلیون', 'میلیارد', 'تریلیون'];
-  let i = 0;
+  let out = [], units = ['', 'هزار', 'میلیون', 'میلیارد', 'تریلیون'], i = 0;
   while (n > 0) {
     let part = n % 1000;
     if (part) out.unshift(under1000(part) + (units[i] ? ' ' + units[i] : ''));
@@ -364,49 +801,504 @@ function amountWords(n) {
   return out.join(' و ');
 }
 
+/* ============================================================
+   ۴. اسکلت داده پیش‌فرض
+============================================================ */
 function makeDefault() {
   return {
-    version: 5,
+    version: 6,
     settings: {
-      name: 'Crane 24', slogan: 'خدمات تخصصی جرثقیل',
+      name: 'جرثقیل ۲۴', slogan: 'خدمات تخصصی جرثقیل',
       phone1: '09121349776', phone2: '09126114585',
       website: 'www.crane24.com',
       address: 'تهران، خیابان اتحاد، خیابان نهم غربی',
       economic: '', tax: 0, nextInvoice: 1001,
       bank1Name: 'بانک ملت', bank1Iban: 'IR87012001000000763004542', bank1Card: '6104 3371 4296 9235',
       bank2Name: 'بانک سپه', bank2Iban: 'IR57015000003120044157434', bank2Card: '5892 1014 7017 6914',
-      logo: '', stamp: ''
+      logo: '', stamp: '',
+      autoBackup: true, autoDownload: false, backupHour: '23:00', backupCount: 7
     },
-    customers: [], drivers: [], orders: [], invoices: [], transactions: []
+    customers: [], drivers: [], orders: [], invoices: [], transactions: [],
+    meta: { lastBackup: 0, lastSave: 0, fileLinkName: '' }
   };
 }
-function loadDB() {
-  try {
-    const d = JSON.parse(localStorage.getItem(DB_KEY));
-    if (d && typeof d === 'object') {
-      const base = makeDefault();
-      return { ...base, ...d, settings: { ...base.settings, ...d.settings }, customers: d.customers || [], drivers: d.drivers || [], orders: d.orders || [], invoices: d.invoices || [], transactions: d.transactions || [] };
+
+/* ============================================================
+   ۵. لایه ذخیره‌سازی: IndexedDB + localStorage fallback
+============================================================ */
+const DB_NAME = 'crane24_db';
+const DB_VERSION = 1;
+const STORE_NAME = 'kv';
+const LOCAL_KEY = 'crane24_db';
+const BACKUP_KEY = 'backup_latest';
+const BACKUP_PREFIX = 'backup_';
+
+/* --- IndexedDB wrapper با Promise --- */
+const IDB = (() => {
+  let _db = null;
+  function open() {
+    return new Promise((resolve, reject) => {
+      if (!('indexedDB' in window)) return reject(new Error('IndexedDB not supported'));
+      if (_db) return resolve(_db);
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = e => {
+        const d = e.target.result;
+        if (!d.objectStoreNames.contains(STORE_NAME)) d.createObjectStore(STORE_NAME);
+      };
+      req.onsuccess = e => { _db = e.target.result; resolve(_db); };
+      req.onerror = e => reject(e.target.error);
+    });
+  }
+  function tx(mode, fn) {
+    return open().then(d => new Promise((resolve, reject) => {
+      const t = d.transaction(STORE_NAME, mode);
+      const store = t.objectStore(STORE_NAME);
+      const req = fn(store);
+      t.oncomplete = () => resolve(req ? req.result : undefined);
+      t.onerror = () => reject(t.error);
+      t.onabort = () => reject(t.error);
+    }));
+  }
+  return {
+    get: k => tx('readonly', s => s.get(k)),
+    set: (k, v) => tx('readwrite', s => s.put(v, k)),
+    remove: k => tx('readwrite', s => s.delete(k)),
+    keys: () => tx('readonly', s => s.getAllKeys()),
+    getAll: () => tx('readonly', s => s.getAll()),
+    clear: () => tx('readwrite', s => s.clear()),
+    available: () => new Promise(r => {
+      try { open().then(() => r(true)).catch(() => r(false)); } catch (e) { r(false); }
+    })
+  };
+})();
+
+/* --- Storage API (روی IDB یا localStorage) --- */
+const Storage = {
+  engine: 'localStorage', // بعد از init مشخص می‌شود
+  async init() {
+    const ok = await IDB.available();
+    this.engine = ok ? 'IndexedDB' : 'localStorage';
+    // مهاجرت از localStorage
+    if (ok) {
+      const old = localStorage.getItem(LOCAL_KEY);
+      if (old) {
+        try {
+          const parsed = JSON.parse(old);
+          if (parsed && typeof parsed === 'object') {
+            const existing = await IDB.get(LOCAL_KEY);
+            if (!existing) {
+              await IDB.set(LOCAL_KEY, parsed);
+              console.log('✅ داده‌ها از localStorage به IndexedDB منتقل شد');
+              setTimeout(() => toast('داده‌های قبلی به IndexedDB منتقل شد ✅', false, 'success'), 1200);
+            } else {
+              console.log('ℹ️ IndexedDB از قبل داده داشت؛ مهاجرت انجام نشد');
+            }
+          }
+        } catch (e) { console.warn('مهاجرت ناموفق', e); }
+      }
     }
-  } catch (e) {}
-  return makeDefault();
+  },
+  async get(key) {
+    if (this.engine === 'IndexedDB') {
+      try { return await IDB.get(key); }
+      catch (e) { console.warn('IDB.get error → fallback', e); this.engine = 'localStorage'; }
+    }
+    try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; }
+  },
+  async set(key, val) {
+    if (this.engine === 'IndexedDB') {
+      try { return await IDB.set(key, val); }
+      catch (e) {
+        console.warn('IDB.set error → fallback', e);
+        if (e && e.name === 'QuotaExceededError') toast('فضای IndexedDB پر شده است!', true, 'error');
+        this.engine = 'localStorage';
+      }
+    }
+    try { localStorage.setItem(key, JSON.stringify(val)); }
+    catch (e) { toast('فضای ذخیره‌سازی مرورگر پر شده است!', true, 'error'); }
+  },
+  async remove(key) {
+    if (this.engine === 'IndexedDB') {
+      try { return await IDB.remove(key); } catch (e) {}
+    }
+    localStorage.removeItem(key);
+  },
+  async keys() {
+    if (this.engine === 'IndexedDB') {
+      try { return await IDB.keys(); } catch (e) {}
+    }
+    return Object.keys(localStorage);
+  },
+  async exportAll() {
+    if (this.engine === 'IndexedDB') {
+      try {
+        const keys = await IDB.keys();
+        const vals = await IDB.getAll();
+        const out = {};
+        keys.forEach((k, i) => out[k] = vals[i]);
+        return out;
+      } catch (e) {}
+    }
+    const out = {};
+    Object.keys(localStorage).forEach(k => { try { out[k] = JSON.parse(localStorage.getItem(k)); } catch (e) {} });
+    return out;
+  },
+  async importAll(obj) {
+    for (const k of Object.keys(obj)) await this.set(k, obj[k]);
+  }
+};
+
+/* ============================================================
+   ۶. File System Access API
+============================================================ */
+const FSA = {
+  handle: null,
+  supported: 'showSaveFilePicker' in window,
+  async connect() {
+    if (!this.supported) {
+      toast('مرورگر شما از اتصال مستقیم فایل پشتیبانی نمی‌کند. از IndexedDB استفاده می‌شود.', true, 'error');
+      return false;
+    }
+    try {
+      this.handle = await window.showSaveFilePicker({
+        suggestedName: 'crane24-data.json',
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }]
+      });
+      await this.write(db);
+      db.meta.fileLinkName = this.handle.name;
+      toast('اتصال به فایل پشتیبان برقرار شد ✅', false, 'success');
+      renderStorageInfo();
+      renderFileStatus();
+      return true;
+    } catch (e) {
+      if (e.name !== 'AbortError') toast('خطا در اتصال فایل: ' + e.message, true, 'error');
+      return false;
+    }
+  },
+  async write(data) {
+    if (!this.handle) return false;
+    try {
+      const w = await this.handle.createWritable();
+      await w.write(JSON.stringify(data, null, 2));
+      await w.close();
+      return true;
+    } catch (e) {
+      console.warn('FSA write error', e);
+      if (e.name === 'NotFoundError') {
+        toast('فایل پشتیبان پیدا نشد. لطفاً مجدداً متصل شوید.', true, 'error');
+        this.handle = null;
+        db.meta.fileLinkName = '';
+      }
+      return false;
+    }
+  },
+  async tryAutoReconnect() {
+    if (!this.supported || !db.meta.fileLinkName) return;
+    try {
+      // نیاز به اجازه مجدد کاربر در بار بعد
+      const [h] = await window.showOpenFilePicker({
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+        multiple: false
+      });
+      this.handle = h;
+      const file = await h.getFile();
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (data && data.settings) {
+        db = { ...makeDefault(), ...data, settings: { ...makeDefault().settings, ...data.settings } };
+        toast('داده‌ها از فایل خارجی بارگذاری شد ✅', false, 'success');
+      }
+    } catch (e) { /* کاربر انصراف داد */ }
+  },
+  disconnect() {
+    this.handle = null;
+    db.meta.fileLinkName = '';
+    toast('اتصال فایل قطع شد. از IndexedDB استفاده می‌شود.');
+    renderStorageInfo();
+    renderFileStatus();
+  }
+};
+
+/* ============================================================
+   ۷. Backup Manager
+============================================================ */
+const Backup = {
+  async save(reason = 'auto') {
+    try {
+      const snapshot = JSON.parse(JSON.stringify(db));
+      const ts = Date.now();
+      const stamp = todayJ().replaceAll('/', '');
+      snapshot.meta = snapshot.meta || {};
+      snapshot.meta.backupAt = ts;
+      snapshot.meta.backupReason = reason;
+      // backup_latest
+      await Storage.set(BACKUP_KEY, snapshot);
+      // backup_YYYYMMDD
+      await Storage.set(BACKUP_PREFIX + stamp, snapshot);
+      // prune
+      const keys = await Storage.keys();
+      const backups = keys.filter(k => k.startsWith(BACKUP_PREFIX) && k !== BACKUP_KEY).sort();
+      const max = Math.max(3, Math.min(30, Number(db.settings.backupCount) || 7));
+      while (backups.length > max) {
+        const old = backups.shift();
+        await Storage.remove(old);
+      }
+      db.meta.lastBackup = ts;
+      await Storage.set(LOCAL_KEY, db);
+      renderStorageInfo();
+      renderBackupList();
+      return true;
+    } catch (e) {
+      console.warn('Backup error', e);
+      return false;
+    }
+  },
+  async list() {
+    const keys = await Storage.keys();
+    const list = [];
+    for (const k of keys) {
+      if (k === BACKUP_KEY) {
+        const d = await Storage.get(k);
+        if (d) list.push({ key: k, at: d.meta?.backupAt || 0, size: JSON.stringify(d).length, reason: d.meta?.backupReason || 'auto', label: 'آخرین نسخه' });
+      } else if (k.startsWith(BACKUP_PREFIX)) {
+        const d = await Storage.get(k);
+        if (d) list.push({ key: k, at: d.meta?.backupAt || 0, size: JSON.stringify(d).length, reason: d.meta?.backupReason || 'daily', label: k.replace(BACKUP_PREFIX, '') });
+      }
+    }
+    return list.sort((a, b) => b.at - a.at);
+  },
+  async restore(key) {
+    // نسخه ایمنی قبل از بازیابی
+    const pre = JSON.parse(JSON.stringify(db));
+    pre.meta = pre.meta || {};
+    pre.meta.backupAt = Date.now();
+    pre.meta.backupReason = 'pre_restore';
+    await Storage.set('backup_pre_restore', pre);
+    // بازیابی
+    const d = await Storage.get(key);
+    if (!d) { toast('نسخه پشتیبان یافت نشد.', true, 'error'); return false; }
+    const base = makeDefault();
+    db = { ...base, ...d, settings: { ...base.settings, ...(d.settings || {}) }, meta: { ...base.meta, ...(d.meta || {}) } };
+    await Storage.set(LOCAL_KEY, db);
+    return true;
+  },
+  async download(key) {
+    const d = await Storage.get(key);
+    if (!d) { toast('نسخه یافت نشد.', true, 'error'); return; }
+    downloadBlob(JSON.stringify(d, null, 2), key + '.json', 'application/json');
+    toast('پشتیبان دانلود شد ✅', false, 'success');
+  }
+};
+
+/* ============================================================
+   ۸. توابع کمکی
+============================================================ */
+function downloadBlob(content, name, type) {
+  const blob = new Blob([content], { type }), url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-let db = loadDB();
+function toast(msg, bad = false, kind = '') {
+  const el = document.createElement('div');
+  el.className = 'toast' + (bad ? ' error' : (kind === 'success' ? ' success' : ''));
+  el.innerHTML = '<i class="fa-solid ' + (bad ? 'fa-circle-exclamation' : (kind === 'success' ? 'fa-circle-check' : 'fa-circle-check')) + '"></i>' + esc(msg);
+  const ta = document.getElementById('toastArea');
+  if (ta) { ta.append(el); setTimeout(() => el.remove(), 3800); }
+}
+
+/* ============================================================
+   ۹. بارگذاری دیتابیس
+============================================================ */
+let db = null;
 let currentInvoice = null;
 let modalSave = null;
 window.__tempPhotos = [];
 
-function saveDB() {
-  try { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
-  catch (e) { toast('فضای ذخیره‌سازی پر شده است.', true); }
+async function loadDB() {
+  let data = await Storage.get(LOCAL_KEY);
+  if (!data || typeof data !== 'object') data = makeDefault();
+  const base = makeDefault();
+  data = {
+    ...base, ...data,
+    settings: { ...base.settings, ...(data.settings || {}) },
+    customers: data.customers || [],
+    drivers: data.drivers || [],
+    orders: data.orders || [],
+    invoices: data.invoices || [],
+    transactions: data.transactions || [],
+    meta: { ...base.meta, ...(data.meta || {}) }
+  };
+  db = data;
+  return db;
 }
-function toast(msg, bad = false) {
-  const el = document.createElement('div');
-  el.className = 'toast';
-  el.innerHTML = '<i class="fa-solid ' + (bad ? 'fa-circle-exclamation' : 'fa-circle-check') + '"></i>' + esc(msg);
-  const ta = document.getElementById('toastArea');
-  if (ta) { ta.append(el); setTimeout(() => el.remove(), 3600); }
+
+let _saveTimer = null;
+function saveDB(immediate = false) {
+  if (_saveTimer) clearTimeout(_saveTimer);
+  const doSave = async () => {
+    db.meta.lastSave = Date.now();
+    await Storage.set(LOCAL_KEY, db);
+    // نوشتن در فایل خارجی
+    if (FSA.handle) await FSA.write(db);
+    // پشتیبان خودکار
+    if (db.settings.autoBackup) {
+      const last = db.meta.lastBackup || 0;
+      const now = Date.now();
+      if (now - last > 24 * 60 * 60 * 1000) {
+        await Backup.save('auto');
+        if (db.settings.autoDownload) {
+          downloadBlob(JSON.stringify(db, null, 2), 'crane24-auto-' + dateStamp().replaceAll('/', '-') + '.json', 'application/json');
+        }
+      }
+    }
+    renderStorageInfo();
+  };
+  if (immediate) doSave(); else _saveTimer = setTimeout(doSave, 400);
 }
-function empty(msg = 'هنوز اطلاعاتی ثبت نشده است') { return '<div class="empty"><i class="fa-regular fa-folder-open"></i>' + esc(msg) + '</div>'; }
+
+/* ============================================================
+   ۱۰. رندر اطلاعات ذخیره‌سازی
+============================================================ */
+async function renderStorageInfo() {
+  const setVal = (id, val, cls = '') => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = val; el.parentElement.className = 'storage-item ' + cls; }
+  };
+  setVal('siEngine', Storage.engine === 'IndexedDB' ? 'IndexedDB ✅' : 'localStorage (fallback)', Storage.engine === 'IndexedDB' ? 'ok' : 'warn');
+  const size = JSON.stringify(db).length;
+  setVal('siSize', (size / 1024).toFixed(1) + ' KB');
+  setVal('siLastSave', db.meta?.lastSave ? new Date(db.meta.lastSave).toLocaleString('fa-IR') : '—');
+  setVal('siLastBackup', db.meta?.lastBackup ? new Date(db.meta.lastBackup).toLocaleString('fa-IR') : 'هرگز');
+  const backups = await Backup.list();
+  setVal('siBackupCount', faDigits(backups.length) + ' نسخه');
+  const records = (db.customers?.length || 0) + (db.drivers?.length || 0) + (db.orders?.length || 0) + (db.invoices?.length || 0) + (db.transactions?.length || 0);
+  setVal('siRecords', faDigits(records) + ' رکورد');
+  const linked = FSA.handle ? 'متصل: ' + (FSA.handle.name || '—') : (FSA.supported ? 'متصل نیست' : 'پشتیبانی نمی‌شود');
+  setVal('siFileLink', linked, FSA.handle ? 'ok' : 'warn');
+  // persist
+  try {
+    const p = await navigator.storage?.persisted?.();
+    setVal('siPersist', p ? 'دائمی ✅' : 'موقت', p ? 'ok' : 'warn');
+  } catch (e) { setVal('siPersist', 'نامشخص', 'warn'); }
+  // sidebar
+  const sb = document.getElementById('sidebarStorage');
+  if (sb) sb.textContent = Storage.engine;
+}
+
+async function renderBackupList() {
+  const el = document.getElementById('backupList');
+  const cnt = document.getElementById('backupListCount');
+  if (!el) return;
+  const list = await Backup.list();
+  if (cnt) cnt.textContent = faDigits(list.length) + ' نسخه';
+  if (!list.length) {
+    el.innerHTML = '<div class="empty" style="padding:20px"><i class="fa-regular fa-folder-open"></i>هنوز پشتیبانی ساخته نشده است</div>';
+    return;
+  }
+  el.innerHTML = list.map(b => {
+    const date = b.at ? new Date(b.at).toLocaleString('fa-IR') : '—';
+    const size = (b.size / 1024).toFixed(1) + ' KB';
+    const reason = { auto: 'خودکار', daily: 'روزانه', pre_restore: 'قبل از بازیابی', manual: 'دستی' }[b.reason] || b.reason;
+    return '<div class="backup-item">' +
+      '<div class="bi-meta"><strong>' + esc(b.label) + ' <span class="badge blue" style="font-size:9px">' + esc(reason) + '</span></strong><small>' + date + ' · ' + size + '</small></div>' +
+      '<div class="table-actions">' +
+      '<button class="icon-btn" title="دانلود" onclick="Backup.download(\'' + b.key + '\')"><i class="fa-solid fa-download"></i></button>' +
+      '<button class="icon-btn" title="بازیابی" onclick="requestRestore(\'' + b.key + '\')"><i class="fa-solid fa-rotate-left"></i></button>' +
+      '</div></div>';
+  }).join('');
+}
+
+function renderFileStatus() {
+  const el = document.getElementById('fileStatus');
+  if (!el) return;
+  if (!FSA.supported) {
+    el.innerHTML = '<div class="storage-item warn"><label>وضعیت</label><strong>مرورگر شما از File System Access API پشتیبانی نمی‌کند</strong></div>';
+  } else if (FSA.handle) {
+    el.innerHTML = '<div class="storage-item ok"><label>متصل به فایل</label><strong>' + esc(FSA.handle.name) + '</strong></div>';
+  } else {
+    el.innerHTML = '<div class="storage-item"><label>وضعیت</label><strong>متصل نیست</strong></div>';
+  }
+}
+
+/* ============================================================
+   ۱۱. Banner پشتیبان‌گیری
+============================================================ */
+function renderBackupBanner() {
+  const el = document.getElementById('backupBannerArea');
+  if (!el) return;
+  const last = db.meta?.lastBackup || 0;
+  const days = last ? Math.floor((Date.now() - last) / (1000 * 60 * 60 * 24)) : 999;
+  let cls, icon, title, sub, btn;
+  if (!last) {
+    cls = 'danger'; icon = 'fa-circle-exclamation';
+    title = 'هنوز پشتیبانی تهیه نکرده‌اید';
+    sub = 'برای جلوگیری از از دست رفتن اطلاعات، همین حالا پشتیبان بگیرید.';
+    btn = '<button class="btn btn-primary btn-sm" onclick="manualBackup()"><i class="fa-solid fa-download"></i> پشتیبان‌گیری الان</button>';
+  } else if (days > 7) {
+    cls = 'danger'; icon = 'fa-triangle-exclamation';
+    title = 'آخرین پشتیبان ' + faDigits(days) + ' روز پیش بوده';
+    sub = 'توصیه می‌شود هر ۷ روز یک بار پشتیبان تهیه کنید.';
+    btn = '<button class="btn btn-primary btn-sm" onclick="manualBackup()"><i class="fa-solid fa-download"></i> پشتیبان‌گیری الان</button>';
+  } else {
+    cls = 'ok'; icon = 'fa-circle-check';
+    title = 'پشتیبان‌گیری به‌روز است';
+    sub = 'آخرین پشتیبان ' + faDigits(days) + ' روز پیش تهیه شده است.';
+    btn = '<button class="btn btn-outline btn-sm" onclick="manualBackup()"><i class="fa-solid fa-download"></i> پشتیبان جدید</button>';
+  }
+  el.innerHTML = '<div class="backup-banner ' + cls + '">' +
+    '<i class="fa-solid ' + icon + '"></i>' +
+    '<div class="bb-content"><strong>' + title + '</strong><small>' + sub + '</small></div>' +
+    '<div class="bb-actions">' + btn + '</div>' +
+    '</div>';
+}
+
+async function manualBackup() {
+  await Backup.save('manual');
+  if (db.settings.autoDownload) {
+    downloadBlob(JSON.stringify(db, null, 2), 'crane24-backup-' + dateStamp().replaceAll('/', '-') + '.json', 'application/json');
+  }
+  toast('پشتیبان با موفقیت ساخته شد ✅', false, 'success');
+  renderBackupBanner();
+  renderStorageInfo();
+  renderBackupList();
+}
+
+/* ============================================================
+   ۱۲. بازیابی با تأیید دو مرحله‌ای
+============================================================ */
+let _pendingRestoreKey = null;
+function requestRestore(key) {
+  _pendingRestoreKey = key;
+  const el = document.getElementById('restoreConfirmInput');
+  if (el) el.value = '';
+  document.getElementById('restoreBackdrop').classList.add('show');
+  setTimeout(() => el && el.focus(), 100);
+}
+async function confirmRestore() {
+  const val = (document.getElementById('restoreConfirmInput')?.value || '').trim();
+  if (val !== 'بازیابی') { toast('عبارت تأیید صحیح نیست.', true, 'error'); return; }
+  const key = _pendingRestoreKey;
+  document.getElementById('restoreBackdrop').classList.remove('show');
+  const ok = await Backup.restore(key);
+  if (ok) {
+    await Storage.set(LOCAL_KEY, db);
+    renderAll();
+    toast('بازیابی با موفقیت انجام شد ✅', false, 'success');
+    renderBackupBanner();
+    renderBackupList();
+    renderStorageInfo();
+  } else {
+    toast('خطا در بازیابی.', true, 'error');
+  }
+}
+</script><script>
+/* ============================================================
+   ۱۳. توابع عمومی نمایش
+============================================================ */
+function empty(msg = 'هنوز اطلاعاتی ثبت نشده است') {
+  return '<div class="empty"><i class="fa-regular fa-folder-open"></i>' + esc(msg) + '</div>';
+}
 function table(headers, rows) {
   if (!rows.length) return empty();
   return '<table><thead><tr>' + headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>' + rows.join('') + '</tbody></table>';
@@ -424,7 +1316,13 @@ function orderProfit(o) { return (Number(o.income) || 0) - (Number(o.driverCost)
 function sum(a, f) { return a.reduce((s, x) => s + (Number(f(x)) || 0), 0); }
 function inDateRange(date, from, to) { if (!date) return false; if (from && date < from) return false; if (to && date > to) return false; return true; }
 function openMap(lat, lng) { window.open('https://www.google.com/maps?q=' + lat + ',' + lng, '_blank', 'noopener'); }
+function defaultLogo() {
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160"><rect width="320" height="160" fill="white"/><circle cx="90" cy="80" r="60" fill="#FFC107"/><circle cx="90" cy="80" r="42" fill="#1A1A1A"/><text x="90" y="98" text-anchor="middle" font-family="Arial" font-size="46" font-weight="bold" fill="#FFC107">۲۴</text><text x="165" y="100" font-family="Arial" font-size="36" font-weight="bold" fill="#1A1A1A">جرثقیل</text></svg>');
+}
 
+/* ============================================================
+   ۱۴. ناوبری
+============================================================ */
 function navigate(view) {
   $$('.view').forEach(x => x.classList.toggle('active', x.id === 'view-' + view));
   $$('#nav button').forEach(x => x.classList.toggle('active', x.dataset.view === view));
@@ -435,15 +1333,20 @@ function navigate(view) {
     orders: ['سفارشات', 'مدیریت عملیات اجاره و حمل'],
     invoices: ['فاکتور', 'صدور و چاپ فاکتور خدمات A5'],
     accounting: ['حسابداری', 'دریافتی‌ها، پرداختی‌ها و گزارش مالی'],
-    settings: ['تنظیمات', 'پیکربندی اطلاعات Crane 24']
+    settings: ['تنظیمات', 'پیکربندی اطلاعات جرثقیل ۲۴']
   };
-  $('#pageHeading').textContent = titles[view][0];
-  $('#pageSub').textContent = titles[view][1];
+  if (titles[view]) {
+    $('#pageHeading').textContent = titles[view][0];
+    $('#pageSub').textContent = titles[view][1];
+  }
   $('#sidebar').classList.remove('open');
   if (view === 'invoices' && !currentInvoice) prepareInvoice();
   renderAll();
 }
 
+/* ============================================================
+   ۱۵. مودال عمومی
+============================================================ */
 function openModal(title, fields, initial = {}, onSave, submit = 'ذخیره') {
   modalSave = onSave;
   $('#modalTitle').textContent = title;
@@ -464,7 +1367,7 @@ function openModal(title, fields, initial = {}, onSave, submit = 'ذخیره') {
     } else if (f.type === 'html') {
       inp = val;
     } else {
-      inp = '<input name="' + f.name + '" type="' + (f.type || 'text') + '" value="' + esc(val) + '" placeholder="' + esc(f.placeholder || '') + '"' + (f.required ? ' required' : '') + (f.min !== undefined ? ' min="' + f.min + '"' : '') + (f.step ? ' step="' + f.step + '"' : '') + '>';
+      inp = '<input name="' + f.name + '" type="' + (f.type || 'text') + '" value="' + esc(val) + '" placeholder="' + esc(f.placeholder || '') + '"' + (f.required ? ' required' : '') + (f.min !== undefined ? ' min="' + f.min + '"' : '') + (f.max !== undefined ? ' max="' + f.max + '"' : '') + (f.step ? ' step="' + f.step + '"' : '') + '>';
     }
     html += '<div class="field ' + cls + '"><label>' + esc(f.label) + (f.required ? ' *' : '') + '</label>' + inp + '</div>';
   });
@@ -494,25 +1397,34 @@ function driverBalance(id) {
   return cost - paid;
 }
 
-/* ========== Customers ========== */
+/* ============================================================
+   ۱۶. مشتریان
+============================================================ */
 function renderCustomers() {
   const q = ($('#customerSearch')?.value || '').toLowerCase();
   const list = db.customers.filter(c => ([c.name, c.company, c.mobile, c.phone, c.address, c.location].join(' ').toLowerCase()).includes(q));
-  $('#customersTable').innerHTML = table(['مشتری', 'موبایل', 'تلفن ثابت', 'موقعیت', 'سابقه', 'مانده حساب', 'عملیات'],
-    list.map(c => '<tr>' +
-      td('مشتری', '<b>' + esc(c.name) + '</b><div class="muted">' + esc(c.company || '') + '</div>') +
-      td('موبایل', esc(c.mobile || '—')) +
-      td('تلفن ثابت', esc(c.phone || '—')) +
-      td('موقعیت', c.lat ? '<span class="gps-badge"><i class="fa-solid fa-location-dot"></i>ثبت شده</span>' : '—') +
-      td('سابقه', faDigits(db.orders.filter(o => o.customerId === c.id).length) + ' سفارش') +
-      td('مانده حساب', '<span class="badge ' + (customerBalance(c.id) > 0 ? 'debt' : 'credit') + '">' + money(Math.abs(customerBalance(c.id))) + ' ' + (customerBalance(c.id) > 0 ? 'بدهکار' : customerBalance(c.id) < 0 ? 'بستانکار' : '') + '</span>') +
-      td('عملیات', '<div class="table-actions">' +
-        (c.lat ? '<button class="icon-btn" title="مشاهده روی نقشه" onclick="openMap(\'' + c.lat + '\',\'' + c.lng + '\')"><i class="fa-solid fa-map-location-dot"></i></button>' : '') +
-        '<button class="icon-btn" title="سابقه" onclick="historyCustomer(\'' + c.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
-        '<button class="icon-btn" title="ویرایش" onclick="editCustomer(\'' + c.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
-        '<button class="icon-btn del" title="حذف" onclick="deleteCustomer(\'' + c.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
-        '</div>') +
-      '</tr>'));
+  $('#customersTable').innerHTML = table(
+    ['مشتری', 'موبایل', 'تلفن ثابت', 'موقعیت', 'سابقه', 'مانده حساب', 'عملیات'],
+    list.map(c => {
+      const bal = customerBalance(c.id);
+      const balCls = bal > 0 ? 'debt' : 'credit';
+      const balLabel = bal > 0 ? 'بدهکار' : bal < 0 ? 'بستانکار' : '';
+      return '<tr>' +
+        td('مشتری', '<b>' + esc(c.name) + '</b><div class="muted">' + esc(c.company || '') + '</div>') +
+        td('موبایل', faDigits(c.mobile || '—')) +
+        td('تلفن ثابت', faDigits(c.phone || '—')) +
+        td('موقعیت', c.lat ? '<span class="gps-badge"><i class="fa-solid fa-location-dot"></i>ثبت شده</span>' : '—') +
+        td('سابقه', faDigits(db.orders.filter(o => o.customerId === c.id).length) + ' سفارش') +
+        td('مانده حساب', '<span class="badge ' + balCls + '">' + money(Math.abs(bal)) + ' ' + balLabel + '</span>') +
+        td('عملیات', '<div class="table-actions">' +
+          (c.lat ? '<button class="icon-btn" title="نقشه" onclick="openMap(\'' + c.lat + '\',\'' + c.lng + '\')"><i class="fa-solid fa-map-location-dot"></i></button>' : '') +
+          '<button class="icon-btn" title="سابقه" onclick="historyCustomer(\'' + c.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
+          '<button class="icon-btn" title="ویرایش" onclick="editCustomer(\'' + c.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
+          '<button class="icon-btn del" title="حذف" onclick="deleteCustomer(\'' + c.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+          '</div>') +
+        '</tr>';
+    })
+  );
 }
 function customerFields() {
   return [
@@ -528,23 +1440,38 @@ function customerFields() {
   ];
 }
 function getGPS() {
-  if (!navigator.geolocation) { toast('مرورگر شما از موقعیت‌یاب پشتیبانی نمی‌کند.', true); return; }
+  if (!navigator.geolocation) { toast('مرورگر شما از موقعیت‌یاب پشتیبانی نمی‌کند.', true, 'error'); return; }
   const st = $('#gpsStatus');
   if (st) st.textContent = 'در حال دریافت...';
   navigator.geolocation.getCurrentPosition(p => {
-    $('#gpsLat').value = p.coords.latitude.toFixed(6);
-    $('#gpsLng').value = p.coords.longitude.toFixed(6);
+    const latEl = document.getElementById('gpsLat'), lngEl = document.getElementById('gpsLng');
+    if (latEl) latEl.value = p.coords.latitude.toFixed(6);
+    if (lngEl) lngEl.value = p.coords.longitude.toFixed(6);
     if (st) st.innerHTML = '<i class="fa-solid fa-check" style="color:var(--green)"></i> ثبت شد (' + p.coords.latitude.toFixed(4) + ', ' + p.coords.longitude.toFixed(4) + ')';
-    toast('موقعیت ثبت شد.');
+    toast('موقعیت ثبت شد.', false, 'success');
   }, err => {
     if (st) st.textContent = 'خطا در دریافت موقعیت';
-    toast('دسترسی به موقعیت داده نشد.', true);
+    toast('دسترسی به موقعیت داده نشد.', true, 'error');
   }, { enableHighAccuracy: true, timeout: 10000 });
 }
-function addCustomer() { openModal('افزودن مشتری', customerFields(), {}, d => { db.customers.push({ id: uid(), ...d, created: dateStamp() }); toast('مشتری ثبت شد.'); }); }
-function editCustomer(id) { let c = getCustomer(id); if (c) openModal('ویرایش مشتری', customerFields(), c, d => { Object.assign(c, d); toast('اطلاعات مشتری به‌روزرسانی شد.'); }); }
+function addCustomer() {
+  openModal('افزودن مشتری', customerFields(), {}, d => {
+    db.customers.push({ id: uid(), ...d, created: dateStamp() });
+    toast('مشتری ثبت شد.', false, 'success');
+  });
+}
+function editCustomer(id) {
+  let c = getCustomer(id);
+  if (c) openModal('ویرایش مشتری', customerFields(), c, d => {
+    Object.assign(c, d);
+    toast('اطلاعات مشتری به‌روزرسانی شد.', false, 'success');
+  });
+}
 function deleteCustomer(id) {
-  if (db.orders.some(o => o.customerId === id) || db.invoices.some(i => i.customerId === id)) { toast('این مشتری سابقه سفارش یا فاکتور دارد.', true); return; }
+  if (db.orders.some(o => o.customerId === id) || db.invoices.some(i => i.customerId === id)) {
+    toast('این مشتری سابقه سفارش یا فاکتور دارد.', true, 'error');
+    return;
+  }
   confirmDelete('مشتری', () => db.customers = db.customers.filter(x => x.id !== id));
 }
 function historyCustomer(id) {
@@ -553,23 +1480,30 @@ function historyCustomer(id) {
   alert('سابقه ' + (c?.name || 'مشتری') + '\nتعداد سفارش‌ها: ' + orders.length + '\nمانده حساب: ' + money(customerBalance(id)) + '\n\n' + orders.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | سود: ' + money(orderProfit(o))).join('\n'));
 }
 
-/* ========== Drivers ========== */
+/* ============================================================
+   ۱۷. رانندگان
+============================================================ */
 function renderDrivers() {
   const q = ($('#driverSearch')?.value || '').toLowerCase();
   const list = db.drivers.filter(d => ([d.name, d.mobile, d.craneType, d.plate].join(' ').toLowerCase()).includes(q));
-  $('#driversTable').innerHTML = table(['راننده', 'موبایل', 'وسیله / تناژ', 'پلاک', 'بدهی به راننده', 'عملیات'],
-    list.map(d => '<tr>' +
-      td('راننده', '<b>' + esc(d.name) + '</b>') +
-      td('موبایل', esc(d.mobile || '—')) +
-      td('وسیله / تناژ', esc(d.craneType || '—')) +
-      td('پلاک', esc(d.plate || '—')) +
-      td('بدهی به راننده', '<span class="badge ' + (driverBalance(d.id) > 0 ? 'debt' : 'credit') + '">' + money(Math.max(0, driverBalance(d.id))) + '</span>') +
-      td('عملیات', '<div class="table-actions">' +
-        '<button class="icon-btn" title="سابقه" onclick="historyDriver(\'' + d.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
-        '<button class="icon-btn" title="ویرایش" onclick="editDriver(\'' + d.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
-        '<button class="icon-btn del" title="حذف" onclick="deleteDriver(\'' + d.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
-        '</div>') +
-      '</tr>'));
+  $('#driversTable').innerHTML = table(
+    ['راننده', 'موبایل', 'وسیله / تناژ', 'پلاک', 'بدهی به راننده', 'عملیات'],
+    list.map(d => {
+      const bal = driverBalance(d.id);
+      return '<tr>' +
+        td('راننده', '<b>' + esc(d.name) + '</b>') +
+        td('موبایل', faDigits(d.mobile || '—')) +
+        td('وسیله / تناژ', esc(d.craneType || '—')) +
+        td('پلاک', esc(d.plate || '—')) +
+        td('بدهی به راننده', '<span class="badge ' + (bal > 0 ? 'debt' : 'credit') + '">' + money(Math.max(0, bal)) + '</span>') +
+        td('عملیات', '<div class="table-actions">' +
+          '<button class="icon-btn" title="سابقه" onclick="historyDriver(\'' + d.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
+          '<button class="icon-btn" title="ویرایش" onclick="editDriver(\'' + d.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
+          '<button class="icon-btn del" title="حذف" onclick="deleteDriver(\'' + d.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+          '</div>') +
+        '</tr>';
+    })
+  );
 }
 function driverFields() {
   return [
@@ -581,16 +1515,28 @@ function driverFields() {
     { name: 'notes', label: 'یادداشت', type: 'textarea', full: true }
   ];
 }
-function addDriver() { openModal('افزودن راننده', driverFields(), {}, d => { db.drivers.push({ id: uid(), ...d }); toast('راننده ثبت شد.'); }); }
-function editDriver(id) { let d = getDriver(id); if (d) openModal('ویرایش راننده', driverFields(), d, x => Object.assign(d, x)); }
+function addDriver() {
+  openModal('افزودن راننده', driverFields(), {}, d => {
+    db.drivers.push({ id: uid(), ...d });
+    toast('راننده ثبت شد.', false, 'success');
+  });
+}
+function editDriver(id) {
+  let d = getDriver(id);
+  if (d) openModal('ویرایش راننده', driverFields(), d, x => Object.assign(d, x));
+}
 function deleteDriver(id) {
-  if (db.orders.some(o => o.driverId === id)) { toast('این راننده سابقه سفارش دارد.', true); return; }
+  if (db.orders.some(o => o.driverId === id)) { toast('این راننده سابقه سفارش دارد.', true, 'error'); return; }
   confirmDelete('راننده', () => db.drivers = db.drivers.filter(x => x.id !== id));
 }
 function historyDriver(id) {
   let d = getDriver(id), os = db.orders.filter(o => o.driverId === id);
   alert('سابقه ' + (d?.name || 'راننده') + '\nتعداد سفارش‌ها: ' + os.length + '\nبدهی باقی‌مانده: ' + money(driverBalance(id)) + '\n\n' + os.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | کرایه راننده: ' + money(o.driverCost)).join('\n'));
-}/* ========== Orders ========== */
+}
+
+/* ============================================================
+   ۱۸. سفارشات
+============================================================ */
 function updateOrderFilters() {
   const c = $('#orderCustomerFilter'), d = $('#orderDriverFilter');
   if (!c || !d) return;
@@ -613,8 +1559,9 @@ function renderOrders() {
     (!df || o.driverId === df) &&
     (!sf || o.status === sf) &&
     ((!dfr && !dto) || inDateRange(o.date, dfr, dto))
-  ).sort((a, b) => b.createdAt - a.createdAt);
-  $('#ordersTable').innerHTML = table(['تاریخ / شماره', 'مشتری', 'راننده / وسیله', 'محل کار', 'کرایه مشتری', 'پرداخت راننده', 'سود', 'وضعیت', 'عملیات'],
+  ).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  $('#ordersTable').innerHTML = table(
+    ['تاریخ / شماره', 'مشتری', 'راننده / وسیله', 'محل کار', 'کرایه مشتری', 'پرداخت راننده', 'سود', 'وضعیت', 'عملیات'],
     list.map(o => '<tr>' +
       td('تاریخ / شماره', esc(o.date) + '<div class="muted">' + esc(o.id.slice(-5)) + '</div>') +
       td('مشتری', esc(customerName(o.customerId))) +
@@ -629,7 +1576,8 @@ function renderOrders() {
         '<button class="icon-btn" onclick="editOrder(\'' + o.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
         '<button class="icon-btn del" onclick="deleteOrder(\'' + o.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
         '</div>') +
-      '</tr>'));
+      '</tr>')
+  );
 }
 function orderFields(o = {}) {
   const photoHTML = (o.photos && o.photos.length) ? '<div style="margin-top:10px"><small class="muted">عکس‌های ذخیره‌شده:</small><div class="photo-grid">' + o.photos.map(p => '<img src="' + p + '" class="photo-thumb" onclick="viewPhotos(\'' + o.id + '\')">').join('') + '</div></div>' : '';
@@ -640,7 +1588,7 @@ function orderFields(o = {}) {
     { name: 'driverId', label: 'راننده', type: 'select', options: db.drivers.map(d => ({ value: d.id, label: d.name })) },
     { name: 'craneType', label: 'نوع وسیله / تناژ', placeholder: 'مثلاً جرثقیل ۵۰ تن' },
     { name: 'location', label: 'محل کار / پروژه' },
-    { name: 'rateType', label: 'نوع نرخ', type: 'select', options: ['ساعتی', 'روزانه', 'ماهانه', 'تک‌قلابه'] },
+    { name: 'rateType', label: 'نوع نرخ', type: 'select', options: ['ساعتی', 'روزانه', 'ماهانه', 'تک‌قلابه', 'ترکیبی'] },
     { name: 'calcDescription', label: 'شرح محاسبه', placeholder: 'مثلاً ۵ ساعت × مبلغ ساعتی', full: true },
     { name: 'income', label: 'کرایه دریافتی از مشتری (تومان)', type: 'number', min: 0, required: true },
     { name: 'driverCost', label: 'کرایه پرداختی به راننده (تومان)', type: 'number', min: 0, required: true },
@@ -668,7 +1616,7 @@ function addPhoto(e) {
       window.__tempPhotos.push(data);
       const g = $('#photoGrid');
       if (g) g.innerHTML += '<img src="' + data + '" class="photo-thumb">';
-      toast('عکس فشرده و اضافه شد.');
+      toast('عکس فشرده و اضافه شد.', false, 'success');
     };
     img.src = r.result;
   };
@@ -678,17 +1626,17 @@ function viewPhotos(orderId) {
   const o = db.orders.find(x => x.id === orderId);
   if (!o || !o.photos) return;
   const w = window.open('', '_blank');
-  if (w) w.document.write('<html><head><title>عکس‌های کارگاه</title><style>body{background:#111;margin:0;padding:20px;font-family:Shabnam,sans-serif;direction:rtl}img{max-width:100%;display:block;margin:20px auto;border-radius:12px}h2{color:#F5B800;text-align:center}</style></head><body><h2>Crane 24 - عکس‌های کارگاه</h2>' + o.photos.map(p => '<img src="' + p + '">').join('') + '</body></html>');
+  if (w) w.document.write('<html><head><title>عکس‌های کارگاه</title><style>body{background:#111;margin:0;padding:20px;font-family:Vazirmatn,sans-serif;direction:rtl}img{max-width:100%;display:block;margin:20px auto;border-radius:12px}h2{color:#FFC107;text-align:center}</style></head><body><h2>جرثقیل ۲۴ - عکس‌های کارگاه</h2>' + o.photos.map(p => '<img src="' + p + '">').join('') + '</body></html>');
 }
 function addOrder() {
-  if (!db.customers.length) { toast('ابتدا یک مشتری ثبت کنید.', true); navigate('customers'); return; }
+  if (!db.customers.length) { toast('ابتدا یک مشتری ثبت کنید.', true, 'error'); navigate('customers'); return; }
   window.__tempPhotos = [];
   openModal('ثبت سفارش جدید', orderFields(), { date: dateStamp(), status: 'در انتظار', rateType: 'ساعتی' }, d => {
     d.income = num(d.income); d.driverCost = num(d.driverCost);
     if (window.__tempPhotos && window.__tempPhotos.length) d.photos = [...window.__tempPhotos];
     window.__tempPhotos = [];
     db.orders.push({ id: uid(), ...d, createdAt: Date.now() });
-    toast('سفارش ثبت شد.');
+    toast('سفارش ثبت شد.', false, 'success');
   });
 }
 function editOrder(id) {
@@ -704,18 +1652,22 @@ function editOrder(id) {
 }
 function deleteOrder(id) { confirmDelete('سفارش', () => db.orders = db.orders.filter(o => o.id !== id)); }
 function renderRecent() {
-  const list = [...db.orders].sort((a, b) => b.createdAt - a.createdAt).slice(0, 5);
-  $('#recentOrders').innerHTML = table(['تاریخ', 'مشتری', 'خدمات / محل', 'سود', 'وضعیت'],
+  const list = [...db.orders].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)).slice(0, 5);
+  $('#recentOrders').innerHTML = table(
+    ['تاریخ', 'مشتری', 'خدمات / محل', 'سود', 'وضعیت'],
     list.map(o => '<tr>' +
       td('تاریخ', esc(o.date)) +
       td('مشتری', esc(customerName(o.customerId))) +
       td('خدمات / محل', esc(o.service || o.craneType || 'خدمات') + '<div class="muted">' + esc(o.location || '') + '</div>') +
       td('سود', '<b>' + money(orderProfit(o)) + '</b>') +
       td('وضعیت', statusBadge(o.status)) +
-      '</tr>'));
+      '</tr>')
+  );
 }
 
-/* ========== Dashboard ========== */
+/* ============================================================
+   ۱۹. داشبورد
+============================================================ */
 function renderChart() {
   const now = jalaali(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate());
   const months = [];
@@ -746,12 +1698,12 @@ function renderDashboard() {
   renderChart();
   renderAlerts();
   renderRecent();
+  renderBackupBanner();
 }
 
-/* ========== Invoices ========== */
-function defaultLogo() {
-  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160"><rect width="320" height="160" fill="white"/><path d="M90 18 A65 65 0 1 0 90 142 L90 118 A42 42 0 1 1 90 42Z" fill="#F5B800"/><path d="M88 18 L88 67 L123 42 L141 61 L125 102 L111 102 L111 123 L88 123" fill="#F5B800"/><circle cx="91" cy="98" r="38" fill="#1A1A1A" stroke="#F5B800" stroke-width="5"/><text x="91" y="108" text-anchor="middle" font-family="Arial" font-size="39" font-weight="bold" fill="#E53935">24</text><text x="145" y="111" font-family="Arial" font-size="42" fill="#1A1A1A">RANE</text></svg>');
-}
+/* ============================================================
+   ۲۰. فاکتور
+============================================================ */
 function prepareInvoice(orderId) {
   const order = orderId ? db.orders.find(o => o.id === orderId) : null;
   const customer = order ? getCustomer(order.customerId) : null;
@@ -806,14 +1758,13 @@ function openNewInvoiceModal(existing) {
     };
     currentInvoice.finalTotal = currentInvoice.total * (1 + currentInvoice.taxRate / 100);
     renderInvoice(currentInvoice);
-    toast(existing ? 'فاکتور به‌روزرسانی شد.' : 'فاکتور ایجاد شد.');
+    toast(existing ? 'فاکتور به‌روزرسانی شد.' : 'فاکتور ایجاد شد.', false, 'success');
   }, existing ? 'ذخیره تغییرات' : 'ایجاد فاکتور');
 }
 function renderInvoice(i) {
   if (!i) return;
   const s = db.settings;
   $('#invLogo').src = s.logo || defaultLogo();
-  $('#invLogo').style.display = 'block';
   $('#invCompany').textContent = s.name;
   $('#invSlogan').textContent = s.slogan;
   $('#invSite').textContent = s.website;
@@ -853,11 +1804,12 @@ function saveInvoice() {
   }
   saveDB();
   renderInvoices();
-  toast('فاکتور ذخیره شد.');
+  toast('فاکتور ذخیره شد.', false, 'success');
 }
 function renderInvoices() {
-  const list = [...db.invoices].sort((a, b) => b.createdAt - a.createdAt);
-  $('#invoicesTable').innerHTML = table(['شماره', 'تاریخ', 'مشتری', 'مبلغ نهایی', 'وضعیت', 'عملیات'],
+  const list = [...db.invoices].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  $('#invoicesTable').innerHTML = table(
+    ['شماره', 'تاریخ', 'مشتری', 'مبلغ نهایی', 'وضعیت', 'عملیات'],
     list.map(i => '<tr>' +
       td('شماره', faDigits(i.number)) +
       td('تاریخ', faDigits(i.date)) +
@@ -870,7 +1822,8 @@ function renderInvoices() {
         '<button class="icon-btn" title="وضعیت پرداخت" onclick="toggleInvoicePaid(\'' + i.id + '\')"><i class="fa-solid fa-check"></i></button>' +
         '<button class="icon-btn del" title="حذف" onclick="deleteInvoice(\'' + i.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
         '</div>') +
-      '</tr>'));
+      '</tr>')
+  );
 }
 function loadInvoice(id) {
   currentInvoice = db.invoices.find(x => x.id === id);
@@ -889,14 +1842,18 @@ function toggleInvoicePaid(id) {
   if (i) {
     i.paid = !i.paid;
     if (i.paid) {
-      db.transactions.push({ id: uid(), date: dateStamp(), kind: 'receipt', partyType: 'customer', partyId: i.customerId, partyName: i.customerName, amount: i.finalTotal, method: 'ثبت از فاکتور', description: 'تسویه فاکتور ' + i.number });
+      db.transactions.push({ id: uid(), date: dateStamp(), kind: 'receipt', partyType: 'customer', partyId: i.customerId, partyName: i.customerName, amount: i.finalTotal, method: 'ثبت از فاکتور', description: 'تسویه فاکتور ' + i.number, createdAt: Date.now() });
     }
     saveDB();
     renderAll();
-    toast(i.paid ? 'فاکتور تسویه‌شده ثبت شد.' : 'وضعیت پرداخت فاکتور تغییر کرد.');
+    toast(i.paid ? 'فاکتور تسویه‌شده ثبت شد.' : 'وضعیت پرداخت فاکتور تغییر کرد.', false, 'success');
   }
 }
-function deleteInvoice(id) { confirmDelete('فاکتور', () => db.invoices = db.invoices.filter(i => i.id !== id)); }/* ========== Accounting ========== */
+function deleteInvoice(id) { confirmDelete('فاکتور', () => db.invoices = db.invoices.filter(i => i.id !== id)); }
+
+/* ============================================================
+   ۲۱. حسابداری
+============================================================ */
 function renderAccounting() {
   const rec = db.transactions.filter(t => t.kind === 'receipt');
   const pay = db.transactions.filter(t => t.kind === 'payment');
@@ -909,7 +1866,8 @@ function renderAccounting() {
   const kf = $('#txKindFilter')?.value || '';
   const list = [...db.transactions].filter(t => ((!dfr && !dto) || inDateRange(t.date, dfr, dto)) && (!kf || t.kind === kf)).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
   $('#txCount').textContent = faDigits(list.length) + ' تراکنش';
-  $('#transactionsTable').innerHTML = table(['تاریخ', 'نوع', 'طرف حساب', 'روش', 'شرح', 'مبلغ', 'عملیات'],
+  $('#transactionsTable').innerHTML = table(
+    ['تاریخ', 'نوع', 'طرف حساب', 'روش', 'شرح', 'مبلغ', 'عملیات'],
     list.map(t => '<tr>' +
       td('تاریخ', esc(t.date)) +
       td('نوع', t.kind === 'receipt' ? '<span class="badge done">دریافتی</span>' : '<span class="badge pending">پرداختی</span>') +
@@ -918,7 +1876,8 @@ function renderAccounting() {
       td('شرح', esc(t.description || '—')) +
       td('مبلغ', money(t.amount)) +
       td('عملیات', '<button class="icon-btn del" onclick="deleteTransaction(\'' + t.id + '\')"><i class="fa-solid fa-trash"></i></button>') +
-      '</tr>'));
+      '</tr>')
+  );
 }
 function transactionForm(kind) {
   const isR = kind === 'receipt';
@@ -935,12 +1894,14 @@ function transactionForm(kind) {
     const party = d.partyType === 'customer' ? getCustomer(d.partyId) : getDriver(d.partyId);
     d.amount = num(d.amount);
     db.transactions.push({ id: uid(), ...d, kind, partyName: d.partyName || party?.name || 'سایر', createdAt: Date.now() });
-    toast('تراکنش مالی ثبت شد.');
+    toast('تراکنش مالی ثبت شد.', false, 'success');
   });
 }
 function deleteTransaction(id) { confirmDelete('تراکنش مالی', () => db.transactions = db.transactions.filter(t => t.id !== id)); }
 
-/* ========== Settings ========== */
+/* ============================================================
+   ۲۲. تنظیمات
+============================================================ */
 function renderSettings() {
   const s = db.settings;
   const business = [['name', 'نام شرکت', 'text'], ['slogan', 'شعار', 'text'], ['phone1', 'تلفن ۱', 'tel'], ['phone2', 'تلفن ۲', 'tel'], ['website', 'وب‌سایت', 'text'], ['address', 'آدرس', 'text'], ['economic', 'کد اقتصادی', 'text'], ['tax', 'درصد مالیات بر ارزش افزوده', 'number'], ['nextInvoice', 'شماره فاکتور بعدی', 'number']];
@@ -949,18 +1910,41 @@ function renderSettings() {
   $('#bankSettings').innerHTML = banks.map(([n, l]) => '<div class="field"><label>' + l + '</label><input data-setting="' + n + '" value="' + esc(s[n] || '') + '"></div>').join('');
   $('#settingsLogoPreview').src = s.logo || defaultLogo();
   $('#settingsStampPreview').src = s.stamp || 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><rect width="100" height="80" fill="#F9FAFB" stroke="#E5E7EB" stroke-dasharray="4"/><text x="50" y="44" text-anchor="middle" font-family="Tahoma" font-size="10" fill="#9CA3AF">پیش‌نمایش مهر</text></svg>');
+  // تنظیمات پشتیبان‌گیری
+  const auto = document.getElementById('settingAutoBackup');
+  if (auto) auto.checked = !!s.autoBackup;
+  const autoDl = document.getElementById('settingAutoDownload');
+  if (autoDl) autoDl.checked = !!s.autoDownload;
+  const bh = document.getElementById('settingBackupHour');
+  if (bh) bh.value = s.backupHour || '23:00';
+  const bc = document.getElementById('settingBackupCount');
+  if (bc) bc.value = s.backupCount || 7;
+  renderBackupList();
+  renderFileStatus();
+  renderStorageInfo();
 }
 function saveSettings() {
-  $$('[data-setting]').forEach(el => { const n = el.dataset.setting; db.settings[n] = ['tax', 'nextInvoice'].includes(n) ? num(el.value) : el.value; });
+  $$('[data-setting]').forEach(el => {
+    const n = el.dataset.setting;
+    db.settings[n] = ['tax', 'nextInvoice'].includes(n) ? num(el.value) : el.value;
+  });
   db.settings.tax = Math.max(0, Math.min(100, Number(db.settings.tax) || 0));
   db.settings.nextInvoice = Math.max(1001, Number(db.settings.nextInvoice) || 1001);
-  saveDB();
+  const auto = document.getElementById('settingAutoBackup');
+  if (auto) db.settings.autoBackup = auto.checked;
+  const autoDl = document.getElementById('settingAutoDownload');
+  if (autoDl) db.settings.autoDownload = autoDl.checked;
+  const bh = document.getElementById('settingBackupHour');
+  if (bh) db.settings.backupHour = bh.value || '23:00';
+  const bc = document.getElementById('settingBackupCount');
+  if (bc) db.settings.backupCount = Math.max(3, Math.min(30, Number(bc.value) || 7));
+  saveDB(true);
   renderAll();
-  toast('تنظیمات ذخیره شد.');
+  toast('تنظیمات ذخیره شد.', false, 'success');
 }
 function uploadImage(file, key) {
   if (!file) return;
-  if (file.size > 1500000) { toast('حجم تصویر باید کمتر از ۱٫۵ مگابایت باشد.', true); return; }
+  if (file.size > 1500000) { toast('حجم تصویر باید کمتر از ۱٫۵ مگابایت باشد.', true, 'error'); return; }
   const r = new FileReader();
   r.onload = () => {
     const img = new Image();
@@ -972,8 +1956,8 @@ function uploadImage(file, key) {
       canvas.width = w; canvas.height = h;
       canvas.getContext('2d').drawImage(img, 0, 0, w, h);
       db.settings[key] = canvas.toDataURL('image/png');
-      saveDB(); renderSettings(); renderInvoice(currentInvoice);
-      toast('تصویر فشرده و ذخیره شد.');
+      saveDB(true); renderSettings(); renderInvoice(currentInvoice);
+      toast('تصویر فشرده و ذخیره شد.', false, 'success');
     };
     img.src = r.result;
   };
@@ -983,32 +1967,36 @@ function exportCSV() {
   const rows = [['تاریخ', 'نوع', 'طرف حساب', 'روش', 'شرح', 'مبلغ'], ...db.transactions.map(t => [t.date, t.kind === 'receipt' ? 'دریافتی' : 'پرداختی', t.partyName, t.method, t.description, t.amount])];
   const csv = '\uFEFF' + rows.map(r => r.map(x => '"' + String(x ?? '').replace(/"/g, '""') + '"').join(',')).join('\r\n');
   downloadBlob(csv, 'crane24-transactions.csv', 'text/csv;charset=utf-8');
-  toast('فایل CSV آماده شد.');
+  toast('فایل CSV آماده شد.', false, 'success');
 }
-function downloadBlob(content, name, type) {
-  const blob = new Blob([content], { type }), url = URL.createObjectURL(blob), a = document.createElement('a');
-  a.href = url; a.download = name;
-  document.body.append(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+async function backupJSON() {
+  await Backup.save('manual');
+  downloadBlob(JSON.stringify(db, null, 2), 'crane24-backup-' + dateStamp().replaceAll('/', '-') + '.json', 'application/json');
+  toast('پشتیبان دانلود شد.', false, 'success');
+  renderBackupBanner();
 }
-function backup() { downloadBlob(JSON.stringify(db, null, 2), 'crane24-backup-' + dateStamp().replaceAll('/', '-') + '.json', 'application/json'); toast('پشتیبان دانلود شد.'); }
 function restore(file) {
   if (!file) return;
   const r = new FileReader();
-  r.onload = () => {
+  r.onload = async () => {
     try {
       const d = JSON.parse(r.result);
       if (!d || !d.settings || !Array.isArray(d.customers)) throw Error();
       if (confirm('با بازیابی، اطلاعات فعلی با اطلاعات پشتیبان جایگزین می‌شود. ادامه می‌دهید؟')) {
-        db = { ...makeDefault(), ...d, settings: { ...makeDefault().settings, ...d.settings } };
-        saveDB(); renderAll(); toast('پشتیبان بازیابی شد.');
+        const base = makeDefault();
+        db = { ...base, ...d, settings: { ...base.settings, ...(d.settings || {}) }, meta: { ...base.meta, ...(d.meta || {}) } };
+        await Storage.set(LOCAL_KEY, db);
+        renderAll();
+        toast('پشتیبان بازیابی شد.', false, 'success');
       }
-    } catch (e) { toast('فایل پشتیبان معتبر نیست.', true); }
+    } catch (e) { toast('فایل پشتیبان معتبر نیست.', true, 'error'); }
   };
   r.readAsText(file);
 }
 
-/* ========== Invoice Actions ========== */
+/* ============================================================
+   ۲۳. اکشن‌های فاکتور
+============================================================ */
 function invoiceText() {
   const i = currentInvoice || {};
   return db.settings.name + '\n' + db.settings.slogan + '\n' + db.settings.website +
@@ -1026,8 +2014,12 @@ function invoiceText() {
     '\n' + db.settings.website;
 }
 async function copyInvoice() {
-  try { await navigator.clipboard.writeText(invoiceText()); toast('متن فاکتور کپی شد.'); }
-  catch (e) { const t = document.createElement('textarea'); t.value = invoiceText(); document.body.append(t); t.select(); document.execCommand('copy'); t.remove(); toast('متن فاکتور کپی شد.'); }
+  try { await navigator.clipboard.writeText(invoiceText()); toast('متن فاکتور کپی شد.', false, 'success'); }
+  catch (e) {
+    const t = document.createElement('textarea'); t.value = invoiceText();
+    document.body.append(t); t.select(); document.execCommand('copy'); t.remove();
+    toast('متن فاکتور کپی شد.', false, 'success');
+  }
 }
 function whatsappInvoice() {
   const c = currentInvoice?.phone || '';
@@ -1035,18 +2027,20 @@ function whatsappInvoice() {
   window.open('https://wa.me/' + (phone.startsWith('0') ? '98' + phone.slice(1) : phone) + '?text=' + encodeURIComponent(invoiceText()), '_blank', 'noopener');
 }
 async function shareInvoice() {
-  if (navigator.share) { try { await navigator.share({ title: 'فاکتور Crane 24', text: invoiceText() }); } catch (e) {} }
+  if (navigator.share) { try { await navigator.share({ title: 'فاکتور جرثقیل ۲۴', text: invoiceText() }); } catch (e) {} }
   else copyInvoice();
 }
 
-/* ========== دکمه چاپ: تصویر PNG ========== */
+/* ============================================================
+   ۲۴. چاپ: تصویر PNG
+============================================================ */
 async function printInvoice() {
   const sheet = document.getElementById('invoiceSheet');
-  if (!sheet) { toast('فاکتور پیدا نشد.', true); return; }
+  if (!sheet) { toast('فاکتور پیدا نشد.', true, 'error'); return; }
   const loadingEl = document.createElement('div');
   loadingEl.id = 'invoiceLoading';
-  loadingEl.style.cssText = 'position:fixed;inset:0;background:rgba(30,64,175,.85);z-index:9999;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Shabnam,sans-serif;font-size:16px;flex-direction:column;gap:16px;backdrop-filter:blur(4px)';
-  loadingEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="font-size:48px;color:#F5B800"></i><div style="font-weight:700">در حال ساخت تصویر فاکتور...</div><div style="font-size:12px;opacity:.8">لطفاً چند ثانیه صبر کنید</div>';
+  loadingEl.style.cssText = 'position:fixed;inset:0;background:rgba(26,26,26,.88);z-index:9999;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Vazirmatn,sans-serif;font-size:16px;flex-direction:column;gap:16px;backdrop-filter:blur(4px)';
+  loadingEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="font-size:48px;color:#FFC107"></i><div style="font-weight:700">در حال ساخت تصویر فاکتور...</div><div style="font-size:12px;opacity:.8">لطفاً چند ثانیه صبر کنید</div>';
   document.body.appendChild(loadingEl);
   try {
     if (typeof html2canvas === 'undefined') throw new Error('html2canvas not loaded');
@@ -1056,32 +2050,31 @@ async function printInvoice() {
   } catch (err) {
     console.error('خطا در ساخت تصویر:', err);
     loadingEl.remove();
-    // Fallback: چاپ معمولی
-    try { window.print(); } catch (e) { toast('خطا در ساخت تصویر. لطفاً از Chrome استفاده کنید.', true); }
+    try { window.print(); } catch (e) { toast('خطا در ساخت تصویر. لطفاً از Chrome استفاده کنید.', true, 'error'); }
   }
 }
 function showImageActionMenu(canvas) {
   const dataUrl = canvas.toDataURL('image/png');
   const menu = document.createElement('div');
   menu.id = 'imageActionMenu';
-  menu.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,.75);z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Shabnam,sans-serif;overflow-y:auto';
+  menu.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,.78);z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Vazirmatn,sans-serif;overflow-y:auto';
   menu.innerHTML = '<div style="background:#fff;border-radius:20px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.4);margin:auto">' +
     '<div style="text-align:center;margin-bottom:20px">' +
-    '<div style="width:70px;height:70px;background:linear-gradient(135deg,#F5B800,#FF9F00);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px"><i class="fa-solid fa-image" style="font-size:32px;color:#fff"></i></div>' +
-    '<h3 style="margin:0 0 4px;color:#1E3A8A;font-size:18px">تصویر فاکتور آماده شد</h3>' +
+    '<div style="width:70px;height:70px;background:linear-gradient(135deg,#FFC107,#FF9800);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px"><i class="fa-solid fa-image" style="font-size:32px;color:#1A1A1A"></i></div>' +
+    '<h3 style="margin:0 0 4px;color:#1A1A1A;font-size:18px">تصویر فاکتور آماده شد</h3>' +
     '<p style="margin:0;color:#6B7280;font-size:12px">روش ذخیره یا ارسال را انتخاب کنید</p>' +
     '</div>' +
     '<div style="margin-bottom:16px;max-height:200px;overflow:auto;border:1px solid #E5E7EB;border-radius:10px;padding:8px;background:#F8FAFC">' +
     '<img src="' + dataUrl + '" style="width:100%;display:block;border-radius:6px">' +
     '</div>' +
     '<div style="display:flex;flex-direction:column;gap:10px">' +
-    '<button id="imgDownload" style="background:linear-gradient(135deg,#F5B800,#FF9F00);color:#1A1A1A;border:0;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-solid fa-download"></i> دانلود تصویر PNG</button>' +
-    '<button id="imgShare" style="background:linear-gradient(135deg,#1E40AF,#1E3A8A);color:#fff;border:0;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-solid fa-share-nodes"></i> اشتراک‌گذاری تصویر</button>' +
+    '<button id="imgDownload" style="background:linear-gradient(135deg,#FFC107,#FF9800);color:#1A1A1A;border:0;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-solid fa-download"></i> دانلود تصویر PNG</button>' +
+    '<button id="imgShare" style="background:linear-gradient(135deg,#1A1A1A,#333);color:#FFC107;border:0;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-solid fa-share-nodes"></i> اشتراک‌گذاری تصویر</button>' +
     '<button id="imgWhatsapp" style="background:#25D366;color:#fff;border:0;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-brands fa-whatsapp"></i> ارسال به واتساپ</button>' +
     '<button id="imgPrint" style="background:#fff;border:1.5px solid #E5E7EB;color:#1A1A1A;padding:12px;border-radius:12px;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit"><i class="fa-solid fa-print"></i> چاپ معمولی (مرورگر)</button>' +
     '<button id="imgCancel" style="background:transparent;border:0;color:#6B7280;padding:10px;font-size:13px;cursor:pointer;margin-top:4px;font-family:inherit">بستن</button>' +
     '</div>' +
-    '<div style="margin-top:16px;padding:12px;background:#EFF6FF;border-radius:10px;font-size:11px;color:#1E40AF;text-align:center;line-height:1.8">💡 در گوشی، «دانلود تصویر» یا «اشتراک‌گذاری» را بزنید.</div>' +
+    '<div style="margin-top:16px;padding:12px;background:#FFF8E1;border-radius:10px;font-size:11px;color:#8B5A00;text-align:center;line-height:1.8">💡 در گوشی، «دانلود تصویر» یا «اشتراک‌گذاری» را بزنید.</div>' +
     '</div>';
   document.body.appendChild(menu);
 
@@ -1090,7 +2083,7 @@ function showImageActionMenu(canvas) {
     link.download = 'factor-' + (currentInvoice?.number || 'crane24') + '.png';
     link.href = dataUrl;
     document.body.append(link); link.click(); link.remove();
-    toast('تصویر دانلود شد. در گالری بررسی کنید.');
+    toast('تصویر دانلود شد. در گالری بررسی کنید.', false, 'success');
     menu.remove();
   };
   document.getElementById('imgShare').onclick = async () => {
@@ -1098,7 +2091,7 @@ function showImageActionMenu(canvas) {
       const blob = await (await fetch(dataUrl)).blob();
       const file = new File([blob], 'factor-' + (currentInvoice?.number || 'crane24') + '.png', { type: 'image/png' });
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'فاکتور Crane 24', text: 'فاکتور خدمات Crane 24' });
+        await navigator.share({ files: [file], title: 'فاکتور جرثقیل ۲۴', text: 'فاکتور خدمات جرثقیل ۲۴' });
         menu.remove();
       } else {
         const link = document.createElement('a');
@@ -1117,27 +2110,29 @@ function showImageActionMenu(canvas) {
     }
   };
   document.getElementById('imgWhatsapp').onclick = async () => {
-    // دانلود تصویر + باز کردن واتساپ
     const link = document.createElement('a');
     link.download = 'factor-' + (currentInvoice?.number || 'crane24') + '.png';
     link.href = dataUrl;
     document.body.append(link); link.click(); link.remove();
     setTimeout(() => {
       const phone = enDigits(currentInvoice?.phone || '').replace(/\D/g, '');
-      const text = 'سلام، فاکتور Crane 24 به مبلغ ' + (currentInvoice?.finalTotal ? Math.round(currentInvoice.finalTotal).toLocaleString('en-US') : '') + ' تومان.\n(تصویر فاکتور در پیام بعدی)';
+      const text = 'سلام، فاکتور جرثقیل ۲۴ به مبلغ ' + (currentInvoice?.finalTotal ? Math.round(currentInvoice.finalTotal).toLocaleString('en-US') : '') + ' تومان.\n(تصویر فاکتور در پیام بعدی)';
       window.open('https://wa.me/' + (phone.startsWith('0') ? '98' + phone.slice(1) : phone) + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
     }, 800);
-    toast('تصویر دانلود شد. آن را در واتساپ پیوست کنید.');
+    toast('تصویر دانلود شد. آن را در واتساپ پیوست کنید.', false, 'success');
     menu.remove();
   };
   document.getElementById('imgPrint').onclick = () => {
     menu.remove();
-    setTimeout(() => { try { window.print(); } catch (e) { toast('چاپ در این مرورگر پشتیبانی نمی‌شود.', true); } }, 100);
+    setTimeout(() => { try { window.print(); } catch (e) { toast('چاپ در این مرورگر پشتیبانی نمی‌شود.', true, 'error'); } }, 100);
   };
   document.getElementById('imgCancel').onclick = () => menu.remove();
   menu.addEventListener('click', (e) => { if (e.target === menu) menu.remove(); });
 }
 
+/* ============================================================
+   ۲۵. رندر کل
+============================================================ */
 function renderAll() {
   renderDashboard();
   renderCustomers();
@@ -1148,8 +2143,10 @@ function renderAll() {
   renderSettings();
   if (currentInvoice) renderInvoice(currentInvoice);
 }
-
-/* ========== Safe Bind ========== */
+</script><script>
+/* ============================================================
+   ۲۶. رویدادها
+============================================================ */
 function safeBind(id, event, handler) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -1176,10 +2173,24 @@ function bindAllEvents() {
   safeBind('customerSearch', 'input', renderCustomers);
   safeBind('driverSearch', 'input', renderDrivers);
   safeBind('orderSearch', 'input', renderOrders);
-  ['orderCustomerFilter', 'orderDriverFilter', 'orderStatusFilter', 'orderDateFrom', 'orderDateTo'].forEach(id => { safeBind(id, 'input', renderOrders); safeBind(id, 'change', renderOrders); });
-  safeBind('orderDateClear', 'click', () => { const f = document.getElementById('orderDateFrom'), t = document.getElementById('orderDateTo'); if (f) f.value = ''; if (t) t.value = ''; renderOrders(); });
-  ['txDateFrom', 'txDateTo', 'txKindFilter'].forEach(id => { safeBind(id, 'input', renderAccounting); safeBind(id, 'change', renderAccounting); });
-  safeBind('txDateClear', 'click', () => { const f = document.getElementById('txDateFrom'), t = document.getElementById('txDateTo'), k = document.getElementById('txKindFilter'); if (f) f.value = ''; if (t) t.value = ''; if (k) k.value = ''; renderAccounting(); });
+  ['orderCustomerFilter', 'orderDriverFilter', 'orderStatusFilter', 'orderDateFrom', 'orderDateTo'].forEach(id => {
+    safeBind(id, 'input', renderOrders);
+    safeBind(id, 'change', renderOrders);
+  });
+  safeBind('orderDateClear', 'click', () => {
+    const f = document.getElementById('orderDateFrom'), t = document.getElementById('orderDateTo');
+    if (f) f.value = ''; if (t) t.value = '';
+    renderOrders();
+  });
+  ['txDateFrom', 'txDateTo', 'txKindFilter'].forEach(id => {
+    safeBind(id, 'input', renderAccounting);
+    safeBind(id, 'change', renderAccounting);
+  });
+  safeBind('txDateClear', 'click', () => {
+    const f = document.getElementById('txDateFrom'), t = document.getElementById('txDateTo'), k = document.getElementById('txKindFilter');
+    if (f) f.value = ''; if (t) t.value = ''; if (k) k.value = '';
+    renderAccounting();
+  });
   safeBind('printInvoice', 'click', printInvoice);
   safeBind('saveInvoice', 'click', saveInvoice);
   safeBind('whatsappInvoice', 'click', whatsappInvoice);
@@ -1191,16 +2202,24 @@ function bindAllEvents() {
   safeBind('saveSettings', 'click', saveSettings);
   safeBind('logoUpload', 'change', e => uploadImage(e.target.files[0], 'logo'));
   safeBind('stampUpload', 'change', e => uploadImage(e.target.files[0], 'stamp'));
-  safeBind('backupBtn', 'click', backup);
+  safeBind('backupBtn', 'click', backupJSON);
   safeBind('restoreBtn', 'click', () => { const el = document.getElementById('restoreFile'); if (el) el.click(); });
   safeBind('restoreFile', 'change', e => restore(e.target.files[0]));
-  safeBind('clearData', 'click', () => {
-    if (confirm('تمام اطلاعات Crane 24 از این مرورگر حذف شود؟')) {
-      localStorage.removeItem(DB_KEY);
+  safeBind('manualBackup', 'click', manualBackup);
+  safeBind('refreshStorage', 'click', () => { renderStorageInfo(); renderBackupList(); renderFileStatus(); toast('به‌روزرسانی شد.'); });
+  safeBind('connectFile', 'click', async () => { const ok = await FSA.connect(); if (ok) renderStorageInfo(); });
+  safeBind('disconnectFile', 'click', () => FSA.disconnect());
+  safeBind('clearData', 'click', async () => {
+    if (confirm('تمام اطلاعات جرثقیل ۲۴ از این مرورگر حذف شود؟')) {
+      // نسخه ایمنی قبل از حذف
+      await Storage.set('backup_pre_clear', JSON.parse(JSON.stringify(db)));
+      await Storage.remove(LOCAL_KEY);
       db = makeDefault();
       currentInvoice = null;
-      saveDB(); prepareInvoice(); renderAll();
-      toast('داده‌ها پاک شدند.');
+      await Storage.set(LOCAL_KEY, db);
+      prepareInvoice();
+      renderAll();
+      toast('داده‌ها پاک شدند. (نسخه ایمنی ذخیره شد)', false, 'success');
     }
   });
   safeBind('modalClose', 'click', closeModal);
@@ -1217,30 +2236,94 @@ function bindAllEvents() {
     modalSave({ ...data, ...htmlData });
     closeModal(); saveDB(); renderAll();
   });
+  // بازیابی تأیید
+  safeBind('restoreCancel', 'click', () => document.getElementById('restoreBackdrop').classList.remove('show'));
+  safeBind('restoreCancel2', 'click', () => document.getElementById('restoreBackdrop').classList.remove('show'));
+  safeBind('restoreConfirmBtn', 'click', confirmRestore);
+  // تغییرات تنظیمات پشتیبان‌گیری
+  ['settingAutoBackup', 'settingAutoDownload', 'settingBackupHour', 'settingBackupCount'].forEach(id => {
+    safeBind(id, 'change', () => {
+      const auto = document.getElementById('settingAutoBackup');
+      if (auto) db.settings.autoBackup = auto.checked;
+      const autoDl = document.getElementById('settingAutoDownload');
+      if (autoDl) db.settings.autoDownload = autoDl.checked;
+      const bh = document.getElementById('settingBackupHour');
+      if (bh) db.settings.backupHour = bh.value;
+      const bc = document.getElementById('settingBackupCount');
+      if (bc) db.settings.backupCount = Math.max(3, Math.min(30, Number(bc.value) || 7));
+      saveDB();
+      toast('تنظیمات ذخیره شد.');
+    });
+  });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { const mb = document.getElementById('modalBackdrop'); if (mb && mb.classList.contains('show')) closeModal(); }
+    if (e.key === 'Escape') {
+      const mb = document.getElementById('modalBackdrop');
+      if (mb && mb.classList.contains('show')) closeModal();
+      const rb = document.getElementById('restoreBackdrop');
+      if (rb && rb.classList.contains('show')) rb.classList.remove('show');
+    }
   });
 }
 
-/* ========== Init ========== */
-function init() {
+/* ============================================================
+   ۲۷. ذخیره‌سازی دائمی
+============================================================ */
+async function requestPersist() {
+  try {
+    if (navigator.storage && navigator.storage.persist) {
+      const already = await navigator.storage.persisted();
+      if (!already) {
+        const granted = await navigator.storage.persist();
+        console.log('Persist:', granted ? '✅ granted' : '❌ denied');
+      }
+    }
+  } catch (e) { console.warn('persist error', e); }
+}
+
+/* ============================================================
+   ۲۸. init
+============================================================ */
+async function init() {
+  console.log('🚀 جرثقیل ۲۴ در حال راه‌اندازی...');
+  // ۱. ذخیره‌سازی
+  await Storage.init();
+  console.log('Storage engine:', Storage.engine);
+  // ۲. بارگذاری
+  await loadDB();
+  // ۳. درخواست ذخیره‌سازی دائمی
+  await requestPersist();
+  // ۴. سعی در اتصال مجدد فایل
+  if (db.meta.fileLinkName && FSA.supported) {
+    // فقط اسم فایل یادآوری می‌شود؛ اتصال دستی
+    console.log('فایل اتصال قبلی:', db.meta.fileLinkName);
+  }
+  // ۵. تنظیمات اولیه
   if (!db.settings.logo) db.settings.logo = defaultLogo();
+  // ۶. تاریخ
   const today = todayJ();
   const te = document.getElementById('todayText'); if (te) te.textContent = faDigits(today);
   const sy = document.getElementById('sideYear'); if (sy) sy.textContent = faDigits(today.slice(0, 4));
   const idt = document.getElementById('invDate'); if (idt) idt.textContent = faDigits(today);
+  // ۷. رویدادها
   bindAllEvents();
+  // ۸. رندر اولیه
   renderSettings();
   prepareInvoice();
   renderAll();
-  saveDB();
-  console.log('✅ Crane 24 آماده شد');
+  // ۹. ذخیره
+  saveDB(true);
+  console.log('✅ جرثقیل ۲۴ آماده شد');
 }
+
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
 else init();
+
+// Service Worker (اختیاری - اگر فایل موجود نبود خطا نمی‌دهد)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').then(r => console.log('✅ SW registered')).catch(e => console.warn('SW error', e));
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(r => console.log('✅ SW registered'))
+      .catch(e => console.warn('SW not available:', e.message));
   });
 }
 </script>
