@@ -156,44 +156,74 @@ input[type="number"].form-control::-webkit-outer-spin-button,input[type="number"
 .info-row span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .info-row span:last-child{flex-shrink:0}
 
-/* ===================== فاکتور A5 ===================== */
-.invoice-preview{background:#fff;padding:0;max-width:820px;margin:0 auto;font-size:12px;color:#000}
-.invoice-sheet{background:#fff;border:2px solid #000;padding:0;width:100%;font-family:'Vazirmatn',sans-serif}
-.invoice-top{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;padding:10px 12px;border-bottom:2px solid #000;align-items:center;position:relative}
-.invoice-top-left{text-align:right}
-.invoice-top-left .website{font-size:11px;direction:ltr;text-align:left;font-weight:700;margin-bottom:2px}
-.invoice-top-left .phone{font-size:11px;direction:ltr;text-align:left;margin-bottom:2px}
-.invoice-top-center{text-align:center}
-.invoice-top-center .logo-img{max-width:90px;max-height:70px;object-fit:contain}
-.invoice-top-center .logo-fallback{font-size:32px;font-weight:900;color:#000;line-height:1}
-.invoice-top-center .logo-fallback span{color:#E53935}
-.invoice-top-center .logo-sub{font-size:16px;font-weight:900;letter-spacing:2px;margin-top:-2px}
-.invoice-top-right{text-align:right}
-.invoice-top-right .inv-number{color:#E53935;font-size:22px;font-weight:900;font-family:monospace;margin-bottom:2px}
-.invoice-top-right .inv-date{font-size:11px;border-bottom:1px dotted #000;padding-bottom:2px;display:inline-block;min-width:110px}
-.invoice-top-right .inv-date-label{font-size:11px}
-.invoice-row{border-bottom:1px solid #000;padding:10px 12px;min-height:42px}
-.invoice-field{font-size:12px}
-.invoice-field .lbl{font-weight:700;margin-left:4px}
-.invoice-field .val{border-bottom:1px dotted #000;padding:0 4px;min-width:200px;display:inline-block;font-weight:500}
-.invoice-textarea-space{min-height:180px;font-size:12px;padding-top:6px;line-height:1.9;white-space:pre-wrap}
-.invoice-total-row{display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid #000}
-.invoice-total-cell{padding:10px 12px;border-left:1px solid #000;font-size:12px}
-.invoice-total-cell:last-child{border-left:none}
-.invoice-total-cell .lbl{font-weight:700;display:block;margin-bottom:4px;font-size:11px}
-.invoice-total-cell .val{font-weight:700;font-size:13px}
-.invoice-bank{border-bottom:1px solid #000;padding:10px 12px;font-size:12px}
-.invoice-bank-title{font-weight:700;font-size:12px;margin-bottom:8px;border-bottom:1px dashed #000;padding-bottom:4px}
-.invoice-bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:11px}
-.invoice-bank-item{direction:rtl;text-align:right;line-height:1.9}
-.invoice-bank-item .lbl{font-weight:700;color:#000;margin-left:4px}
-.invoice-bank-item .num{direction:ltr;display:inline-block;font-family:'Courier New',monospace;font-weight:700;letter-spacing:1px}
-.invoice-bottom{display:grid;grid-template-columns:2fr 1fr}
-.invoice-address{padding:10px 12px;font-size:12px;line-height:1.8}
-.invoice-address .lbl{font-weight:700}
-.invoice-stamp-cell{padding:10px 12px;border-right:1px solid #000;text-align:center;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.invoice-stamp-cell img{max-width:100px;max-height:80px;object-fit:contain}
-.invoice-stamp-cell .stamp-placeholder{font-size:10px;color:#999}
+/* ============================================================
+   فاکتور رسمی - A5
+   ============================================================ */
+.invoice-preview{background:#fff;padding:0;max-width:820px;margin:0 auto}
+.invoice-sheet{background:#fff;border:1.5px solid #1A1A1A;font-family:'Vazirmatn',sans-serif;color:#1A1A1A;line-height:1.6}
+
+/* بخش بالا - لوگو وسط */
+.inv-top{padding:18px 20px 14px;text-align:center;border-bottom:1.5px solid #1A1A1A}
+.inv-logo-wrap{margin-bottom:6px}
+.inv-logo-wrap img{max-width:130px;max-height:110px;object-fit:contain}
+.inv-logo-fallback{display:inline-block;font-size:38px;font-weight:900;line-height:1;color:#1A1A1A}
+.inv-logo-fallback span{color:#E53935}
+.inv-logo-fallback-sub{display:block;font-size:22px;font-weight:900;letter-spacing:3px;margin-top:-4px}
+.inv-biz-name{font-size:17px;font-weight:800;color:#1A1A1A;margin-bottom:2px}
+.inv-biz-slogan{font-size:11px;color:#555;margin-bottom:2px}
+.inv-biz-website{font-size:11px;font-weight:700;color:#D9A200;direction:ltr;display:inline-block}
+.inv-meta-row{display:flex;justify-content:center;align-items:center;gap:24px;margin-top:12px;padding-top:10px;border-top:1px dashed #CCC;font-size:11px;color:#444}
+.inv-meta-item{display:flex;align-items:center;gap:5px}
+.inv-meta-item .lbl{color:#888;font-weight:500}
+.inv-meta-item .val{color:#1A1A1A;font-weight:700;font-family:'Courier New',monospace}
+
+/* درخواست‌کننده */
+.inv-customer-section{padding:14px 20px;border-bottom:1.5px solid #1A1A1A}
+.inv-customer-label{font-size:11px;font-weight:700;color:#555;margin-bottom:6px}
+.inv-customer-box{border:1px solid #1A1A1A;padding:10px 12px;min-height:38px;font-size:13px;font-weight:600;color:#1A1A1A}
+
+/* شرح خدمات */
+.inv-items-section{padding:14px 20px;border-bottom:1.5px solid #1A1A1A}
+.inv-items-label{font-size:11px;font-weight:700;color:#555;margin-bottom:6px}
+.inv-items-box{border:1px solid #1A1A1A;padding:12px 14px;min-height:200px;font-size:12.5px;line-height:2;white-space:pre-wrap;color:#1A1A1A}
+
+/* جمع کل */
+.inv-total-section{padding:14px 20px;border-bottom:1.5px solid #1A1A1A}
+.inv-total-line{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:12.5px}
+.inv-total-line:first-child{border-bottom:1px dashed #CCC}
+.inv-total-line .lbl{color:#555;font-weight:600}
+.inv-total-line .val{color:#1A1A1A;font-weight:700}
+.inv-total-line .val.big{font-size:14px;font-family:'Courier New',monospace}
+
+/* حساب‌های بانکی */
+.inv-bank-section{padding:14px 20px;border-bottom:1.5px solid #1A1A1A;background:#FAFAFA}
+.inv-bank-title{font-size:11px;font-weight:700;color:#1A1A1A;margin-bottom:10px;text-align:center}
+.inv-bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inv-bank-card{background:#fff;border:1px solid #1A1A1A;padding:10px 12px}
+.inv-bank-card .bank-name{font-size:11px;font-weight:800;color:#1A1A1A;margin-bottom:6px;padding-bottom:4px;border-bottom:1px dashed #CCC}
+.inv-bank-card .bank-row{font-size:10.5px;color:#333;margin-bottom:3px;display:flex;gap:6px;align-items:center}
+.inv-bank-card .bank-row .lbl{color:#888;font-weight:500;flex-shrink:0}
+.inv-bank-card .bank-row .num{direction:ltr;font-family:'Courier New',monospace;font-weight:700;color:#1A1A1A;font-size:10px;letter-spacing:.5px}
+
+/* پایین - آدرس و مهر */
+.inv-bottom{display:grid;grid-template-columns:2fr 1fr;border-bottom:1.5px solid #1A1A1A}
+.inv-address{padding:14px 20px;font-size:11.5px;color:#1A1A1A;line-height:1.9;border-left:1.5px solid #1A1A1A}
+.inv-address .lbl{font-weight:700;color:#555;display:block;margin-bottom:3px}
+.inv-stamp-cell{padding:10px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100px}
+.inv-stamp-cell img{max-width:110px;max-height:90px;object-fit:contain}
+.inv-stamp-cell .stamp-label{font-size:10px;color:#888;margin-top:6px}
+.inv-stamp-cell .stamp-placeholder{font-size:10px;color:#BBB;border:1px dashed #CCC;padding:20px 10px;border-radius:4px}
+
+/* بخش تبلیغاتی */
+.inv-promo{background:linear-gradient(135deg,#FFFDF5 0%,#FFF8E1 100%);padding:14px 20px;text-align:center;border-top:0}
+.inv-promo-title{font-size:12px;font-weight:800;color:#D9A200;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px}
+.inv-promo-services{display:flex;justify-content:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.inv-promo-item{font-size:11.5px;font-weight:700;color:#1A1A1A;padding:4px 10px;background:#fff;border:1px solid #F5B800;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
+.inv-promo-item i{color:#F5B800;font-size:10px}
+.inv-promo-text{font-size:11px;color:#444;margin-bottom:8px;font-weight:500}
+.inv-promo-contact{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:11px;font-weight:700;color:#1A1A1A;direction:ltr}
+.inv-promo-contact span{display:inline-flex;align-items:center;gap:4px}
+.inv-promo-contact i{color:#F5B800}
 
 @media print{
 body *{visibility:hidden}
@@ -201,7 +231,8 @@ body *{visibility:hidden}
 #invoicePrintArea{position:absolute;top:0;right:0;left:0;width:100%;padding:0;margin:0}
 .no-print{display:none!important}
 .invoice-preview{border:none;box-shadow:none;padding:0;max-width:100%}
-@page{size:A5 portrait;margin:6mm}
+.invoice-sheet{border:1.5px solid #1A1A1A}
+@page{size:A5 portrait;margin:5mm}
 }
 
 @media (max-width:992px){
@@ -231,6 +262,9 @@ body *{visibility:hidden}
 .table-wrapper tbody td:empty{display:none}
 .table-wrapper tbody td::before{content:attr(data-label);font-weight:700;color:var(--text-muted);font-size:12px;margin-left:10px;flex-shrink:0}
 .table-wrapper tbody td:last-child::before{display:none}
+.inv-bank-grid{grid-template-columns:1fr}
+.inv-bottom{grid-template-columns:1fr}
+.inv-address{border-left:none;border-bottom:1.5px solid #1A1A1A}
 }
 
 @media (max-width:576px){
@@ -244,6 +278,15 @@ body *{visibility:hidden}
 .modal-overlay{padding:8px}
 .modal{border-radius:var(--radius-sm)}
 .form-control{padding:11px 14px;font-size:16px}
+.invoice-sheet{font-size:11px}
+.inv-top{padding:14px 14px 10px}
+.inv-logo-wrap img{max-width:100px;max-height:80px}
+.inv-biz-name{font-size:15px}
+.inv-customer-section,.inv-items-section,.inv-total-section,.inv-bank-section{padding:10px 14px}
+.inv-items-box{min-height:150px}
+.inv-promo{padding:10px 14px}
+.inv-promo-services{gap:8px}
+.inv-promo-item{font-size:10px;padding:3px 8px}
 }
 </style>
 </head>
@@ -348,7 +391,7 @@ body *{visibility:hidden}
 <div class="form-group"><label>تلفن ۱</label><input type="text" class="form-control" id="setBizPhone" placeholder="09121349776" style="direction:ltr;text-align:left"></div>
 <div class="form-group"><label>تلفن ۲</label><input type="text" class="form-control" id="setBizPhone2" placeholder="09126114585" style="direction:ltr;text-align:left"></div>
 </div>
-<div class="form-group"><label>وب‌سایت</label><input type="text" class="form-control" id="setBizWebsite" placeholder="www.crane24.ir" style="direction:ltr;text-align:left"></div>
+<div class="form-group"><label>وب‌سایت</label><input type="text" class="form-control" id="setBizWebsite" placeholder="www.crane24.com" style="direction:ltr;text-align:left"></div>
 <div class="form-group"><label>آدرس</label><input type="text" class="form-control" id="setBizAddress" placeholder="تهران، ..."></div>
 <div class="form-row">
 <div class="form-group"><label>کد اقتصادی</label><input type="text" class="form-control" id="setBizEcoCode"></div>
@@ -359,6 +402,10 @@ body *{visibility:hidden}
 
 <div class="card mb-3">
 <h3 class="fw-bold mb-3" style="font-size:16px;"><i class="fas fa-university text-primary"></i> حساب‌های بانکی (برای تسویه)</h3>
+<div class="form-row">
+<div class="form-group"><label>نام بانک ۱</label><input type="text" class="form-control" id="setBankName1" placeholder="بانک ملت"></div>
+<div class="form-group"><label>نام بانک ۲</label><input type="text" class="form-control" id="setBankName2" placeholder="بانک سپه"></div>
+</div>
 <div class="form-row">
 <div class="form-group"><label>شبا حساب ۱</label><input type="text" class="form-control" id="setSheba1" placeholder="IR..." style="direction:ltr;text-align:left"></div>
 <div class="form-group"><label>کارت حساب ۱</label><input type="text" class="form-control" id="setCard1" placeholder="6104..." style="direction:ltr;text-align:left"></div>
@@ -499,8 +546,8 @@ function toEnglishNum(s){return String(s).replace(/[۰-۹]/g,d=>pd.indexOf(d))}
 function formatMoney(a){if(a===undefined||a===null||isNaN(a))return '۰';return toPersianNum(Math.round(a).toLocaleString('en-US'))}
 function numberToWords(num){if(num===0)return 'صفر';const o=['','یک','دو','سه','چهار','پنج','شش','هفت','هشت','نه'];const t=['ده','یازده','دوازده','سیزده','چهارده','پانزده','شانزده','هفده','هجده','نوزده'];const tn=['','','بیست','سی','چهل','پنجاه','شصت','هفتاد','هشتاد','نود'];const h=['','صد','دویست','سیصد','چهارصد','پانصد','ششصد','هفتصد','هشتصد','نهصد'];const s=['','هزار','میلیون','میلیارد','بیلیون'];function td(n){let r='';const hh=Math.floor(n/100);const rr=n%100;if(hh>0)r+=h[hh];if(rr>0){if(r)r+=' و ';if(rr<10)r+=o[rr];else if(rr<20)r+=t[rr-10];else{r+=tn[Math.floor(rr/10)];if(rr%10>0)r+=' و '+o[rr%10]}}return r}let res='';let si=0;let n=Math.floor(Math.abs(num));while(n>0){const c=n%1000;if(c>0){const cs=td(c);if(res)res=cs+' '+s[si]+' و '+res;else res=cs+' '+s[si]}n=Math.floor(n/1000);si++}return res.trim()||'صفر'}
 
-const DB={customers:[],drivers:[],orders:[],invoices:[],transactions:[],settings:{bizName:'Crane 24',bizSlogan:'خدمات تخصصی جرثقیل',bizPhone:'',bizPhone2:'',bizWebsite:'',bizAddress:'',bizEcoCode:'',taxPercent:0,sheba1:'',card1:'',sheba2:'',card2:'',logo:null,stamp:null,signature:null,nextInvoiceNumber:1001}};
-function loadDB(){try{const r=localStorage.getItem('crane24_db');if(r){const p=JSON.parse(r);Object.assign(DB,p);if(!DB.settings)DB.settings={};const d={bizName:'Crane 24',bizSlogan:'خدمات تخصصی جرثقیل',bizPhone:'',bizPhone2:'',bizWebsite:'',bizAddress:'',bizEcoCode:'',taxPercent:0,sheba1:'',card1:'',sheba2:'',card2:'',logo:null,stamp:null,signature:null,nextInvoiceNumber:1001};DB.settings=Object.assign(d,DB.settings)}}catch(e){}}
+const DB={customers:[],drivers:[],orders:[],invoices:[],transactions:[],settings:{bizName:'Crane 24',bizSlogan:'خدمات تخصصی جرثقیل',bizPhone:'',bizPhone2:'',bizWebsite:'www.crane24.com',bizAddress:'',bizEcoCode:'',taxPercent:0,bankName1:'بانک ملت',bankName2:'بانک سپه',sheba1:'',card1:'',sheba2:'',card2:'',logo:null,stamp:null,signature:null,nextInvoiceNumber:1001}};
+function loadDB(){try{const r=localStorage.getItem('crane24_db');if(r){const p=JSON.parse(r);Object.assign(DB,p);if(!DB.settings)DB.settings={};const d={bizName:'Crane 24',bizSlogan:'خدمات تخصصی جرثقیل',bizPhone:'',bizPhone2:'',bizWebsite:'www.crane24.com',bizAddress:'',bizEcoCode:'',taxPercent:0,bankName1:'بانک ملت',bankName2:'بانک سپه',sheba1:'',card1:'',sheba2:'',card2:'',logo:null,stamp:null,signature:null,nextInvoiceNumber:1001};DB.settings=Object.assign(d,DB.settings)}}catch(e){}}
 function saveDB(){try{localStorage.setItem('crane24_db',JSON.stringify(DB))}catch(e){}}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
 function showToast(m,t){t=t||'success';const c=document.getElementById('toastContainer');const el=document.createElement('div');el.className='toast '+t;const i=t==='success'?'fa-check-circle':(t==='error'?'fa-times-circle':'fa-info-circle');el.innerHTML='<i class="fas '+i+'"></i><span>'+m+'</span>';c.appendChild(el);setTimeout(function(){el.style.opacity='0';setTimeout(function(){el.remove()},300)},2800)}
@@ -541,7 +588,7 @@ function saveInvoice(){const cid=document.getElementById('invoiceCustomer').valu
 function deleteInvoice(id){confirmAction('حذف این فاکتور؟',function(){DB.invoices=DB.invoices.filter(function(i){return i.id!==id});saveDB();renderInvoices();showToast('حذف شد')})}
 function renderInvoices(){const tb=document.getElementById('invoicesTableBody');if(!tb)return;const l=DB.invoices.slice().sort(function(a,b){return(b.date||'').localeCompare(a.date||'')});if(!l.length){tb.innerHTML='<tr><td colspan="6"><div class="empty-state"><i class="fas fa-file-invoice"></i><p>فاکتوری نیست</p></div></td></tr>';return}tb.innerHTML=l.map(function(inv){const c=DB.customers.find(function(x){return x.id===inv.customerId});return'<tr><td data-label="شماره" class="fw-bold">'+toPersianNum(inv.number)+'</td><td data-label="تاریخ">'+toPersianNum(inv.date)+'</td><td data-label="مشتری">'+((c&&c.name)||'-')+'</td><td data-label="مبلغ" class="fw-bold">'+formatMoney(inv.finalAmount)+'</td><td data-label="وضعیت">'+(inv.paid==='paid'?'<span class="badge badge-done">پرداخت‌شده</span>':'<span class="badge badge-debt">پرداخت‌نشده</span>')+'</td><td><div class="d-flex gap-2"><button class="btn btn-outline btn-icon" onclick="viewInvoice(\''+inv.id+'\')"><i class="fas fa-eye"></i></button><button class="btn btn-outline btn-icon" onclick="deleteInvoice(\''+inv.id+'\')" style="color:#E53935"><i class="fas fa-trash"></i></button></div></td></tr>'}).join('')}
 
-// ========== BUILD INVOICE A5 ==========
+// ========== BUILD INVOICE A5 - رسمی ==========
 function buildInvoiceHTML(inv){
 const c=DB.customers.find(function(x){return x.id===inv.customerId})||{};
 const s=DB.settings;
@@ -551,39 +598,101 @@ const r=inv.rate||0;
 const tot=inv.total||(q*r);
 const tax=inv.tax||0;
 const f=inv.finalAmount||(tot+tax);
+
+// لوگو
 let logoHTML;
-if(s.logo){logoHTML='<img src="'+s.logo+'" class="logo-img" alt="لوگو">';}
-else{logoHTML='<div class="logo-fallback">2<span>4</span></div><div class="logo-sub">RANE</div>';}
+if(s.logo){logoHTML='<img src="'+s.logo+'" alt="لوگو">';}
+else{logoHTML='<span class="inv-logo-fallback">2<span>4</span></span><span class="inv-logo-fallback-sub">RANE</span>';}
+
+// شرح خدمات
 const itemsText=items.join('\n');
+
+// حساب‌ها
 let bankHTML='';
 if(s.sheba1||s.card1||s.sheba2||s.card2){
-bankHTML='<div class="invoice-bank"><div class="invoice-bank-title">شماره حساب‌های زیر جهت تسویه حساب می‌باشد</div><div class="invoice-bank-grid">';
-if(s.sheba1)bankHTML+='<div class="invoice-bank-item"><span class="lbl">شماره شبا:</span><span class="num">'+s.sheba1+'</span></div>';
-if(s.card1)bankHTML+='<div class="invoice-bank-item"><span class="lbl">شماره کارت:</span><span class="num">'+s.card1+'</span></div>';
-if(s.sheba2)bankHTML+='<div class="invoice-bank-item"><span class="lbl">شماره شبا:</span><span class="num">'+s.sheba2+'</span></div>';
-if(s.card2)bankHTML+='<div class="invoice-bank-item"><span class="lbl">شماره کارت:</span><span class="num">'+s.card2+'</span></div>';
+bankHTML='<div class="inv-bank-section"><div class="inv-bank-title">💳 شماره حساب‌های زیر جهت تسویه حساب می‌باشد</div><div class="inv-bank-grid">';
+if(s.sheba1||s.card1){
+bankHTML+='<div class="inv-bank-card"><div class="bank-name">'+((s.bankName1)||'حساب ۱')+'</div>';
+if(s.sheba1)bankHTML+='<div class="bank-row"><span class="lbl">شبا:</span><span class="num">'+s.sheba1+'</span></div>';
+if(s.card1)bankHTML+='<div class="bank-row"><span class="lbl">کارت:</span><span class="num">'+s.card1+'</span></div>';
+bankHTML+='</div>';
+}
+if(s.sheba2||s.card2){
+bankHTML+='<div class="inv-bank-card"><div class="bank-name">'+((s.bankName2)||'حساب ۲')+'</div>';
+if(s.sheba2)bankHTML+='<div class="bank-row"><span class="lbl">شبا:</span><span class="num">'+s.sheba2+'</span></div>';
+if(s.card2)bankHTML+='<div class="bank-row"><span class="lbl">کارت:</span><span class="num">'+s.card2+'</span></div>';
+bankHTML+='</div>';
+}
 bankHTML+='</div></div>';
 }
-const stampHTML=s.stamp?'<img src="'+s.stamp+'" alt="مهر">':'<div class="stamp-placeholder">محل مهر</div>';
-const phone1=s.bizPhone?'<div class="phone">'+toPersianNum(s.bizPhone)+'</div>':'';
-const phone2=s.bizPhone2?'<div class="phone">'+toPersianNum(s.bizPhone2)+'</div>':'';
-const website=s.bizWebsite?'<div class="website">'+s.bizWebsite+'</div>':'';
+
+// مهر
+const stampHTML=s.stamp?'<img src="'+s.stamp+'" alt="مهر"><div class="stamp-label">مهر و امضا</div>':'<div class="stamp-placeholder">محل مهر</div>';
+
+// شماره تماس
+const phone1=s.bizPhone?'<span><i class="fas fa-phone"></i> '+toPersianNum(s.bizPhone)+'</span>':'';
+const phone2=s.bizPhone2?'<span><i class="fas fa-mobile-alt"></i> '+toPersianNum(s.bizPhone2)+'</span>':'';
+const website=s.bizWebsite?'<span><i class="fas fa-globe"></i> '+s.bizWebsite+'</span>':'';
+
 return '<div class="invoice-preview" id="invoiceContent"><div class="invoice-sheet">'+
-'<div class="invoice-top">'+
-'<div class="invoice-top-left">'+website+phone1+phone2+'</div>'+
-'<div class="invoice-top-center">'+logoHTML+'</div>'+
-'<div class="invoice-top-right"><div class="inv-number">'+toPersianNum(inv.number)+'</div><div class="inv-date-label">تاریخ: <span class="inv-date">'+toPersianNum(inv.date)+'</span></div></div>'+
+
+// بالا - لوگو وسط
+'<div class="inv-top">'+
+'<div class="inv-logo-wrap">'+logoHTML+'</div>'+
+'<div class="inv-biz-name">'+(s.bizName||'Crane 24')+'</div>'+
+'<div class="inv-biz-slogan">'+(s.bizSlogan||'خدمات تخصصی جرثقیل')+'</div>'+
+(s.bizWebsite?'<div class="inv-biz-website">'+s.bizWebsite+'</div>':'')+
+'<div class="inv-meta-row">'+
+'<div class="inv-meta-item"><span class="lbl">شماره:</span><span class="val">'+toPersianNum(inv.number)+'</span></div>'+
+'<div class="inv-meta-item"><span class="lbl">تاریخ:</span><span class="val">'+toPersianNum(inv.date)+'</span></div>'+
 '</div>'+
-'<div class="invoice-row"><div class="invoice-field"><span class="lbl">درخواست‌کننده:</span><span class="val">'+(c.name||'')+(c.company?' - '+c.company:'')+'</span></div></div>'+
-'<div class="invoice-row" style="min-height:180px"><div class="invoice-field"><span class="lbl">شرح خدمات:</span><div class="invoice-textarea-space">'+itemsText+'</div></div></div>'+
-'<div class="invoice-total-row"><div class="invoice-total-cell"><span class="lbl">جمع کل:</span><span class="val">'+formatMoney(tot)+' تومان</span></div><div class="invoice-total-cell"><span class="lbl">جمع کل به حروف:</span><span class="val">'+numberToWords(f)+' تومان</span></div></div>'+
+'</div>'+
+
+// درخواست‌کننده
+'<div class="inv-customer-section">'+
+'<div class="inv-customer-label">درخواست‌کننده:</div>'+
+'<div class="inv-customer-box">'+(c.name||'')+(c.company?' — '+c.company:'')+'</div>'+
+'</div>'+
+
+// شرح خدمات
+'<div class="inv-items-section">'+
+'<div class="inv-items-label">شرح خدمات:</div>'+
+'<div class="inv-items-box">'+itemsText+'</div>'+
+'</div>'+
+
+// جمع کل
+'<div class="inv-total-section">'+
+'<div class="inv-total-line"><span class="lbl">جمع کل:</span><span class="val big">'+formatMoney(tot)+' تومان</span></div>'+
+'<div class="inv-total-line"><span class="lbl">جمع کل به حروف:</span><span class="val">'+numberToWords(f)+' تومان</span></div>'+
+'</div>'+
+
+// حساب‌های بانکی
 bankHTML+
-'<div class="invoice-bottom">'+
-'<div class="invoice-address"><span class="lbl">آدرس:</span> '+(s.bizAddress||'')+'</div>'+
-'<div class="invoice-stamp-cell">'+stampHTML+'</div>'+
+
+// پایین - آدرس و مهر
+'<div class="inv-bottom">'+
+'<div class="inv-address"><span class="lbl">آدرس:</span> '+(s.bizAddress||'')+'</div>'+
+'<div class="inv-stamp-cell">'+stampHTML+'</div>'+
 '</div>'+
+
+// بخش تبلیغاتی
+'<div class="inv-promo">'+
+'<div class="inv-promo-title"><i class="fas fa-star"></i> خدمات تخصصی Crane 24 <i class="fas fa-star"></i></div>'+
+'<div class="inv-promo-services">'+
+'<span class="inv-promo-item"><i class="fas fa-check"></i> اجاره جرثقیل</span>'+
+'<span class="inv-promo-item"><i class="fas fa-check"></i> لیفتراک</span>'+
+'<span class="inv-promo-item"><i class="fas fa-check"></i> کامیونت</span>'+
+'<span class="inv-promo-item"><i class="fas fa-check"></i> تریلر</span>'+
+'</div>'+
+'<div class="inv-promo-text">با کادری مجرب و متخصص، آماده خدمت‌رسانی در تمام ایام هفته</div>'+
+'<div class="inv-promo-contact">'+
+phone1+phone2+website+
+'</div>'+
+'</div>'+
+
 '</div></div>';
 }
+
 function viewInvoice(id){const inv=DB.invoices.find(function(x){return x.id===id});if(!inv)return;document.getElementById('invoicePrintArea').innerHTML=buildInvoiceHTML(inv);openModal('invoicePreviewModal')}
 function previewInvoice(){const cid=document.getElementById('invoiceCustomer').value;if(!cid){showToast('مشتری را انتخاب کنید','error');return}const q=parseFloat(document.getElementById('invoiceQty').value)||0;const r=parseFloat(document.getElementById('invoiceRate').value)||0;const tp=parseFloat(document.getElementById('invoiceTaxPercent').value)||0;const tot=q*r;const inv={customerId:cid,number:document.getElementById('invoiceNumber').value,date:document.getElementById('invoiceDate').value,paid:document.getElementById('invoicePaid').value,items:document.getElementById('invoiceItems').value,qty:q,rate:r,taxPercent:tp,total:tot,tax:tot*tp/100,finalAmount:tot*(1+tp/100)};document.getElementById('invoicePrintArea').innerHTML=buildInvoiceHTML(inv);openModal('invoicePreviewModal')}
 function printInvoice(){window.print()}
@@ -599,8 +708,8 @@ function switchAccTab(tab,ev){document.querySelectorAll('.acc-tab').forEach(func
 function exportCSV(){const rows=[['تاریخ','نوع','طرف','مبلغ','روش']];DB.transactions.forEach(function(t){const c=DB.customers.find(function(x){return x.id===t.customerId});const d=DB.drivers.find(function(x){return x.id===t.driverId});rows.push([t.date,t.type==='income'?'دریافتی':'پرداختی',((c&&c.name)||(d&&d.name)||'-'),t.amount,t.method||''])});const csv='\uFEFF'+rows.map(function(r){return r.join(',')}).join('\n');const b=new Blob([csv],{type:'text/csv;charset=utf-8;'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='transactions.csv';a.click();URL.revokeObjectURL(u);showToast('دانلود شد')}
 
 // ========== SETTINGS ==========
-function loadSettingsUI(){const s=DB.settings;document.getElementById('setBizName').value=s.bizName||'Crane 24';document.getElementById('setBizSlogan').value=s.bizSlogan||'خدمات تخصصی جرثقیل';document.getElementById('setBizPhone').value=s.bizPhone||'';document.getElementById('setBizPhone2').value=s.bizPhone2||'';document.getElementById('setBizWebsite').value=s.bizWebsite||'';document.getElementById('setBizAddress').value=s.bizAddress||'';document.getElementById('setBizEcoCode').value=s.bizEcoCode||'';document.getElementById('setTaxPercent').value=s.taxPercent||0;document.getElementById('setNextInvoice').value=s.nextInvoiceNumber||1001;document.getElementById('setSheba1').value=s.sheba1||'';document.getElementById('setCard1').value=s.card1||'';document.getElementById('setSheba2').value=s.sheba2||'';document.getElementById('setCard2').value=s.card2||'';if(s.logo)document.getElementById('logoPreview').innerHTML='<img src="'+s.logo+'" style="max-width:80px;border-radius:8px">';if(s.stamp)document.getElementById('stampPreview').innerHTML='<img src="'+s.stamp+'" style="max-width:80px">';if(s.signature)document.getElementById('signaturePreview').innerHTML='<img src="'+s.signature+'" style="max-width:80px">';const sn=document.getElementById('sidebarBrandName');if(sn)sn.textContent=s.bizName||'Crane 24';const tn=document.getElementById('topbarName');if(tn)tn.textContent=s.bizName||'Crane 24';const sl=document.getElementById('sidebarSlogan');if(sl)sl.textContent=s.bizSlogan||'خدمات تخصصی جرثقیل';document.title=(s.bizName||'Crane 24')+' | خدمات تخصصی جرثقیل';if(s.logo){const slg=document.getElementById('sidebarLogo');if(slg)slg.innerHTML='<img src="'+s.logo+'">';const tl=document.getElementById('topbarLogo');if(tl)tl.innerHTML='<img src="'+s.logo+'">'}else{const slg=document.getElementById('sidebarLogo');if(slg)slg.textContent='۲۴';const tl=document.getElementById('topbarLogo');if(tl)tl.textContent='۲۴'}}
-function saveSettings(){const s=DB.settings;s.bizName=document.getElementById('setBizName').value.trim()||'Crane 24';s.bizSlogan=document.getElementById('setBizSlogan').value.trim()||'خدمات تخصصی جرثقیل';s.bizPhone=document.getElementById('setBizPhone').value.trim();s.bizPhone2=document.getElementById('setBizPhone2').value.trim();s.bizWebsite=document.getElementById('setBizWebsite').value.trim();s.bizAddress=document.getElementById('setBizAddress').value.trim();s.bizEcoCode=document.getElementById('setBizEcoCode').value.trim();s.taxPercent=parseFloat(document.getElementById('setTaxPercent').value)||0;s.nextInvoiceNumber=parseInt(document.getElementById('setNextInvoice').value)||1001;s.sheba1=document.getElementById('setSheba1').value.trim();s.card1=document.getElementById('setCard1').value.trim();s.sheba2=document.getElementById('setSheba2').value.trim();s.card2=document.getElementById('setCard2').value.trim();saveDB();loadSettingsUI();showToast('ذخیره شد')}
+function loadSettingsUI(){const s=DB.settings;document.getElementById('setBizName').value=s.bizName||'Crane 24';document.getElementById('setBizSlogan').value=s.bizSlogan||'خدمات تخصصی جرثقیل';document.getElementById('setBizPhone').value=s.bizPhone||'';document.getElementById('setBizPhone2').value=s.bizPhone2||'';document.getElementById('setBizWebsite').value=s.bizWebsite||'';document.getElementById('setBizAddress').value=s.bizAddress||'';document.getElementById('setBizEcoCode').value=s.bizEcoCode||'';document.getElementById('setTaxPercent').value=s.taxPercent||0;document.getElementById('setNextInvoice').value=s.nextInvoiceNumber||1001;document.getElementById('setBankName1').value=s.bankName1||'';document.getElementById('setBankName2').value=s.bankName2||'';document.getElementById('setSheba1').value=s.sheba1||'';document.getElementById('setCard1').value=s.card1||'';document.getElementById('setSheba2').value=s.sheba2||'';document.getElementById('setCard2').value=s.card2||'';if(s.logo)document.getElementById('logoPreview').innerHTML='<img src="'+s.logo+'" style="max-width:80px;border-radius:8px">';if(s.stamp)document.getElementById('stampPreview').innerHTML='<img src="'+s.stamp+'" style="max-width:80px">';if(s.signature)document.getElementById('signaturePreview').innerHTML='<img src="'+s.signature+'" style="max-width:80px">';const sn=document.getElementById('sidebarBrandName');if(sn)sn.textContent=s.bizName||'Crane 24';const tn=document.getElementById('topbarName');if(tn)tn.textContent=s.bizName||'Crane 24';const sl=document.getElementById('sidebarSlogan');if(sl)sl.textContent=s.bizSlogan||'خدمات تخصصی جرثقیل';document.title=(s.bizName||'Crane 24')+' | خدمات تخصصی جرثقیل';if(s.logo){const slg=document.getElementById('sidebarLogo');if(slg)slg.innerHTML='<img src="'+s.logo+'">';const tl=document.getElementById('topbarLogo');if(tl)tl.innerHTML='<img src="'+s.logo+'">'}else{const slg=document.getElementById('sidebarLogo');if(slg)slg.textContent='۲۴';const tl=document.getElementById('topbarLogo');if(tl)tl.textContent='۲۴'}}
+function saveSettings(){const s=DB.settings;s.bizName=document.getElementById('setBizName').value.trim()||'Crane 24';s.bizSlogan=document.getElementById('setBizSlogan').value.trim()||'خدمات تخصصی جرثقیل';s.bizPhone=document.getElementById('setBizPhone').value.trim();s.bizPhone2=document.getElementById('setBizPhone2').value.trim();s.bizWebsite=document.getElementById('setBizWebsite').value.trim();s.bizAddress=document.getElementById('setBizAddress').value.trim();s.bizEcoCode=document.getElementById('setBizEcoCode').value.trim();s.taxPercent=parseFloat(document.getElementById('setTaxPercent').value)||0;s.nextInvoiceNumber=parseInt(document.getElementById('setNextInvoice').value)||1001;s.bankName1=document.getElementById('setBankName1').value.trim();s.bankName2=document.getElementById('setBankName2').value.trim();s.sheba1=document.getElementById('setSheba1').value.trim();s.card1=document.getElementById('setCard1').value.trim();s.sheba2=document.getElementById('setSheba2').value.trim();s.card2=document.getElementById('setCard2').value.trim();saveDB();loadSettingsUI();showToast('ذخیره شد')}
 function uploadImage(input,type){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=function(e){DB.settings[type]=e.target.result;saveDB();const el=document.getElementById(type+'Preview');if(el)el.innerHTML='<img src="'+e.target.result+'" style="max-width:80px;border-radius:8px">';if(type==='logo')loadSettingsUI();showToast('آپلود شد')};r.readAsDataURL(f)}
 function backupData(){const b=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='crane24-backup-'+getTodayJalali().replace(/\//g,'-')+'.json';a.click();URL.revokeObjectURL(u);showToast('دانلود شد')}
 function restoreData(input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=function(e){try{const p=JSON.parse(e.target.result);Object.assign(DB,p);saveDB();loadSettingsUI();renderDashboard();renderCustomers();renderDrivers();renderOrders();renderInvoices();renderAccounting();showToast('بازیابی شد')}catch(err){showToast('فایل نامعتبر','error')}};r.readAsText(f)}
