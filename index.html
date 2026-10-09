@@ -1333,7 +1333,7 @@ function renderAll() {
 /* ============================================================
    Event Handlers (با چک کردن وجود عنصر - امن)
    ============================================================ */
-function safeBind(id, event, handler) {
+function safeBind('newInvoice', 'click', openNewInvoiceModal);
   const el = document.getElementById(id);
   if (el) {
     if (event === 'click') el.onclick = handler;
