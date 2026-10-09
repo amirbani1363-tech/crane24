@@ -3,21 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0F172A">
+<meta name="theme-color" content="#1E40AF">
 <meta name="description" content="سامانه مدیریت کسب‌وکار Crane 24">
 <title>Crane 24 | مدیریت کسب‌وکار</title>
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-:root{--yellow:#F5B800;--hover:#D9A200;--light-yellow:#FFC933;--yellow-bg:#FFF8E1;--black:#0F172A;--black2:#1E293B;--black3:#334155;--red:#E53935;--red-dark:#C62828;--red-bg:#FFEBEE;--bg:#F8F9FB;--card:#fff;--text:#1A1A1A;--muted:#6B7280;--line:#E5E7EB;--green:#10B981;--warning:#F59E0B;--blue:#3B82F6;--radius:14px;--shadow:0 8px 28px rgba(20,24,35,.06)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{min-height:100vh}.sidebar{position:fixed;right:0;top:0;bottom:0;width:248px;background:var(--black);color:#fff;padding:22px 14px;z-index:20;display:flex;flex-direction:column;transition:.25s}.brand{display:flex;align-items:center;gap:14px;padding:3px 9px 24px;border-bottom:1px solid #ffffff1b}.brand-mark{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),#FF9F00);display:grid;place-items:center;color:var(--black);font-size:26px;box-shadow:0 0 0 4px #f5b80020,0 8px 20px rgba(245,184,0,.35);transition:.3s}.brand:hover .brand-mark{transform:scale(1.08) rotate(-5deg)}.brand strong{font-size:20px;letter-spacing:.2px}.brand small{display:block;color:#94A3B8;font-size:11px}.nav{display:grid;gap:6px;margin-top:20px}.nav button{color:#CBD5E1;background:transparent;text-align:right;border-radius:10px;padding:12px 13px;display:flex;align-items:center;gap:12px;transition:.18s}.nav button i{width:21px;text-align:center;color:var(--yellow);font-size:16px}.nav button:hover{background:#ffffff10}.nav button.active{background:var(--yellow);color:var(--black);font-weight:700}.nav button.active i{color:var(--black)}.side-bottom{margin-top:auto;padding:14px 10px 0;border-top:1px solid #ffffff1b;color:#94A3B8;font-size:11px;line-height:2}.main{margin-right:248px;padding:25px 28px 50px;min-height:100vh}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}.page-title h1{font-size:24px;margin:0 0 5px;font-weight:800}.page-title p{margin:0;color:var(--muted);font-size:12px}.top-actions{display:flex;align-items:center;gap:10px}.date-pill,.user-pill{background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:var(--muted);display:flex;gap:8px;align-items:center}.date-pill i{color:var(--yellow)}.menu-toggle{display:none;background:var(--black);color:#fff;border-radius:10px;padding:10px 12px}.btn{padding:10px 15px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;transition:.18s;white-space:nowrap}.btn-primary{background:var(--yellow);color:var(--black)}.btn-primary:hover{background:var(--hover);transform:translateY(-1px)}.btn-dark{background:var(--black);color:#fff}.btn-dark:hover{background:var(--black2)}.btn-outline{background:#fff;border:1px solid var(--line);color:var(--text)}.btn-danger{background:var(--red-bg);color:var(--red-dark)}.btn-sm{padding:7px 10px;font-size:12px;border-radius:8px}.view{display:none;animation:fade .25s}.view.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.section-head h2{font-size:17px;margin:0}.section-head p{color:var(--muted);margin:4px 0 0;font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.3s cubic-bezier(.4,0,.2,1);cursor:default}.stat:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,24,35,.12)}.stat::after{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow),#FF9F00);transition:.3s}.stat:hover::after{width:6px}.stat.red::after{background:linear-gradient(180deg,var(--red),var(--red-dark))}.stat .stat-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--yellow-bg);color:var(--black);border-radius:11px;font-size:19px;margin-bottom:13px;transition:.3s}.stat:hover .stat-icon{transform:scale(1.1) rotate(-5deg);background:var(--yellow)}.stat.red .stat-icon{background:var(--red-bg);color:var(--red)}.stat.red:hover .stat-icon{background:var(--red);color:#fff}.stat label{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:22px;margin:7px 0 0;line-height:1.4}.stat small{color:var(--muted);font-size:11px}.grid-two{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:18px;margin-bottom:20px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow);min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.panel-head h3{margin:0;font-size:15px}.panel-head small{color:var(--muted)}.chart{height:235px;display:flex;align-items:flex-end;gap:13px;padding:15px 4px 0;border-bottom:1px solid var(--line);position:relative}.chart-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px;min-width:0}.bars{height:185px;display:flex;align-items:flex-end;gap:5px;width:100%;justify-content:center}.bar{width:min(24px,42%);min-height:3px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--yellow),#FF9F00);position:relative;transition:.3s}.bar:hover{filter:brightness(1.1)}.bar.cost{background:linear-gradient(180deg,var(--black),var(--black2))}.chart-col span{font-size:10px;color:var(--muted)}.legend{display:flex;gap:16px;font-size:11px;color:var(--muted)}.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-left:5px}.alert-list{display:grid;gap:10px}.alert{display:flex;gap:11px;align-items:flex-start;background:#fff8f8;border:1px solid #ffe0e0;padding:12px;border-radius:10px}.alert i{color:var(--red);margin-top:4px}.alert strong{font-size:12px;display:block}.alert small{color:var(--muted);font-size:11px}.empty{padding:28px 12px;text-align:center;color:var(--muted)}.empty i{font-size:28px;color:#d1d5db;display:block;margin-bottom:10px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:15px}.search{position:relative;flex:1;min-width:180px}.search i{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--muted)}.search input{padding-right:38px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:12px;font-weight:600;color:#4b5563}.field input,.field select,.field textarea,.search input{width:100%;border:1px solid #dfe3e8;border-radius:9px;padding:10px 11px;background:#fff;outline:none;transition:.15s;color:var(--text);min-width:0}.field textarea{resize:vertical;min-height:78px}.field input:focus,.field select:focus,.field textarea:focus,.search input:focus{border-color:var(--yellow);box-shadow:0 0 0 3px #f5b80025}.filters{display:flex;gap:9px;flex-wrap:wrap}.filters select,.filters input{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;max-width:190px}.table-wrap{overflow:visible}table{border-collapse:collapse;width:100%;font-size:12px}th{background:#fafafa;color:#596170;font-weight:700;text-align:right;padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap}td{padding:12px 10px;border-bottom:1px solid #f0f1f3;vertical-align:middle}tbody tr:hover{background:#fffdf6}.table-actions{display:flex;gap:5px}.icon-btn{width:30px;height:30px;border-radius:8px;background:#f3f4f6;color:#4b5563}.icon-btn:hover{background:var(--yellow-bg);color:var(--black)}.icon-btn.del:hover{background:var(--red-bg);color:var(--red)}.badge{display:inline-flex;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap}.badge.pending{background:#fff7e6;color:#b77900}.badge.progress{background:#e8f2ff;color:#2563eb}.badge.done{background:#e7f8f1;color:#059669}.badge.cancel{background:var(--red-bg);color:var(--red)}.badge.debt{background:var(--red-bg);color:var(--red)}.badge.credit{background:#e7f8f1;color:#059669}.modal-backdrop{position:fixed;inset:0;background:#11182799;backdrop-filter:blur(5px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(760px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 25px 80px #0003;animation:fade .2s}.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}.modal-head h3{margin:0;font-size:16px}.modal-body{padding:22px}.modal-foot{padding:15px 22px;border-top:1px solid var(--line);display:flex;gap:9px;justify-content:flex-start}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.form-grid .full{grid-column:1/-1}.toast-area{position:fixed;left:20px;bottom:20px;z-index:200;display:grid;gap:8px}.toast{background:var(--black);color:#fff;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);animation:fade .2s;max-width:340px}.toast i{color:var(--yellow);margin-left:8px}.setting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.setting-grid .panel{align-self:start}.logo-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff}.stamp-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff}.photo-thumb{width:80px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer;transition:.2s}.photo-thumb:hover{transform:scale(1.05);border-color:var(--yellow)}.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px}.gps-badge{display:inline-flex;align-items:center;gap:4px;background:#E3F2FD;color:#1565C0;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}.gps-badge i{font-size:10px}.muted{color:var(--muted)}.money{font-variant-numeric:tabular-nums;white-space:nowrap}.quick-actions{display:flex;gap:8px;flex-wrap:wrap}.subnote{font-size:11px;color:var(--muted);line-height:1.8}.invoice-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}.invoice-sheet{width:148mm;min-height:210mm;background:#fff;color:#1A1A1A;margin:0 auto;padding:7mm 7mm 5mm;border:1px solid #e5e7eb;box-shadow:0 8px 35px #1f29371a;font-family:'Vazirmatn',Tahoma,sans-serif;font-size:9pt;display:flex;flex-direction:column}.invoice-sheet *{box-sizing:border-box}.inv-head{text-align:center;border-bottom:1px solid #d1d5db;padding-bottom:3mm;position:relative}.inv-logo{width:29mm;height:22mm;object-fit:contain;display:block;margin:0 auto 1mm}.inv-company{font-size:16pt;font-weight:800;line-height:1.3}.inv-slogan{font-size:9pt;font-weight:600}.inv-site{font-size:8pt;color:#555}.inv-meta{display:flex;justify-content:space-between;gap:8px;text-align:right;font-size:8pt;margin-top:3mm;padding:2mm 0}.inv-section{border:1px solid #d1d5db;margin-top:2.5mm}.inv-label{font-weight:700;font-size:8.5pt;margin-bottom:1.5mm}.inv-customer{padding:2.5mm;min-height:13mm}.inv-value{border:1px solid #e5e7eb;min-height:7mm;padding:1.3mm 2mm}.inv-service{padding:2.5mm;min-height:33mm}.inv-service-text{min-height:23mm;white-space:pre-wrap;line-height:1.8}.inv-total{padding:2.5mm;display:grid;gap:2mm}.inv-total-line{display:flex;justify-content:space-between;gap:8px}.inv-total-line strong{font-size:10pt}.inv-bank{padding:2.5mm}.inv-bank-title{text-align:center;font-weight:800;margin-bottom:2mm;font-size:8.5pt}.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm}.bank-card{border:1px solid #d1d5db;padding:2mm;min-width:0}.bank-card b{display:block;border-bottom:1px solid #e5e7eb;padding-bottom:1mm;margin-bottom:1mm}.bank-card div{font-size:7.2pt;overflow-wrap:anywhere;line-height:1.8}.inv-address{display:flex;gap:4mm;align-items:stretch;padding:2.5mm}.inv-address-text{flex:1;line-height:1.8}.stamp-box{width:25mm;min-height:18mm;border:1px dashed #9ca3af;display:grid;place-items:center;color:#9ca3af;font-size:8pt;padding:1mm}.stamp-box img{max-width:100%;max-height:100%;object-fit:contain}.inv-promo{margin-top:auto;background:var(--black);color:#fff;padding:3mm 3mm 2.5mm;text-align:center;border-top:2mm solid var(--yellow);position:relative;overflow:hidden}.inv-promo h4{margin:0 0 2mm;color:var(--yellow);font-size:10pt}.service-chips{display:flex;justify-content:center;gap:2mm;flex-wrap:wrap;margin-bottom:2mm}.service-chips span{border:1px solid #f5b80099;padding:1mm 2mm;font-size:7.5pt;color:#fff}.inv-promo p{margin:1mm 0;font-size:7.5pt}.inv-promo .inv-contact{color:var(--yellow);font-weight:700;direction:ltr}.inv-promo .inv-web{direction:ltr;font-size:8pt}.inv-watermark{color:#fff4;font-size:7pt;margin-top:1mm}.danger-zone{border:1px solid #fecaca;background:#fffafa}.hidden{display:none!important}.photo-btn{background:var(--yellow-bg);color:var(--black);border:1px dashed var(--yellow);padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s}.photo-btn:hover{background:var(--yellow)}.location-btn{background:#E3F2FD;color:#1565C0;border:1px dashed #64B5F6;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s}.location-btn:hover{background:#BBDEFB}
-@media(max-width:1100px){.sidebar{width:220px}.main{margin-right:220px;padding:22px 18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-two{grid-template-columns:1fr}.setting-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.sidebar{transform:translateX(100%);width:260px}.sidebar.open{transform:translateX(0);box-shadow:-15px 0 50px #0003}.main{margin-right:0;padding:17px 13px 35px}.menu-toggle{display:inline-flex}.topbar{align-items:flex-start}.page-title h1{font-size:20px}.date-pill{display:none}.top-actions{gap:6px}.top-actions .btn{padding:9px 10px;font-size:12px}.stats{gap:10px}.stat{padding:14px}.stat strong{font-size:18px}.panel{padding:14px}.section-head{align-items:flex-start}.toolbar{align-items:stretch}.toolbar .btn{flex:0 0 auto}.filters{width:100%}.filters select,.filters input{flex:1;max-width:none;min-width:120px}.table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block}.table-wrap thead{display:none}.table-wrap tbody{display:grid;gap:10px}.table-wrap tr{border:1px solid var(--line);border-radius:12px;padding:7px 12px;background:#fff}.table-wrap td{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid #f1f2f4;white-space:normal;text-align:left}.table-wrap td:last-child{border-bottom:0}.table-wrap td:before{content:attr(data-label);font-weight:700;color:var(--muted);text-align:right;min-width:90px}.table-actions{justify-content:flex-end}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.invoice-sheet{margin:0;transform-origin:top center;width:148mm;max-width:none}.invoice-preview-wrap{overflow:auto;padding-bottom:10px}.invoice-actions .btn{flex:1}.setting-grid{grid-template-columns:1fr}}
-@media print{ @page{size:A5 portrait;margin:0}body{background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sidebar,.main>.topbar,.main>.view:not(#view-invoices),#view-invoices>.section-head,#view-invoices>.invoice-actions,.toast-area,.modal-backdrop{display:none!important}.main{margin:0!important;padding:0!important}.app{min-height:0}.view#view-invoices{display:block!important}.invoice-preview-wrap{overflow:visible!important;padding:0!important}.invoice-sheet{width:148mm!important;height:210mm!important;min-height:210mm!important;margin:0!important;padding:6mm!important;border:0!important;box-shadow:none!important;page-break-after:avoid;break-after:avoid}.inv-promo{break-inside:avoid}.inv-section,.bank-card{break-inside:avoid}}
+:root{--primary:#1E40AF;--primary-dark:#1E3A8A;--primary-light:#3B82F6;--primary-bg:#EFF6FF;--yellow:#F5B800;--yellow-hover:#D9A200;--yellow-bg:#FFF8E1;--red:#E53935;--red-dark:#C62828;--red-bg:#FFEBEE;--bg:#F8F9FB;--card:#fff;--text:#1A1A1A;--muted:#6B7280;--line:#E5E7EB;--green:#10B981;--warning:#F59E0B;--blue:#3B82F6;--radius:14px;--shadow:0 8px 28px rgba(20,24,35,.06)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Shabnam','Vazirmatn',Tahoma,sans-serif;font-size:14px;line-height:1.7}
+button,input,select,textarea{font-family:inherit;font-size:inherit}
+button{cursor:pointer;border:0}
+.app{min-height:100vh}
+
+/* ========== SIDEBAR ========== */
+.sidebar{position:fixed;right:0;top:0;bottom:0;width:248px;background:linear-gradient(180deg,var(--primary-dark),var(--primary));color:#fff;padding:22px 14px;z-index:20;display:flex;flex-direction:column;transition:.25s;box-shadow:-4px 0 30px rgba(30,64,175,.15)}
+.brand{display:flex;align-items:center;gap:14px;padding:3px 9px 24px;border-bottom:1px solid rgba(255,255,255,.15)}
+.brand-mark{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),#FF9F00);display:grid;place-items:center;color:#1A1A1A;font-size:26px;box-shadow:0 0 0 4px rgba(245,184,0,.2),0 8px 20px rgba(245,184,0,.35);transition:.3s;flex-shrink:0}
+.brand:hover .brand-mark{transform:scale(1.08) rotate(-5deg)}
+.brand strong{font-size:20px;letter-spacing:.2px;color:#fff}
+.brand small{display:block;color:#BFDBFE;font-size:11px}
+.nav{display:grid;gap:6px;margin-top:20px}
+.nav button{color:#DBEAFE;background:transparent;text-align:right;border-radius:10px;padding:12px 13px;display:flex;align-items:center;gap:12px;transition:.18s;width:100%}
+.nav button i{width:21px;text-align:center;color:var(--yellow);font-size:16px}
+.nav button:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav button.active{background:var(--yellow);color:#1A1A1A;font-weight:700;box-shadow:0 8px 20px rgba(245,184,0,.3)}
+.nav button.active i{color:#1A1A1A}
+.side-bottom{margin-top:auto;padding:14px 10px 0;border-top:1px solid rgba(255,255,255,.15);color:#BFDBFE;font-size:11px;line-height:2}
+
+/* ========== MAIN ========== */
+.main{margin-right:248px;padding:25px 28px 50px;min-height:100vh}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}
+.page-title h1{font-size:24px;margin:0 0 5px;font-weight:800;color:var(--primary-dark)}
+.page-title p{margin:0;color:var(--muted);font-size:12px}
+.top-actions{display:flex;align-items:center;gap:10px}
+.date-pill,.user-pill{background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.date-pill i{color:var(--yellow)}
+.menu-toggle{display:none;background:var(--primary);color:#fff;border-radius:10px;padding:10px 12px}
+
+/* ========== BUTTONS ========== */
+.btn{padding:10px 15px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;transition:.18s;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--yellow),#FF9F00);color:#1A1A1A;box-shadow:0 6px 16px rgba(245,184,0,.3)}
+.btn-primary:hover{background:linear-gradient(135deg,var(--yellow-hover),var(--yellow));transform:translateY(-1px);box-shadow:0 10px 22px rgba(245,184,0,.4)}
+.btn-dark{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 6px 16px rgba(30,64,175,.25)}
+.btn-dark:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(30,64,175,.35)}
+.btn-outline{background:#fff;border:1px solid var(--line);color:var(--text)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-bg)}
+.btn-danger{background:var(--red-bg);color:var(--red-dark)}
+.btn-danger:hover{background:var(--red);color:#fff}
+.btn-sm{padding:7px 10px;font-size:12px;border-radius:8px}
+
+/* ========== VIEWS ========== */
+.view{display:none;animation:fade .25s}
+.view.active{display:block}
+@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:17px;margin:0;color:var(--primary-dark)}
+.section-head p{color:var(--muted);margin:4px 0 0;font-size:12px}
+
+/* ========== STATS ========== */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.3s cubic-bezier(.4,0,.2,1);cursor:default}
+.stat:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,64,175,.12)}
+.stat::after{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow),#FF9F00);transition:.3s}
+.stat:hover::after{width:6px}
+.stat.red::after{background:linear-gradient(180deg,var(--red),var(--red-dark))}
+.stat.blue::after{background:linear-gradient(180deg,var(--primary),var(--primary-dark))}
+.stat .stat-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--yellow-bg);color:#1A1A1A;border-radius:11px;font-size:19px;margin-bottom:13px;transition:.3s}
+.stat:hover .stat-icon{transform:scale(1.1) rotate(-5deg);background:var(--yellow)}
+.stat.red .stat-icon{background:var(--red-bg);color:var(--red)}
+.stat.red:hover .stat-icon{background:var(--red);color:#fff}
+.stat.blue .stat-icon{background:var(--primary-bg);color:var(--primary)}
+.stat.blue:hover .stat-icon{background:var(--primary);color:#fff}
+.stat label{color:var(--muted);font-size:12px}
+.stat strong{display:block;font-size:22px;margin:7px 0 0;line-height:1.4;color:var(--primary-dark)}
+.stat small{color:var(--muted);font-size:11px}
+
+/* ========== PANELS ========== */
+.grid-two{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:18px;margin-bottom:20px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow);min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.panel-head h3{margin:0;font-size:15px;color:var(--primary-dark)}
+.panel-head small{color:var(--muted)}
+
+/* ========== CHART ========== */
+.chart{height:235px;display:flex;align-items:flex-end;gap:13px;padding:15px 4px 0;border-bottom:1px solid var(--line);position:relative}
+.chart-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px;min-width:0}
+.bars{height:185px;display:flex;align-items:flex-end;gap:5px;width:100%;justify-content:center}
+.bar{width:min(24px,42%);min-height:3px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--yellow),#FF9F00);position:relative;transition:.3s}
+.bar:hover{filter:brightness(1.1)}
+.bar.cost{background:linear-gradient(180deg,var(--primary),var(--primary-dark))}
+.chart-col span{font-size:10px;color:var(--muted)}
+.legend{display:flex;gap:16px;font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-left:5px}
+
+/* ========== ALERTS ========== */
+.alert-list{display:grid;gap:10px}
+.alert{display:flex;gap:11px;align-items:flex-start;background:#FFF5F5;border:1px solid #FFE0E0;padding:12px;border-radius:10px}
+.alert i{color:var(--red);margin-top:4px}
+.alert strong{font-size:12px;display:block;color:var(--red-dark)}
+.alert small{color:var(--muted);font-size:11px}
+
+/* ========== EMPTY ========== */
+.empty{padding:28px 12px;text-align:center;color:var(--muted)}
+.empty i{font-size:28px;color:#D1D5DB;display:block;margin-bottom:10px}
+
+/* ========== TOOLBAR ========== */
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:15px}
+.search{position:relative;flex:1;min-width:180px}
+.search i{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.search input{padding-right:38px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:12px;font-weight:600;color:#4B5563}
+.field input,.field select,.field textarea,.search input{width:100%;border:1px solid #DFE3E8;border-radius:9px;padding:10px 11px;background:#fff;outline:none;transition:.15s;color:var(--text);min-width:0;font-family:inherit}
+.field textarea{resize:vertical;min-height:78px}
+.field input:focus,.field select:focus,.field textarea:focus,.search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.15)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.filters select,.filters input{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;max-width:190px;font-family:inherit}
+.filters select:focus,.filters input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.15)}
+
+/* ========== TABLE ========== */
+.table-wrap{overflow:visible}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th{background:#F8FAFC;color:var(--primary-dark);font-weight:700;text-align:right;padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px 10px;border-bottom:1px solid #F0F1F3;vertical-align:middle}
+tbody tr:hover{background:#FFFDF6}
+.table-actions{display:flex;gap:5px}
+.icon-btn{width:30px;height:30px;border-radius:8px;background:#F3F4F6;color:#4B5563;display:inline-flex;align-items:center;justify-content:center;transition:.18s}
+.icon-btn:hover{background:var(--primary-bg);color:var(--primary)}
+.icon-btn.del:hover{background:var(--red-bg);color:var(--red)}
+
+/* ========== BADGES ========== */
+.badge{display:inline-flex;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap}
+.badge.pending{background:#FFF7E6;color:#B77900}
+.badge.progress{background:#E8F2FF;color:#2563EB}
+.badge.done{background:#E7F8F1;color:#059669}
+.badge.cancel{background:var(--red-bg);color:var(--red)}
+.badge.debt{background:var(--red-bg);color:var(--red)}
+.badge.credit{background:#E7F8F1;color:#059669}
+.badge.blue{background:var(--primary-bg);color:var(--primary)}
+
+/* ========== MODAL ========== */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(5px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.modal-backdrop.show{display:flex}
+.modal{width:min(760px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 25px 80px rgba(0,0,0,.3);animation:fade .2s;margin:auto}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2;border-radius:16px 16px 0 0}
+.modal-head h3{margin:0;font-size:16px;color:var(--primary-dark)}
+.modal-body{padding:22px}
+.modal-foot{padding:15px 22px;border-top:1px solid var(--line);display:flex;gap:9px;justify-content:flex-start;flex-wrap:wrap}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form-grid .full{grid-column:1/-1}
+
+/* ========== TOAST ========== */
+.toast-area{position:fixed;left:20px;bottom:20px;z-index:200;display:grid;gap:8px;max-width:340px}
+.toast{background:var(--primary-dark);color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 12px 30px rgba(30,64,175,.3);animation:fade .2s;font-size:13px;display:flex;align-items:center;gap:8px}
+.toast i{color:var(--yellow)}
+
+/* ========== SETTINGS ========== */
+.setting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.setting-grid .panel{align-self:start}
+.logo-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff;border-radius:8px}
+.stamp-preview{width:100px;height:80px;object-fit:contain;border:1px dashed var(--line);padding:8px;background:#fff;border-radius:8px}
+
+/* ========== PHOTOS ========== */
+.photo-thumb{width:80px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer;transition:.2s}
+.photo-thumb:hover{transform:scale(1.05);border-color:var(--primary)}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px}
+.photo-btn{background:var(--yellow-bg);color:#1A1A1A;border:1px dashed var(--yellow);padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s;font-family:inherit}
+.photo-btn:hover{background:var(--yellow)}
+
+/* ========== GPS ========== */
+.gps-badge{display:inline-flex;align-items:center;gap:4px;background:#E3F2FD;color:#1565C0;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.gps-badge i{font-size:10px}
+.location-btn{background:#E3F2FD;color:#1565C0;border:1px dashed #64B5F6;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.18s;font-family:inherit}
+.location-btn:hover{background:#BBDEFB}
+
+/* ========== MISC ========== */
+.muted{color:var(--muted)}
+.money{font-variant-numeric:tabular-nums;white-space:nowrap}
+.quick-actions{display:flex;gap:8px;flex-wrap:wrap}
+.subnote{font-size:11px;color:var(--muted);line-height:1.8}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.danger-zone{border:1px solid #FECACA;background:#FFFAFA;border-radius:10px;padding:14px}
+.danger-zone b{color:var(--red);display:block;margin-bottom:6px}
+.hidden{display:none!important}
+
+/* ========== INVOICE ========== */
+.invoice-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.invoice-preview-wrap{overflow:auto;padding-bottom:10px}
+.invoice-sheet{width:148mm;min-height:210mm;background:#fff;color:#1A1A1A;margin:0 auto;padding:7mm 7mm 5mm;border:1px solid #E5E7EB;box-shadow:0 8px 35px rgba(30,64,175,.15);font-family:'Shabnam','Vazirmatn',Tahoma,sans-serif;font-size:9pt;display:flex;flex-direction:column}
+.invoice-sheet *{box-sizing:border-box}
+.inv-head{text-align:center;border-bottom:1px solid #D1D5DB;padding-bottom:3mm;position:relative}
+.inv-logo{width:29mm;height:22mm;object-fit:contain;display:block;margin:0 auto 1mm}
+.inv-company{font-size:16pt;font-weight:800;line-height:1.3;color:var(--primary-dark)}
+.inv-slogan{font-size:9pt;font-weight:600}
+.inv-site{font-size:8pt;color:#555}
+.inv-meta{display:flex;justify-content:space-between;gap:8px;text-align:right;font-size:8pt;margin-top:3mm;padding:2mm 0}
+.inv-section{border:1px solid #D1D5DB;margin-top:2.5mm}
+.inv-label{font-weight:700;font-size:8.5pt;margin-bottom:1.5mm;color:var(--primary-dark)}
+.inv-customer{padding:2.5mm;min-height:13mm}
+.inv-value{border:1px solid #E5E7EB;min-height:7mm;padding:1.3mm 2mm}
+.inv-service{padding:2.5mm;min-height:33mm}
+.inv-service-text{min-height:23mm;white-space:pre-wrap;line-height:1.8}
+.inv-total{padding:2.5mm;display:grid;gap:2mm}
+.inv-total-line{display:flex;justify-content:space-between;gap:8px}
+.inv-total-line strong{font-size:10pt}
+.inv-bank{padding:2.5mm}
+.inv-bank-title{text-align:center;font-weight:800;margin-bottom:2mm;font-size:8.5pt;color:var(--primary-dark)}
+.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.bank-card{border:1px solid #D1D5DB;padding:2mm;min-width:0}
+.bank-card b{display:block;border-bottom:1px solid #E5E7EB;padding-bottom:1mm;margin-bottom:1mm;color:var(--primary-dark)}
+.bank-card div{font-size:7.2pt;overflow-wrap:anywhere;line-height:1.8}
+.inv-address{display:flex;gap:4mm;align-items:stretch;padding:2.5mm}
+.inv-address-text{flex:1;line-height:1.8}
+.stamp-box{width:25mm;min-height:18mm;border:1px dashed #9CA3AF;display:grid;place-items:center;color:#9CA3AF;font-size:8pt;padding:1mm;border-radius:4px}
+.stamp-box img{max-width:100%;max-height:100%;object-fit:contain}
+.inv-promo{margin-top:auto;background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:3mm 3mm 2.5mm;text-align:center;border-top:2mm solid var(--yellow);position:relative;overflow:hidden;border-radius:0 0 4px 4px}
+.inv-promo h4{margin:0 0 2mm;color:var(--yellow);font-size:10pt}
+.service-chips{display:flex;justify-content:center;gap:2mm;flex-wrap:wrap;margin-bottom:2mm}
+.service-chips span{border:1px solid rgba(245,184,0,.6);padding:1mm 2mm;font-size:7.5pt;color:#fff;border-radius:4px}
+.inv-promo p{margin:1mm 0;font-size:7.5pt}
+.inv-promo .inv-contact{color:var(--yellow);font-weight:700;direction:ltr}
+.inv-promo .inv-web{direction:ltr;font-size:8pt}
+.inv-watermark{color:rgba(255,255,255,.3);font-size:7pt;margin-top:1mm}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1100px){
+  .sidebar{width:220px}
+  .main{margin-right:220px;padding:22px 18px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-two{grid-template-columns:1fr}
+  .setting-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .sidebar{transform:translateX(100%);width:260px}
+  .sidebar.open{transform:translateX(0);box-shadow:-15px 0 50px rgba(0,0,0,.2)}
+  .main{margin-right:0;padding:17px 13px 35px}
+  .menu-toggle{display:inline-flex}
+  .topbar{align-items:flex-start}
+  .page-title h1{font-size:20px}
+  .date-pill{display:none}
+  .top-actions{gap:6px}
+  .top-actions .btn{padding:9px 10px;font-size:12px}
+  .stats{gap:10px}
+  .stat{padding:14px}
+  .stat strong{font-size:18px}
+  .panel{padding:14px}
+  .section-head{align-items:flex-start}
+  .toolbar{align-items:stretch}
+  .toolbar .btn{flex:0 0 auto}
+  .filters{width:100%}
+  .filters select,.filters input{flex:1;max-width:none;min-width:120px}
+  .table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block}
+  .table-wrap thead{display:none}
+  .table-wrap tbody{display:grid;gap:10px}
+  .table-wrap tr{border:1px solid var(--line);border-radius:12px;padding:7px 12px;background:#fff}
+  .table-wrap td{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid #F1F2F4;white-space:normal;text-align:left}
+  .table-wrap td:last-child{border-bottom:0}
+  .table-wrap td:before{content:attr(data-label);font-weight:700;color:var(--primary);text-align:right;min-width:90px}
+  .table-actions{justify-content:flex-end}
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+  .invoice-sheet{margin:0;transform-origin:top center;width:148mm;max-width:none}
+  .invoice-actions .btn{flex:1}
+  .setting-grid{grid-template-columns:1fr}
+  .inv-promo .inv-contact{font-size:8pt}
+}
+
+@media print{
+  @page{size:A5 portrait;margin:0}
+  body{background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sidebar,.main>.topbar,.main>.view:not(#view-invoices),#view-invoices>.section-head,#view-invoices>.invoice-actions,.toast-area,.modal-backdrop{display:none!important}
+  .main{margin:0!important;padding:0!important}
+  .app{min-height:0}
+  .view#view-invoices{display:block!important}
+  .invoice-preview-wrap{overflow:visible!important;padding:0!important}
+  .invoice-sheet{width:148mm!important;height:210mm!important;min-height:210mm!important;margin:0!important;padding:6mm!important;border:0!important;box-shadow:none!important;page-break-after:avoid;break-after:avoid}
+  .inv-promo{break-inside:avoid}
+  .inv-section,.bank-card{break-inside:avoid}
+}
 </style>
 </head>
 <body><div class="app">
@@ -43,12 +312,12 @@
   <section class="view active" id="view-dashboard">
     <div class="stats">
       <div class="stat"><div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div><label>سود امروز</label><strong id="statToday">۰ تومان</strong><small>بر اساس سفارش‌های ثبت‌شده</small></div>
-      <div class="stat"><div class="stat-icon"><i class="fa-solid fa-truck"></i></div><label>کارهای امروز</label><strong id="statJobs">۰</strong><small>سفارش‌های امروز</small></div>
+      <div class="stat blue"><div class="stat-icon"><i class="fa-solid fa-truck"></i></div><label>کارهای امروز</label><strong id="statJobs">۰</strong><small>سفارش‌های امروز</small></div>
       <div class="stat"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><label>سود ماه</label><strong id="statMonth">۰ تومان</strong><small>ماه جاری شمسی</small></div>
       <div class="stat red"><div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><label>بدهی مشتریان</label><strong id="statDebt">۰ تومان</strong><small>مانده فاکتورهای صادرشده</small></div>
     </div>
     <div class="grid-two">
-      <div class="panel"><div class="panel-head"><h3>درآمد و هزینه · ۶ ماه اخیر</h3><div class="legend"><span><i style="background:var(--yellow)"></i>درآمد</span><span><i style="background:var(--black)"></i>هزینه</span></div></div><div class="chart" id="chart"></div></div>
+      <div class="panel"><div class="panel-head"><h3>درآمد و هزینه · ۶ ماه اخیر</h3><div class="legend"><span><i style="background:var(--yellow)"></i>درآمد</span><span><i style="background:var(--primary)"></i>هزینه</span></div></div><div class="chart" id="chart"></div></div>
       <div class="panel"><div class="panel-head"><h3>هشدارهای مالی</h3><small>نیازمند پیگیری</small></div><div class="alert-list" id="alerts"></div></div>
     </div>
     <div class="panel"><div class="panel-head"><h3>۵ سفارش آخر</h3><button class="btn btn-outline btn-sm" data-goto="orders">مشاهده همه <i class="fa-solid fa-arrow-left"></i></button></div><div class="table-wrap" id="recentOrders"></div></div>
@@ -73,14 +342,14 @@
   </section>
 
   <section class="view" id="view-invoices">
-    <div class="section-head"><div><h2>فاکتور رسمی خدمات</h2><p>قالب A5 با هویت بصری زرد و مشکی Crane 24</p></div><button class="btn btn-primary" id="newInvoice"><i class="fa-solid fa-plus"></i> فاکتور جدید</button></div>
+    <div class="section-head"><div><h2>فاکتور رسمی خدمات</h2><p>قالب A5 با هویت بصری Crane 24</p></div><button class="btn btn-primary" id="newInvoice"><i class="fa-solid fa-plus"></i> فاکتور جدید</button></div>
     <div class="invoice-actions"><button class="btn btn-dark" id="printInvoice"><i class="fa-solid fa-print"></i> چاپ / ذخیره PDF</button><button class="btn btn-outline" id="whatsappInvoice"><i class="fa-brands fa-whatsapp"></i> ارسال به واتساپ</button><button class="btn btn-outline" id="shareInvoice"><i class="fa-solid fa-share-nodes"></i> اشتراک‌گذاری</button><button class="btn btn-outline" id="copyInvoice"><i class="fa-regular fa-copy"></i> کپی متن فاکتور</button><button class="btn btn-outline" id="saveInvoice"><i class="fa-solid fa-floppy-disk"></i> ذخیره فاکتور</button></div>
     <div class="invoice-preview-wrap"><article class="invoice-sheet" id="invoiceSheet">
       <header class="inv-head"><img class="inv-logo" id="invLogo" alt="لوگوی Crane 24"><div class="inv-company" id="invCompany">Crane 24</div><div class="inv-slogan" id="invSlogan">خدمات تخصصی جرثقیل</div><div class="inv-site" id="invSite">www.crane24.com</div></header>
       <div class="inv-meta"><span>شماره: <b id="invNumber">۱۰۰۱</b></span><span>تاریخ: <b id="invDate"></b></span></div>
       <section class="inv-section inv-customer"><div class="inv-label">درخواست‌کننده:</div><div class="inv-value" id="invCustomer">نام مشتری / نام شرکت</div><div style="display:flex;gap:4mm;margin-top:1.5mm;font-size:8pt"><span>تلفن: <b id="invPhone">—</b></span><span>محل پروژه: <b id="invLocation">—</b></span></div></section>
       <section class="inv-section inv-service"><div class="inv-label">شرح خدمات:</div><div class="inv-service-text" id="invDescription">شرح خدمات ارائه‌شده در این قسمت درج می‌شود.</div></section>
-      <section class="inv-section inv-total"><div class="inv-total-line"><span>جمع کل:</span><strong><span id="invTotal">۰</span> تومان</strong></div><div class="inv-total-line"><span>مالیات بر ارزش افزوده (<span id="invTaxRate">۰</span>٪):</span><span><b id="invTax">۰</b> تومان</span></div><div class="inv-total-line" style="border-top:1px solid #d1d5db;padding-top:1.5mm"><strong>مبلغ نهایی:</strong><strong><span id="invFinal">۰</span> تومان</strong></div><div class="inv-total-line" style="font-size:8pt"><span>جمع کل به حروف:</span><b id="invWords">صفر تومان</b></div></section>
+      <section class="inv-section inv-total"><div class="inv-total-line"><span>جمع کل:</span><strong><span id="invTotal">۰</span> تومان</strong></div><div class="inv-total-line"><span>مالیات بر ارزش افزوده (<span id="invTaxRate">۰</span>٪):</span><span><b id="invTax">۰</b> تومان</span></div><div class="inv-total-line" style="border-top:1px solid #D1D5DB;padding-top:1.5mm"><strong>مبلغ نهایی:</strong><strong><span id="invFinal">۰</span> تومان</strong></div><div class="inv-total-line" style="font-size:8pt"><span>جمع کل به حروف:</span><b id="invWords">صفر تومان</b></div></section>
       <section class="inv-section inv-bank"><div class="inv-bank-title">💳 شماره حساب‌های زیر جهت تسویه حساب می‌باشد</div><div class="bank-grid"><div class="bank-card"><b id="invBank1Name">بانک ملت</b><div>شبا: <span id="invBank1Iban"></span></div><div>کارت: <span id="invBank1Card"></span></div></div><div class="bank-card"><b id="invBank2Name">بانک سپه</b><div>شبا: <span id="invBank2Iban"></span></div><div>کارت: <span id="invBank2Card"></span></div></div></div></section>
       <section class="inv-section inv-address"><div class="inv-address-text"><b>آدرس:</b> <span id="invAddress"></span><br><b>تماس:</b> <span id="invPhones"></span> <span style="direction:ltr;display:inline-block" id="invWebBottom"></span></div><div class="stamp-box" id="invStampBox">محل مهر و امضا</div></section>
       <footer class="inv-promo"><h4>✦ خدمات تخصصی Crane 24 ✦</h4><div class="service-chips"><span>اجاره جرثقیل ۱ تا ۲۰۰ تن</span><span>لیفتراک</span><span>کامیونت</span><span>تریلر</span></div><p>با کادری مجرب و متخصص، آماده خدمت‌رسانی در تمام ایام هفته</p><p class="inv-contact" id="invContactPromo"></p><p class="inv-web" id="invPromoWeb">www.crane24.com</p><div class="inv-watermark">اعتماد شما، اعتبار ماست</div></footer>
@@ -90,7 +359,7 @@
 
   <section class="view" id="view-accounting">
     <div class="section-head"><div><h2>حسابداری و گردش مالی</h2><p>ثبت دریافت‌ها و پرداخت‌ها و گزارش سود</p></div><div class="quick-actions"><button class="btn btn-primary" id="addReceipt"><i class="fa-solid fa-arrow-down"></i> ثبت دریافتی</button><button class="btn btn-dark" id="addPayment"><i class="fa-solid fa-arrow-up"></i> ثبت پرداختی</button></div></div>
-    <div class="stats"><div class="stat"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-down"></i></div><label>کل دریافتی</label><strong id="accReceipts">۰</strong></div><div class="stat"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-up"></i></div><label>کل پرداختی</label><strong id="accPayments">۰</strong></div><div class="stat"><div class="stat-icon"><i class="fa-solid fa-scale-balanced"></i></div><label>سود خالص ثبت‌شده</label><strong id="accProfit">۰</strong></div><div class="stat red"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><label>بدهی مشتریان</label><strong id="accDebt">۰</strong></div></div>
+    <div class="stats"><div class="stat"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-down"></i></div><label>کل دریافتی</label><strong id="accReceipts">۰</strong></div><div class="stat blue"><div class="stat-icon"><i class="fa-solid fa-circle-arrow-up"></i></div><label>کل پرداختی</label><strong id="accPayments">۰</strong></div><div class="stat"><div class="stat-icon"><i class="fa-solid fa-scale-balanced"></i></div><label>سود خالص ثبت‌شده</label><strong id="accProfit">۰</strong></div><div class="stat red"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><label>بدهی مشتریان</label><strong id="accDebt">۰</strong></div></div>
     <div class="toolbar"><div class="filters" style="flex:1"><input type="text" id="txDateFrom" placeholder="از تاریخ" style="max-width:160px"><input type="text" id="txDateTo" placeholder="تا تاریخ" style="max-width:160px"><select id="txKindFilter"><option value="">همه انواع</option><option value="receipt">دریافتی</option><option value="payment">پرداختی</option></select><button class="btn btn-outline btn-sm" id="txDateClear" type="button"><i class="fa-solid fa-times"></i></button></div><button class="btn btn-outline" id="exportCsv"><i class="fa-solid fa-file-csv"></i> خروجی CSV</button></div><div class="panel"><div class="panel-head"><h3>گردش‌های مالی</h3><small id="txCount"></small></div><div class="table-wrap" id="transactionsTable"></div></div>
   </section>
 
@@ -100,115 +369,1126 @@
       <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-building" style="color:var(--yellow)"></i> اطلاعات کسب‌وکار</h3></div><div class="form-grid" id="businessSettings"></div></div>
       <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-building-columns" style="color:var(--yellow)"></i> حساب‌های بانکی</h3></div><div class="form-grid" id="bankSettings"></div></div>
       <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-image" style="color:var(--yellow)"></i> لوگو، مهر و امضا</h3></div><div class="field"><label>لوگوی شرکت (تصویر)</label><div style="display:flex;gap:12px;align-items:center"><img id="settingsLogoPreview" class="logo-preview" alt="پیش‌نمایش لوگو"><input type="file" id="logoUpload" accept="image/*"></div></div><div class="field" style="margin-top:14px"><label>تصویر مهر / امضا (اختیاری)</label><div style="display:flex;gap:12px;align-items:center"><img id="settingsStampPreview" class="stamp-preview" alt="پیش‌نمایش مهر"><input type="file" id="stampUpload" accept="image/*"></div></div><p class="subnote">تصاویر در localStorage همین مرورگر ذخیره می‌شوند. از فایل‌های کم‌حجم استفاده کنید.</p></div>
-      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-database" style="color:var(--yellow)"></i> پشتیبان‌گیری و داده‌ها</h3></div><p class="subnote">پشتیبان JSON شامل مشتریان، رانندگان، سفارش‌ها، فاکتورها، تراکنش‌ها و تنظیمات است.</p><div class="quick-actions"><button class="btn btn-dark" id="backupBtn"><i class="fa-solid fa-download"></i> دانلود پشتیبان JSON</button><button class="btn btn-outline" id="restoreBtn"><i class="fa-solid fa-upload"></i> بازیابی پشتیبان</button><input type="file" id="restoreFile" accept=".json,application/json" class="hidden"></div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="danger-zone panel" style="padding:14px"><b style="color:var(--red)">حذف همه داده‌ها</b><p class="subnote">این کار همه اطلاعات ذخیره‌شده روی این مرورگر را پاک می‌کند و قابل بازگشت نیست.</p><button class="btn btn-danger" id="clearData"><i class="fa-solid fa-trash"></i> پاک کردن همه داده‌ها</button></div></div>
-    </div><script>
-'use strict';
-const DB_KEY='crane24_db';
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const faDigits=s=>String(s??'').replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[+d]);
-const enDigits=s=>String(s??'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-const num=v=>Number(enDigits(v).replace(/[,\s٬]/g,''))||0;
-const money=v=>faDigits(Math.round(Number(v)||0).toLocaleString('en-US'))+' تومان';
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function jalaali(g_y,g_m,g_d){g_y=+g_y;g_m=+g_m;g_d=+g_d;const gdm=[0,31,(g_y%4===0&&g_y%100!==0||g_y%400===0)?29:28,31,30,31,30,31,31,30,31,30,31];let gy=g_y-1600,gm=g_m-1,gd=g_d-1;let g_day_no=365*gy+Math.floor((gy+3)/4)-Math.floor((gy+99)/100)+Math.floor((gy+399)/400);for(let i=0;i<gm;i++)g_day_no+=gdm[i+1];g_day_no+=gd;let j_day_no=g_day_no-79,j_np=Math.floor(j_day_no/12053);j_day_no%=12053;let jy=979+33*j_np+4*Math.floor(j_day_no/1461);j_day_no%=1461;if(j_day_no>=366){jy+=Math.floor((j_day_no-1)/365);j_day_no=(j_day_no-1)%365}let jm,jd;if(j_day_no<186){jm=1+Math.floor(j_day_no/31);jd=1+j_day_no%31}else{jm=7+Math.floor((j_day_no-186)/30);jd=1+(j_day_no-186)%30}return [jy,jm,jd]}
-function todayJ(){const d=new Date(),a=jalaali(d.getFullYear(),d.getMonth()+1,d.getDate());return a.map(x=>String(x).padStart(2,'0')).join('/')}
-function monthKeyJ(date){return (date||todayJ()).slice(0,7)}
-function dateStamp(){return todayJ()}
-const monthNames=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
-function currentMonth(){return Number(todayJ().split('/')[1])}
-function amountWords(n){n=Math.floor(Math.abs(Number(n)||0));if(n===0)return 'صفر';const ones=['','یک','دو','سه','چهار','پنج','شش','هفت','هشت','نه'];const teens=['ده','یازده','دوازده','سیزده','چهارده','پانزده','شانزده','هفده','هجده','نوزده'];const tens=['','','بیست','سی','چهل','پنجاه','شصت','هفتاد','هشتاد','نود'];const hundreds=['','یکصد','دویست','سیصد','چهارصد','پانصد','ششصد','هفتصد','هشتصد','نهصد'];function under1000(x){let a=[];if(x>=100){a.push(hundreds[Math.floor(x/100)]);x%=100}if(x>=10&&x<20)a.push(teens[x-10]);else{if(x>=20){a.push(tens[Math.floor(x/10)]);x%=10}if(x)a.push(ones[x])}return a.join(' و ')}let out=[],units=['','هزار','میلیون','میلیارد','تریلیون'];let i=0;while(n>0){let part=n%1000;if(part)out.unshift(under1000(part)+(units[i]?' '+units[i]:''));n=Math.floor(n/1000);i++}return out.join(' و ')}
-function makeDefault(){return {version:2,settings:{name:'Crane 24',slogan:'خدمات تخصصی جرثقیل',phone1:'09121349776',phone2:'09126114585',website:'www.crane24.com',address:'تهران، خیابان اتحاد، خیابان نهم غربی',economic:'',tax:0,nextInvoice:1001,bank1Name:'بانک ملت',bank1Iban:'IR87012001000000763004542',bank1Card:'6104 3371 4296 9235',bank2Name:'بانک سپه',bank2Iban:'IR57015000003120044157434',bank2Card:'5892 1014 7017 6914',logo:'',stamp:''},customers:[],drivers:[],orders:[],invoices:[],transactions:[]}}
-function loadDB(){try{const d=JSON.parse(localStorage.getItem(DB_KEY));if(d&&typeof d==='object'){const base=makeDefault();return {...base,...d,settings:{...base.settings,...d.settings},customers:d.customers||[],drivers:d.drivers||[],orders:d.orders||[],invoices:d.invoices||[],transactions:d.transactions||[]}}}catch(e){}return makeDefault()}
-let db=loadDB(),currentInvoice=null,modalSave=null;
-function saveDB(){try{localStorage.setItem(DB_KEY,JSON.stringify(db))}catch(e){toast('فضای ذخیره‌سازی پر شده است؛ حجم کمتری از تصاویر را انتخاب کنید.',true)}}
-function toast(msg,bad=false){const el=document.createElement('div');el.className='toast';el.innerHTML='<i class="fa-solid '+(bad?'fa-circle-exclamation':'fa-circle-check')+'"></i>'+esc(msg);$('#toastArea').append(el);setTimeout(()=>el.remove(),3600)}
-function empty(msg='هنوز اطلاعاتی ثبت نشده است'){return `<div class="empty"><i class="fa-regular fa-folder-open"></i>${esc(msg)}</div>`}
-function table(headers,rows){if(!rows.length)return empty();return `<table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
-function td(label,html){return `<td data-label="${label}">${html}</td>`}
-function statusBadge(s){let c=s==='تمام شده'?'done':s==='در حال انجام'?'progress':s==='لغو'?'cancel':'pending';return `<span class="badge ${c}">${esc(s||'در انتظار')}</span>`}
-function getCustomer(id){return db.customers.find(x=>x.id===id)}
-function getDriver(id){return db.drivers.find(x=>x.id===id)}
-function customerName(id){const c=getCustomer(id);return c?(c.name+(c.company?' · '+c.company:'')):'—'}
-function driverName(id){return getDriver(id)?.name||'—'}
-function orderProfit(o){return (Number(o.income)||0)-(Number(o.driverCost)||0)}
-function sum(a,f){return a.reduce((s,x)=>s+(Number(f(x))||0),0)}
-function inDateRange(date,from,to){if(!date)return false;if(from&&date<from)return false;if(to&&date>to)return false;return true}
-function navigate(view){$$('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+view));$$('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===view));const titles={dashboard:['داشبورد','نمای کلی کسب‌وکار شما در یک نگاه'],customers:['مشتریان','مدیریت ارتباط با مشتریان'],drivers:['رانندگان','اطلاعات رانندگان و تسویه‌ها'],orders:['سفارشات','مدیریت عملیات اجاره و حمل'],invoices:['فاکتور','صدور و چاپ فاکتور خدمات A5'],accounting:['حسابداری','دریافتی‌ها، پرداختی‌ها و گزارش مالی'],settings:['تنظیمات','پیکربندی اطلاعات Crane 24']};$('#pageHeading').textContent=titles[view][0];$('#pageSub').textContent=titles[view][1];$('#sidebar').classList.remove('open');if(view==='invoices'&&!currentInvoice)prepareInvoice();renderAll()}
-$('#nav').addEventListener('click',e=>{const b=e.target.closest('button[data-view]');if(b)navigate(b.dataset.view)});
-$$('[data-goto]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.goto)));
-$('#menuToggle').onclick=()=>$('#sidebar').classList.toggle('open');
-function openModal(title,fields,initial={},onSave,submit='ذخیره'){modalSave=onSave;$('#modalTitle').textContent=title;$('#modalSubmit').textContent=submit;$('#modalBody').innerHTML='<div class="form-grid">'+fields.map(f=>{let val=initial[f.name]??f.value??'';let cls=f.full?'full':'';let inp='';if(f.type==='select'){inp=`<select name="${f.name}" ${f.required?'required':''}>${(f.options||[]).map(o=>{let v=typeof o==='string'?o:o.value,t=typeof o==='string'?o:o.label;return `<option value="${esc(v)}" ${String(v)===String(val)?'selected':''}>${esc(t)}</option>`}).join('')}</select>`}else if(f.type==='textarea'){inp=`<textarea name="${f.name}" placeholder="${esc(f.placeholder||'')}">${esc(val)}</textarea>`}else if(f.type==='html'){inp=f.value||''}else{inp=`<input name="${f.name}" type="${f.type||'text'}" value="${esc(val)}" placeholder="${esc(f.placeholder||'')}" ${f.required?'required':''} ${f.min!==undefined?`min="${f.min}"`:''} ${f.step?`step="${f.step}"`:''}>`}return `<div class="field ${cls}"><label>${esc(f.label)}${f.required?' *':''}</label>${inp}</div>`}).join('')+'</div>';$('#modalBackdrop').classList.add('show');setTimeout(()=>$('#modalBody input')?.focus(),40)}
-function closeModal(){$('#modalBackdrop').classList.remove('show');modalSave=null}
-$('#modalClose').onclick=$('#modalCancel').onclick=closeModal;$('#modalBackdrop').addEventListener('click',e=>{if(e.target===$('#modalBackdrop'))closeModal()});
-$('#modalForm').addEventListener('submit',e=>{e.preventDefault();if(!modalSave)return;const data=Object.fromEntries(new FormData(e.target).entries());const htmlData={};$$('#modalBody [data-extra]').forEach(el=>{htmlData[el.dataset.extra]=el.dataset.value||''});modalSave({...data,...htmlData});closeModal();saveDB();renderAll()});
-function confirmDelete(what,cb){if(confirm(`آیا از حذف ${what} مطمئن هستید؟ این عملیات قابل بازگشت نیست.`)){cb();saveDB();renderAll();toast('حذف انجام شد.')}}
-function customerBalance(id){const billed=sum(db.invoices.filter(i=>i.customerId===id),i=>i.finalTotal);const paid=sum(db.transactions.filter(t=>t.partyType==='customer'&&t.partyId===id&&t.kind==='receipt'),t=>t.amount);return billed-paid}
-function driverBalance(id){const cost=sum(db.orders.filter(o=>o.driverId===id),o=>o.driverCost);const paid=sum(db.transactions.filter(t=>t.partyType==='driver'&&t.partyId===id&&t.kind==='payment'),t=>t.amount);return cost-paid}
-function renderCustomers(){const q=($('#customerSearch')?.value||'').toLowerCase();const list=db.customers.filter(c=>([c.name,c.company,c.mobile,c.phone,c.address,c.location].join(' ').toLowerCase()).includes(q));$('#customersTable').innerHTML=table(['مشتری','موبایل','تلفن ثابت','موقعیت','سابقه','مانده حساب','عملیات'],list.map(c=>`<tr>${td('مشتری',`<b>${esc(c.name)}</b><div class="muted">${esc(c.company||'')}</div>`)}${td('موبایل',esc(c.mobile||'—'))}${td('تلفن ثابت',esc(c.phone||'—'))}${td('موقعیت',c.lat?`<span class="gps-badge"><i class="fa-solid fa-location-dot"></i>ثبت شده</span>`:'—')}${td('سابقه',faDigits(db.orders.filter(o=>o.customerId===c.id).length)+' سفارش')}${td('مانده حساب',`<span class="badge ${customerBalance(c.id)>0?'debt':'credit'}">${money(Math.abs(customerBalance(c.id)))} ${customerBalance(c.id)>0?'بدهکار':customerBalance(c.id)<0?'بستانکار':''}</span>`)}${td('عملیات',`<div class="table-actions">${c.lat?`<button class="icon-btn" title="مشاهده روی نقشه" onclick="openMap('${c.lat}','${c.lng}')"><i class="fa-solid fa-map-location-dot"></i></button>`:''}<button class="icon-btn" title="سابقه" onclick="historyCustomer('${c.id}')"><i class="fa-solid fa-clock-rotate-left"></i></button><button class="icon-btn" title="ویرایش" onclick="editCustomer('${c.id}')"><i class="fa-solid fa-pen"></i></button><button class="icon-btn del" title="حذف" onclick="deleteCustomer('${c.id}')"><i class="fa-solid fa-trash"></i></button></div>`)}</tr>`))}
-function openMap(lat,lng){window.open(`https://www.google.com/maps?q=${lat},${lng}`,'_blank','noopener')}
-function customerFields(){return [{name:'name',label:'نام و نام خانوادگی',required:true},{name:'company',label:'نام شرکت'},{name:'mobile',label:'موبایل / واتساپ',type:'tel'},{name:'phone',label:'تلفن ثابت',type:'tel'},{name:'national',label:'کد ملی / اقتصادی'},{name:'email',label:'ایمیل',type:'email'},{name:'address',label:'آدرس',full:true},{name:'location',label:'موقعیت جغرافیایی (GPS)',type:'html',full:true,value:'<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="location-btn" onclick="getGPS()"><i class="fa-solid fa-location-crosshairs"></i> دریافت موقعیت فعلی</button><span id="gpsStatus" class="muted" style="align-self:center;font-size:12px">موقعیتی ثبت نشده</span></div><input type="hidden" name="lat" id="gpsLat"><input type="hidden" name="lng" id="gpsLng">'},{name:'notes',label:'یادداشت',type:'textarea',full:true}]}
-function getGPS(){if(!navigator.geolocation){toast('مرورگر شما از موقعیت‌یاب پشتیبانی نمی‌کند.',true);return}const st=$('#gpsStatus');st.textContent='در حال دریافت...';navigator.geolocation.getCurrentPosition(p=>{$('#gpsLat').value=p.coords.latitude.toFixed(6);$('#gpsLng').value=p.coords.longitude.toFixed(6);st.innerHTML='<i class="fa-solid fa-check" style="color:var(--green)"></i> ثبت شد ('+p.coords.latitude.toFixed(4)+', '+p.coords.longitude.toFixed(4)+')';toast('موقعیت ثبت شد.')},err=>{st.textContent='خطا در دریافت موقعیت';toast('دسترسی به موقعیت داده نشد.',true)},{enableHighAccuracy:true,timeout:10000})}
-function addCustomer(){openModal('افزودن مشتری',customerFields(),{},d=>{db.customers.push({id:uid(),...d,created:dateStamp()});toast('مشتری ثبت شد.')})}
-function editCustomer(id){let c=getCustomer(id);if(c)openModal('ویرایش مشتری',customerFields(),c,d=>{Object.assign(c,d);toast('اطلاعات مشتری به‌روزرسانی شد.')})}
-function deleteCustomer(id){if(db.orders.some(o=>o.customerId===id)||db.invoices.some(i=>i.customerId===id)){toast('این مشتری سابقه سفارش یا فاکتور دارد؛ برای حفظ سوابق حذف نمی‌شود.',true);return}confirmDelete('مشتری',()=>db.customers=db.customers.filter(x=>x.id!==id))}
-function historyCustomer(id){let c=getCustomer(id);const orders=db.orders.filter(o=>o.customerId===id);alert(`سابقه ${c?.name||'مشتری'}\nتعداد سفارش‌ها: ${orders.length}\nمانده حساب: ${money(customerBalance(id))}\n\n`+orders.map(o=>`${o.date} | ${o.service||o.craneType||'خدمات'} | سود: ${money(orderProfit(o))}`).join('\n'))}
-function renderDrivers(){const q=($('#driverSearch')?.value||'').toLowerCase();const list=db.drivers.filter(d=>([d.name,d.mobile,d.craneType,d.plate].join(' ').toLowerCase()).includes(q));$('#driversTable').innerHTML=table(['راننده','موبایل','وسیله / تناژ','پلاک','بدهی به راننده','عملیات'],list.map(d=>`<tr>${td('راننده',`<b>${esc(d.name)}</b>`)}${td('موبایل',esc(d.mobile||'—'))}${td('وسیله / تناژ',esc(d.craneType||'—'))}${td('پلاک',esc(d.plate||'—'))}${td('بدهی به راننده',`<span class="badge ${driverBalance(d.id)>0?'debt':'credit'}">${money(Math.max(0,driverBalance(d.id)))}</span>`)}${td('عملیات',`<div class="table-actions"><button class="icon-btn" title="سابقه" onclick="historyDriver('${d.id}')"><i class="fa-solid fa-clock-rotate-left"></i></button><button class="icon-btn" title="ویرایش" onclick="editDriver('${d.id}')"><i class="fa-solid fa-pen"></i></button><button class="icon-btn del" title="حذف" onclick="deleteDriver('${d.id}')"><i class="fa-solid fa-trash"></i></button></div>`)}</tr>`))}
-function driverFields(){return [{name:'name',label:'نام راننده',required:true},{name:'mobile',label:'موبایل',type:'tel'},{name:'craneType',label:'نوع جرثقیل و تناژ'},{name:'plate',label:'شماره پلاک'},{name:'iban',label:'شبا / کارت'},{name:'notes',label:'یادداشت',type:'textarea',full:true}]}
-function addDriver(){openModal('افزودن راننده',driverFields(),{},d=>{db.drivers.push({id:uid(),...d});toast('راننده ثبت شد.')})}
-function editDriver(id){let d=getDriver(id);if(d)openModal('ویرایش راننده',driverFields(),d,x=>Object.assign(d,x))}
-function deleteDriver(id){if(db.orders.some(o=>o.driverId===id)){toast('این راننده سابقه سفارش دارد؛ برای حفظ سوابق حذف نمی‌شود.',true);return}confirmDelete('راننده',()=>db.drivers=db.drivers.filter(x=>x.id!==id))}
-function historyDriver(id){let d=getDriver(id),os=db.orders.filter(o=>o.driverId===id);alert(`سابقه ${d?.name||'راننده'}\nتعداد سفارش‌ها: ${os.length}\nبدهی باقی‌مانده: ${money(driverBalance(id))}\n\n`+os.map(o=>`${o.date} | ${o.service||o.craneType||'خدمات'} | کرایه راننده: ${money(o.driverCost)}`).join('\n'))}
-function optionsFrom(arr,labelFn,selected=''){return '<option value="">انتخاب کنید</option>'+arr.map(x=>`<option value="${esc(x.id)}" ${x.id===selected?'selected':''}>${esc(labelFn(x))}</option>`).join('')}
-function updateOrderFilters(){const c=$('#orderCustomerFilter'),d=$('#orderDriverFilter');if(!c||!d)return;const cv=c.value,dv=d.value;c.innerHTML='<option value="">همه مشتریان</option>'+db.customers.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('');d.innerHTML='<option value="">همه رانندگان</option>'+db.drivers.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('');c.value=cv;d.value=dv}
-function renderOrders(){updateOrderFilters();const q=($('#orderSearch')?.value||'').toLowerCase(),cf=$('#orderCustomerFilter')?.value||'',df=$('#orderDriverFilter')?.value||'',sf=$('#orderStatusFilter')?.value||'',dfr=$('#orderDateFrom')?.value||'',dto=$('#orderDateTo')?.value||'';const list=db.orders.filter(o=>(`${o.location||''} ${o.service||''} ${o.craneType||''}`).toLowerCase().includes(q)&&(!cf||o.customerId===cf)&&(!df||o.driverId===df)&&(!sf||o.status===sf)&&(!dfr&&!dto||inDateRange(o.date,dfr,dto))).sort((a,b)=>b.createdAt-a.createdAt);$('#ordersTable').innerHTML=table(['تاریخ / شماره','مشتری','راننده / وسیله','محل کار','کرایه مشتری','پرداخت راننده','سود','وضعیت','عملیات'],list.map(o=>`<tr>${td('تاریخ / شماره',`${esc(o.date)}<div class="muted">${esc(o.id.slice(-5))}</div>`)}${td('مشتری',esc(customerName(o.customerId)))}${td('راننده / وسیله',`${esc(driverName(o.driverId))}<div class="muted">${esc(o.craneType||o.service||'')}</div>`)}${td('محل کار',esc(o.location||'—'))}${td('کرایه مشتری',money(o.income))}${td('پرداخت راننده',money(o.driverCost))}${td('سود',`<b>${money(orderProfit(o))}</b>`)}${td('وضعیت',statusBadge(o.status))}${td('عملیات',`<div class="table-actions">${o.photos&&o.photos.length?`<button class="icon-btn" title="عکس‌ها" onclick="viewPhotos('${o.id}')"><i class="fa-solid fa-image"></i></button>`:''}<button class="icon-btn" onclick="editOrder('${o.id}')"><i class="fa-solid fa-pen"></i></button><button class="icon-btn del" onclick="deleteOrder('${o.id}')"><i class="fa-solid fa-trash"></i></button></div>`)}</tr>`))}
-function orderFields(o={}){const photoHTML=o.photos&&o.photos.length?`<div class="photo-grid">${o.photos.map((p,i)=>`<img src="${p}" class="photo-thumb" onclick="viewPhotos('${o.id}',${i})">`).join('')}</div>`:'';return [{name:'date',label:'تاریخ شمسی',value:dateStamp(),required:true},{name:'time',label:'ساعت شروع',type:'time'},{name:'customerId',label:'مشتری',type:'select',required:true,options:db.customers.map(c=>({value:c.id,label:c.name+(c.company?' - '+c.company:'')}))},{name:'driverId',label:'راننده',type:'select',options:db.drivers.map(d=>({value:d.id,label:d.name}))},{name:'craneType',label:'نوع وسیله / تناژ',placeholder:'مثلاً جرثقیل ۵۰ تن'},{name:'location',label:'محل کار / پروژه'},{name:'rateType',label:'نوع نرخ',type:'select',options:['ساعتی','روزانه','ماهانه','تک‌قلابه']},{name:'calcDescription',label:'شرح محاسبه',placeholder:'مثلاً ۵ ساعت × مبلغ ساعتی',full:true},{name:'income',label:'کرایه دریافتی از مشتری (تومان)',type:'number',min:0,required:true},{name:'driverCost',label:'کرایه پرداختی به راننده (تومان)',type:'number',min:0,required:true},{name:'status',label:'وضعیت',type:'select',options:['در انتظار','در حال انجام','تمام شده','لغو']},{name:'service',label:'شرح خدمات'},{name:'photos',label:'عکس‌های کارگاه',type:'html',full:true,value:`<div><button type="button" class="photo-btn" onclick="openPhotoInput()"><i class="fa-solid fa-camera"></i> افزودن عکس از کارگاه</button><input type="file" id="photoInput" accept="image/*" capture="environment" class="hidden" onchange="addPhoto(event)"><div class="photo-grid" id="photoGrid"></div>${photoHTML?'<div style="margin-top:8px"><small class="muted">عکس‌های ذخیره‌شده:</small></div>'+photoHTML:''}</div>`},{name:'notes',label:'توضیحات',type:'textarea',full:true}]}
-function openPhotoInput(){$('#photoInput').click()}
-function addPhoto(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');let w=img.width,h=img.height;const max=900;if(w>max||h>max){if(w>h){h=h*max/w;w=max}else{w=w*max/h;h=max}}canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);const data=canvas.toDataURL('image/jpeg',0.65);window.__tempPhotos=window.__tempPhotos||[];window.__tempPhotos.push(data);const g=$('#photoGrid');g.innerHTML+=`<img src="${data}" class="photo-thumb">`;toast('عکس فشرده و اضافه شد.')};img.src=r.result};r.readAsDataURL(f)}
-function viewPhotos(orderId,idx){const o=db.orders.find(x=>x.id===orderId);if(!o||!o.photos)return;const html=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px">${o.photos.map(p=>`<img src="${p}" style="width:100%;border-radius:10px">`).join('')}</div>`;window.open('','_blank')?.document?.write(html)}
-function addOrder(){if(!db.customers.length){toast('ابتدا یک مشتری ثبت کنید.',true);navigate('customers');return}openModal('ثبت سفارش جدید',orderFields(),{date:dateStamp(),status:'در انتظار',rateType:'ساعتی'},d=>{d.income=num(d.income);d.driverCost=num(d.driverCost);if(window.__tempPhotos&&window.__tempPhotos.length)d.photos=[...window.__tempPhotos];window.__tempPhotos=[];db.orders.push({id:uid(),...d,createdAt:Date.now()});toast('سفارش ثبت شد.')})}
-function editOrder(id){const o=db.orders.find(x=>x.id===id);if(!o)return;window.__tempPhotos=o.photos?[...o.photos]:[];openModal('ویرایش سفارش',orderFields(o),o,d=>{d.income=num(d.income);d.driverCost=num(d.driverCost);if(window.__tempPhotos&&window.__tempPhotos.length)d.photos=[...window.__tempPhotos];window.__tempPhotos=[];Object.assign(o,d)})}
-function deleteOrder(id){confirmDelete('سفارش',()=>db.orders=db.orders.filter(o=>o.id!==id))}
-function renderRecent(){const list=[...db.orders].sort((a,b)=>b.createdAt-a.createdAt).slice(0,5);$('#recentOrders').innerHTML=table(['تاریخ','مشتری','خدمات / محل','سود','وضعیت'],list.map(o=>`<tr>${td('تاریخ',esc(o.date))}${td('مشتری',esc(customerName(o.customerId)))}${td('خدمات / محل',`${esc(o.service||o.craneType||'خدمات')}<div class="muted">${esc(o.location||'')}</div>`)}${td('سود',`<b>${money(orderProfit(o))}</b>`)}${td('وضعیت',statusBadge(o.status))}</tr>`))}
-function renderChart(){const now=jalaali(...[new Date().getFullYear(),new Date().getMonth()+1,new Date().getDate()]);const months=[];for(let i=5;i>=0;i--){let m=now[1]-i,y=now[0];while(m<=0){m+=12;y--}const key=`${y}/${String(m).padStart(2,'0')}`;const os=db.orders.filter(o=>(o.date||'').startsWith(key)&&o.status!=='لغو');months.push({label:monthNames[m-1],income:sum(os,o=>o.income),cost:sum(os,o=>o.driverCost)})}const max=Math.max(1,...months.flatMap(x=>[x.income,x.cost]));$('#chart').innerHTML=months.map(m=>`<div class="chart-col"><div class="bars"><div class="bar" title="درآمد ${money(m.income)}" style="height:${Math.max(2,m.income/max*100)}%"></div><div class="bar cost" title="هزینه ${money(m.cost)}" style="height:${Math.max(2,m.cost/max*100)}%"></div></div><span>${m.label}</span></div>`).join('')}
-function renderAlerts(){const unpaid=db.invoices.filter(i=>!i.paid&&i.finalTotal>0);const debts=db.customers.map(c=>({c,b:customerBalance(c.id)})).filter(x=>x.b>0).sort((a,b)=>b.b-a.b).slice(0,3);let html=unpaid.slice(0,3).map(i=>`<div class="alert"><i class="fa-solid fa-file-circle-exclamation"></i><div><strong>فاکتور شماره ${faDigits(i.number)} پرداخت نشده</strong><small>${esc(i.customerName||'بدون نام')} · ${money(i.finalTotal)}</small></div></div>`).join('');html+=debts.map(x=>`<div class="alert"><i class="fa-solid fa-circle-exclamation"></i><div><strong>مانده مشتری: ${esc(x.c.name)}</strong><small>${money(x.b)} بدهی</small></div></div>`).join('');$('#alerts').innerHTML=html||empty('هشدار مالی ثبت نشده است.')}
-function renderDashboard(){const today=dateStamp(),month=today.slice(0,7),valid=db.orders.filter(o=>o.status!=='لغو');$('#statToday').textContent=money(sum(valid.filter(o=>o.date===today),orderProfit));$('#statJobs').textContent=faDigits(valid.filter(o=>o.date===today).length);$('#statMonth').textContent=money(sum(valid.filter(o=>(o.date||'').startsWith(month)),orderProfit));$('#statDebt').textContent=money(sum(db.customers,c=>Math.max(0,customerBalance(c.id))));renderChart();renderAlerts();renderRecent()}function prepareInvoice(orderId){const order=orderId?db.orders.find(o=>o.id===orderId):null;const customer=order?getCustomer(order.customerId):null;currentInvoice={id:uid(),number:db.settings.nextInvoice,date:dateStamp(),customerId:customer?.id||'',customerName:customer?.name||'',customerCompany:customer?.company||'',phone:customer?.mobile||'',location:order?.location||'',description:order?[`${order.service||order.craneType||'خدمات جرثقیل'}`,order.calcDescription||'',order.notes||''].filter(Boolean).join('\n'): '',total:order?Number(order.income)||0:0,taxRate:Number(db.settings.tax)||0,finalTotal:0,paid:false,createdAt:Date.now()};currentInvoice.finalTotal=currentInvoice.total*(1+currentInvoice.taxRate/100);renderInvoice(currentInvoice)}
-function renderInvoice(i){if(!i)return;const s=db.settings;$('#invLogo').src=s.logo||defaultLogo();$('#invLogo').style.display='block';$('#invCompany').textContent=s.name;$('#invSlogan').textContent=s.slogan;$('#invSite').textContent=s.website;$('#invNumber').textContent=faDigits(i.number);$('#invDate').textContent=faDigits(i.date);$('#invCustomer').textContent=[i.customerName,i.customerCompany].filter(Boolean).join(' / ')||'نام مشتری / نام شرکت';$('#invPhone').textContent=faDigits(i.phone||'—');$('#invLocation').textContent=i.location||'—';$('#invDescription').textContent=i.description||'شرح خدمات ارائه‌شده در این قسمت درج می‌شود.';$('#invTotal').textContent=faDigits(Math.round(i.total).toLocaleString('en-US'));$('#invTaxRate').textContent=faDigits(i.taxRate);$('#invTax').textContent=faDigits(Math.round(i.total*i.taxRate/100).toLocaleString('en-US'));$('#invFinal').textContent=faDigits(Math.round(i.finalTotal).toLocaleString('en-US'));$('#invWords').textContent=amountWords(i.finalTotal)+' تومان';$('#invBank1Name').textContent=s.bank1Name;$('#invBank1Iban').textContent=s.bank1Iban;$('#invBank1Card').textContent=s.bank1Card;$('#invBank2Name').textContent=s.bank2Name;$('#invBank2Iban').textContent=s.bank2Iban;$('#invBank2Card').textContent=s.bank2Card;$('#invAddress').textContent=s.address;$('#invPhones').textContent=faDigits(s.phone1)+' · '+faDigits(s.phone2);$('#invWebBottom').textContent=s.website;$('#invContactPromo').textContent=faDigits(s.phone1)+'   |   '+faDigits(s.phone2);$('#invPromoWeb').textContent=s.website;const sb=$('#invStampBox');if(s.stamp){sb.innerHTML='<img src="'+s.stamp+'" alt="مهر">';sb.style.border='none'}else{sb.innerHTML='محل مهر و امضا';sb.style.border='1px dashed #9ca3af'}}
-function defaultLogo(){return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160"><rect width="320" height="160" fill="white"/><path d="M90 18 A65 65 0 1 0 90 142 L90 118 A42 42 0 1 1 90 42Z" fill="#F5B800"/><path d="M88 18 L88 67 L123 42 L141 61 L125 102 L111 102 L111 123 L88 123" fill="#F5B800"/><circle cx="91" cy="98" r="38" fill="#1A1A1A" stroke="#F5B800" stroke-width="5"/><text x="91" y="108" text-anchor="middle" font-family="Arial" font-size="39" font-weight="bold" fill="#E53935">24</text><text x="145" y="111" font-family="Arial" font-size="42" fill="#1A1A1A">RANE</text></svg>`)}
-function saveInvoice(){if(!currentInvoice){prepareInvoice();return}const found=db.invoices.find(x=>x.id===currentInvoice.id);if(found)Object.assign(found,currentInvoice);else{db.invoices.push({...currentInvoice});db.settings.nextInvoice=Math.max(Number(db.settings.nextInvoice)||1001,Number(currentInvoice.number)+1)}saveDB();renderInvoices();toast('فاکتور ذخیره شد.')}
-function renderInvoices(){const list=[...db.invoices].sort((a,b)=>b.createdAt-a.createdAt);$('#invoicesTable').innerHTML=table(['شماره','تاریخ','مشتری','مبلغ نهایی','وضعیت','عملیات'],list.map(i=>`<tr>${td('شماره',faDigits(i.number))}${td('تاریخ',faDigits(i.date))}${td('مشتری',esc(i.customerName||'—'))}${td('مبلغ نهایی',money(i.finalTotal))}${td('وضعیت',i.paid?'<span class="badge done">پرداخت شده</span>':'<span class="badge pending">پرداخت نشده</span>')}${td('عملیات',`<div class="table-actions"><button class="icon-btn" title="نمایش" onclick="loadInvoice('${i.id}')"><i class="fa-solid fa-eye"></i></button><button class="icon-btn" title="وضعیت پرداخت" onclick="toggleInvoicePaid('${i.id}')"><i class="fa-solid fa-check"></i></button><button class="icon-btn del" title="حذف" onclick="deleteInvoice('${i.id}')"><i class="fa-solid fa-trash"></i></button></div>`)}</tr>`))}
-function loadInvoice(id){currentInvoice=db.invoices.find(x=>x.id===id);if(currentInvoice){renderInvoice(currentInvoice);window.scrollTo({top:0,behavior:'smooth'});toast('فاکتور برای پیش‌نمایش بارگذاری شد.')}}
-function toggleInvoicePaid(id){const i=db.invoices.find(x=>x.id===id);if(i){i.paid=!i.paid;if(i.paid){db.transactions.push({id:uid(),date:dateStamp(),kind:'receipt',partyType:'customer',partyId:i.customerId,partyName:i.customerName,amount:i.finalTotal,method:'ثبت از فاکتور',description:'تسویه فاکتور '+i.number})}saveDB();renderAll();toast(i.paid?'فاکتور تسویه‌شده ثبت شد.':'وضعیت پرداخت فاکتور تغییر کرد.')}}
-function deleteInvoice(id){confirmDelete('فاکتور',()=>db.invoices=db.invoices.filter(i=>i.id!==id))}
-function renderAccounting(){const rec=db.transactions.filter(t=>t.kind==='receipt'),pay=db.transactions.filter(t=>t.kind==='payment');$('#accReceipts').textContent=money(sum(rec,t=>t.amount));$('#accPayments').textContent=money(sum(pay,t=>t.amount));$('#accProfit').textContent=money(sum(db.orders.filter(o=>o.status!=='لغو'),orderProfit));$('#accDebt').textContent=money(sum(db.customers,c=>Math.max(0,customerBalance(c.id))));const dfr=$('#txDateFrom')?.value||'',dto=$('#txDateTo')?.value||'',kf=$('#txKindFilter')?.value||'';const list=[...db.transactions].filter(t=>(!dfr&&!dto||inDateRange(t.date,dfr,dto))&&(!kf||t.kind===kf)).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));$('#txCount').textContent=faDigits(list.length)+' تراکنش';$('#transactionsTable').innerHTML=table(['تاریخ','نوع','طرف حساب','روش','شرح','مبلغ','عملیات'],list.map(t=>`<tr>${td('تاریخ',esc(t.date))}${td('نوع',t.kind==='receipt'?'<span class="badge done">دریافتی</span>':'<span class="badge pending">پرداختی</span>')}${td('طرف حساب',esc(t.partyName||'—'))}${td('روش',esc(t.method||'—'))}${td('شرح',esc(t.description||'—'))}${td('مبلغ',money(t.amount))}${td('عملیات',`<button class="icon-btn del" onclick="deleteTransaction('${t.id}')"><i class="fa-solid fa-trash"></i></button>`)}</tr>`))}
-function transactionForm(kind){const isR=kind==='receipt';const fields=[{name:'date',label:'تاریخ',value:dateStamp(),required:true},{name:'amount',label:'مبلغ (تومان)',type:'number',min:1,required:true},{name:'partyType',label:'نوع طرف حساب',type:'select',options:[{value:'customer',label:'مشتری'},{value:'driver',label:'راننده'},{value:'other',label:'سایر'}]},{name:'partyId',label:'انتخاب طرف حساب',type:'select',options:[...db.customers.map(c=>({value:c.id,label:'مشتری: '+c.name})),...db.drivers.map(d=>({value:d.id,label:'راننده: '+d.name})),{value:'',label:'بدون انتخاب'}]},{name:'method',label:'روش پرداخت',type:'select',options:isR?['نقدی','کارت','شبا','ثبت از فاکتور']:['نقدی','کارت','شبا','چک']},{name:'partyName',label:'نام طرف حساب (در صورت نیاز)'},{name:'description',label:'شرح',type:'textarea',full:true}];openModal(isR?'ثبت دریافتی از مشتری':'ثبت پرداختی به راننده',fields,{date:dateStamp(),partyType:isR?'customer':'driver',method:isR?'نقدی':'شبا'},d=>{const party=d.partyType==='customer'?getCustomer(d.partyId):getDriver(d.partyId);d.amount=num(d.amount);db.transactions.push({id:uid(),...d,kind,partyName:d.partyName||party?.name||'سایر',createdAt:Date.now()});toast('تراکنش مالی ثبت شد.')})}
-function deleteTransaction(id){confirmDelete('تراکنش مالی',()=>db.transactions=db.transactions.filter(t=>t.id!==id))}
-function renderSettings(){const s=db.settings;const business=[['name','نام شرکت','text'],['slogan','شعار','text'],['phone1','تلفن ۱','tel'],['phone2','تلفن ۲','tel'],['website','وب‌سایت','text'],['address','آدرس','text'],['economic','کد اقتصادی','text'],['tax','درصد مالیات بر ارزش افزوده','number'],['nextInvoice','شماره فاکتور بعدی','number']];$('#businessSettings').innerHTML=business.map(([n,l,t])=>`<div class="field"><label>${l}</label><input data-setting="${n}" type="${t}" value="${esc(s[n]??'')}" ${n==='tax'?'min="0" max="100" step="0.1"':''}></div>`).join('');const banks=[['bank1Name','نام بانک ۱'],['bank1Iban','شبا بانک ۱'],['bank1Card','شماره کارت بانک ۱'],['bank2Name','نام بانک ۲'],['bank2Iban','شبا بانک ۲'],['bank2Card','شماره کارت بانک ۲']];$('#bankSettings').innerHTML=banks.map(([n,l])=>`<div class="field"><label>${l}</label><input data-setting="${n}" value="${esc(s[n]||'')}"></div>`).join('');$('#settingsLogoPreview').src=s.logo||defaultLogo();$('#settingsStampPreview').src=s.stamp||'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><rect width="100" height="80" fill="#f9fafb" stroke="#e5e7eb" stroke-dasharray="4"/><text x="50" y="44" text-anchor="middle" font-family="Tahoma" font-size="10" fill="#9ca3af">پیش‌نمایش مهر</text></svg>')}
-function saveSettings(){ $$('[data-setting]').forEach(el=>{const n=el.dataset.setting;db.settings[n]=['tax','nextInvoice'].includes(n)?num(el.value):el.value});db.settings.tax=Math.max(0,Math.min(100,Number(db.settings.tax)||0));db.settings.nextInvoice=Math.max(1001,Number(db.settings.nextInvoice)||1001);saveDB();renderAll();toast('تنظیمات ذخیره شد.')}
-function uploadImage(file,key){if(!file)return;if(file.size>1500000){toast('حجم تصویر باید کمتر از ۱٫۵ مگابایت باشد.',true);return}const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');let w=img.width,h=img.height;const max=key==='logo'?500:400;if(w>max||h>max){if(w>h){h=h*max/w;w=max}else{w=w*max/h;h=max}}canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);const data=canvas.toDataURL('image/png');db.settings[key]=data;saveDB();renderSettings();renderInvoice(currentInvoice);toast('تصویر فشرده و ذخیره شد.')};img.src=r.result};r.readAsDataURL(file)}
-function exportCSV(){const rows=[['تاریخ','نوع','طرف حساب','روش','شرح','مبلغ'],...db.transactions.map(t=>[t.date,t.kind==='receipt'?'دریافتی':'پرداختی',t.partyName,t.method,t.description,t.amount])];const csv='\uFEFF'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');downloadBlob(csv,'crane24-transactions.csv','text/csv;charset=utf-8');toast('فایل CSV آماده شد.')}
-function downloadBlob(content,name,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-function backup(){downloadBlob(JSON.stringify(db,null,2),'crane24-backup-'+dateStamp().replaceAll('/','-')+'.json','application/json');toast('پشتیبان دانلود شد.')}
-function restore(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!d.settings||!Array.isArray(d.customers))throw Error();if(confirm('با بازیابی، اطلاعات فعلی با اطلاعات پشتیبان جایگزین می‌شود. ادامه می‌دهید؟')){db={...makeDefault(),...d,settings:{...makeDefault().settings,...d.settings}};saveDB();renderAll();toast('پشتیبان بازیابی شد.')}}catch(e){toast('فایل پشتیبان معتبر نیست.',true)}};r.readAsText(file)}
-function invoiceText(){const i=currentInvoice||{};return `${db.settings.name}\n${db.settings.slogan}\n${db.settings.website}\nفاکتور شماره: ${i.number||''}\nتاریخ: ${i.date||dateStamp()}\nدرخواست‌کننده: ${i.customerName||''} ${i.customerCompany||''}\nتلفن: ${i.phone||''}\nمحل پروژه: ${i.location||''}\nشرح خدمات:\n${i.description||''}\nجمع: ${Math.round(i.total||0).toLocaleString('en-US')} تومان\nمالیات: ${Math.round((i.total||0)*(i.taxRate||0)/100).toLocaleString('en-US')} تومان\nمبلغ نهایی: ${Math.round(i.finalTotal||0).toLocaleString('en-US')} تومان\nبه حروف: ${amountWords(i.finalTotal||0)} تومان\n${db.settings.bank1Name}: شبا ${db.settings.bank1Iban} | کارت ${db.settings.bank1Card}\n${db.settings.bank2Name}: شبا ${db.settings.bank2Iban} | کارت ${db.settings.bank2Card}\nآدرس: ${db.settings.address}\nتماس: ${db.settings.phone1} - ${db.settings.phone2}\n${db.settings.website}`}
-async function copyInvoice(){try{await navigator.clipboard.writeText(invoiceText());toast('متن فاکتور کپی شد.')}catch(e){const t=document.createElement('textarea');t.value=invoiceText();document.body.append(t);t.select();document.execCommand('copy');t.remove();toast('متن فاکتور کپی شد.')}}function whatsappInvoice(){const c=currentInvoice?.phone||'';const phone=enDigits(c).replace(/\D/g,'');window.open('https://wa.me/'+(phone.startsWith('0')?'98'+phone.slice(1):phone)+'?text='+encodeURIComponent(invoiceText()),'_blank','noopener')}
-async function shareInvoice(){if(navigator.share){try{await navigator.share({title:'فاکتور Crane 24',text:invoiceText()})}catch(e){}}else copyInvoice()}
-function renderAll(){renderDashboard();renderCustomers();renderDrivers();renderOrders();renderInvoices();renderAccounting();renderSettings();if(currentInvoice)renderInvoice(currentInvoice)}
-$('#addCustomer').onclick=addCustomer;$('#addDriver').onclick=addDriver;$('#addOrder').onclick=addOrder;$('#quickOrder').onclick=()=>{navigate('orders');addOrder()};$('#newInvoice').onclick=()=>{prepareInvoice();toast('پیش‌نویس فاکتور جدید آماده است.')}
-$('#customerSearch').addEventListener('input',renderCustomers);$('#driverSearch').addEventListener('input',renderDrivers);$('#orderSearch').addEventListener('input',renderOrders);['orderCustomerFilter','orderDriverFilter','orderStatusFilter','orderDateFrom','orderDateTo'].forEach(id=>$('#'+id).addEventListener('input',renderOrders));$('#orderDateClear').onclick=()=>{$('#orderDateFrom').value='';$('#orderDateTo').value='';renderOrders()};
-['txDateFrom','txDateTo','txKindFilter'].forEach(id=>$('#'+id).addEventListener('input',renderAccounting));$('#txDateClear').onclick=()=>{$('#txDateFrom').value='';$('#txDateTo').value='';$('#txKindFilter').value='';renderAccounting()};
-$('#printInvoice').onclick=()=>window.print();$('#saveInvoice').onclick=saveInvoice;$('#whatsappInvoice').onclick=whatsappInvoice;$('#shareInvoice').onclick=shareInvoice;$('#copyInvoice').onclick=copyInvoice;
-$('#addReceipt').onclick=()=>transactionForm('receipt');$('#addPayment').onclick=()=>transactionForm('payment');$('#exportCsv').onclick=exportCSV;$('#saveSettings').onclick=saveSettings;$('#logoUpload').onchange=e=>uploadImage(e.target.files[0],'logo');$('#stampUpload').onchange=e=>uploadImage(e.target.files[0],'stamp');$('#backupBtn').onclick=backup;$('#restoreBtn').onclick=()=>$('#restoreFile').click();$('#restoreFile').onchange=e=>restore(e.target.files[0]);$('#clearData').onclick=()=>{if(confirm('تمام اطلاعات Crane 24 از این مرورگر حذف شود؟')){localStorage.removeItem(DB_KEY);db=makeDefault();currentInvoice=null;saveDB();prepareInvoice();renderAll();toast('داده‌ها پاک شدند.')}};
-function init(){if(!db.settings.logo)db.settings.logo=defaultLogo();$('#todayText').textContent=faDigits(todayJ());$('#sideYear').textContent=faDigits(todayJ().slice(0,4));$('#invDate').textContent=faDigits(todayJ());renderSettings();prepareInvoice();renderAll();saveDB()}
-init();
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./service-worker.js').then(r=>console.log('SW registered')).catch(e=>console.warn('SW error',e))})}
-</script>
-</body>
-</html>
-
+      <div class="panel"><div class="panel-head"><h3><i class="fa-solid fa-database" style="color:var(--yellow)"></i> پشتیبان‌گیری و داده‌ها</h3></div><p class="subnote">پشتیبان JSON شامل مشتریان، رانندگان، سفارش‌ها، فاکتورها، تراکنش‌ها و تنظیمات است.</p><div class="quick-actions"><button class="btn btn-dark" id="backupBtn"><i class="fa-solid fa-download"></i> دانلود پشتیبان JSON</button><button class="btn btn-outline" id="restoreBtn"><i class="fa-solid fa-upload"></i> بازیابی پشتیبان</button><input type="file" id="restoreFile" accept=".json,application/json" class="hidden"></div><hr><div class="danger-zone"><b>حذف همه داده‌ها</b><p class="subnote" style="margin:6px 0 10px">این کار همه اطلاعات ذخیره‌شده روی این مرورگر را پاک می‌کند و قابل بازگشت نیست.</p><button class="btn btn-danger" id="clearData"><i class="fa-solid fa-trash"></i> پاک کردن همه داده‌ها</button></div></div>
+    </div>
   </section>
 </main>
 </div>
 
-<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div class="modal-head"><h3 id="modalTitle">فرم</h3><button class="icon-btn" id="modalClose"><i class="fa-solid fa-xmark"></i></button></div><form id="modalForm"><div class="modal-body" id="modalBody"></div><div class="modal-foot"><button type="button" class="btn btn-outline" id="modalCancel">انصراف</button><button type="submit" class="btn btn-primary" id="modalSubmit">ذخیره</button></div></form></div></div>
-<div class="toast-area" id="toastArea"></div>
+<!-- ========== MODAL ========== -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">فرم</h3>
+      <button type="button" class="icon-btn" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="modalForm">
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" id="modalCancel">انصراف</button>
+        <button type="submit" class="btn btn-primary" id="modalSubmit">ذخیره</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast-area" id="toastArea"></div><script>
+'use strict';
+
+/* ============================================================
+   Crane 24 - سیستم مدیریت کسب‌وکار
+   ============================================================ */
+
+const DB_KEY = 'crane24_db';
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ========== اعداد فارسی ========== */
+const faDigits = s => String(s ?? '').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[+d]);
+const enDigits = s => String(s ?? '').replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const num = v => Number(enDigits(v).replace(/[,\s٬]/g, '')) || 0;
+const money = v => faDigits(Math.round(Number(v) || 0).toLocaleString('en-US')) + ' تومان';
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/* ========== تاریخ شمسی ========== */
+function jalaali(g_y, g_m, g_d) {
+  g_y = +g_y; g_m = +g_m; g_d = +g_d;
+  const gdm = [0, 31, (g_y % 4 === 0 && g_y % 100 !== 0 || g_y % 400 === 0) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  let gy = g_y - 1600, gm = g_m - 1, gd = g_d - 1;
+  let g_day_no = 365 * gy + Math.floor((gy + 3) / 4) - Math.floor((gy + 99) / 100) + Math.floor((gy + 399) / 400);
+  for (let i = 0; i < gm; i++) g_day_no += gdm[i + 1];
+  g_day_no += gd;
+  let j_day_no = g_day_no - 79, j_np = Math.floor(j_day_no / 12053);
+  j_day_no %= 12053;
+  let jy = 979 + 33 * j_np + 4 * Math.floor(j_day_no / 1461);
+  j_day_no %= 1461;
+  if (j_day_no >= 366) { jy += Math.floor((j_day_no - 1) / 365); j_day_no = (j_day_no - 1) % 365; }
+  let jm, jd;
+  if (j_day_no < 186) { jm = 1 + Math.floor(j_day_no / 31); jd = 1 + j_day_no % 31; }
+  else { jm = 7 + Math.floor((j_day_no - 186) / 30); jd = 1 + (j_day_no - 186) % 30; }
+  return [jy, jm, jd];
+}
+
+function todayJ() {
+  const d = new Date(), a = jalaali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+  return a.map(x => String(x).padStart(2, '0')).join('/');
+}
+function dateStamp() { return todayJ(); }
+const monthNames = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+
+/* ========== تبدیل مبلغ به حروف ========== */
+function amountWords(n) {
+  n = Math.floor(Math.abs(Number(n) || 0));
+  if (n === 0) return 'صفر';
+  const ones = ['', 'یک', 'دو', 'سه', 'چهار', 'پنج', 'شش', 'هفت', 'هشت', 'نه'];
+  const teens = ['ده', 'یازده', 'دوازده', 'سیزده', 'چهارده', 'پانزده', 'شانزده', 'هفده', 'هجده', 'نوزده'];
+  const tens = ['', '', 'بیست', 'سی', 'چهل', 'پنجاه', 'شصت', 'هفتاد', 'هشتاد', 'نود'];
+  const hundreds = ['', 'یکصد', 'دویست', 'سیصد', 'چهارصد', 'پانصد', 'ششصد', 'هفتصد', 'هشتصد', 'نهصد'];
+  function under1000(x) {
+    let a = [];
+    if (x >= 100) { a.push(hundreds[Math.floor(x / 100)]); x %= 100; }
+    if (x >= 10 && x < 20) a.push(teens[x - 10]);
+    else {
+      if (x >= 20) { a.push(tens[Math.floor(x / 10)]); x %= 10; }
+      if (x) a.push(ones[x]);
+    }
+    return a.join(' و ');
+  }
+  let out = [], units = ['', 'هزار', 'میلیون', 'میلیارد', 'تریلیون'];
+  let i = 0;
+  while (n > 0) {
+    let part = n % 1000;
+    if (part) out.unshift(under1000(part) + (units[i] ? ' ' + units[i] : ''));
+    n = Math.floor(n / 1000); i++;
+  }
+  return out.join(' و ');
+}
+
+/* ========== داده‌ها ========== */
+function makeDefault() {
+  return {
+    version: 3,
+    settings: {
+      name: 'Crane 24', slogan: 'خدمات تخصصی جرثقیل',
+      phone1: '09121349776', phone2: '09126114585',
+      website: 'www.crane24.com',
+      address: 'تهران، خیابان اتحاد، خیابان نهم غربی',
+      economic: '', tax: 0, nextInvoice: 1001,
+      bank1Name: 'بانک ملت', bank1Iban: 'IR87012001000000763004542', bank1Card: '6104 3371 4296 9235',
+      bank2Name: 'بانک سپه', bank2Iban: 'IR57015000003120044157434', bank2Card: '5892 1014 7017 6914',
+      logo: '', stamp: ''
+    },
+    customers: [], drivers: [], orders: [], invoices: [], transactions: []
+  };
+}
+
+function loadDB() {
+  try {
+    const d = JSON.parse(localStorage.getItem(DB_KEY));
+    if (d && typeof d === 'object') {
+      const base = makeDefault();
+      return {
+        ...base, ...d,
+        settings: { ...base.settings, ...d.settings },
+        customers: d.customers || [],
+        drivers: d.drivers || [],
+        orders: d.orders || [],
+        invoices: d.invoices || [],
+        transactions: d.transactions || []
+      };
+    }
+  } catch (e) {}
+  return makeDefault();
+}
+
+let db = loadDB();
+let currentInvoice = null;
+let modalSave = null;
+window.__tempPhotos = [];
+
+function saveDB() {
+  try { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
+  catch (e) { toast('فضای ذخیره‌سازی پر شده است.', true); }
+}
+
+/* ========== Toast ========== */
+function toast(msg, bad = false) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.innerHTML = '<i class="fa-solid ' + (bad ? 'fa-circle-exclamation' : 'fa-circle-check') + '"></i>' + esc(msg);
+  $('#toastArea').append(el);
+  setTimeout(() => el.remove(), 3600);
+}
+
+/* ========== Helpers ========== */
+function empty(msg = 'هنوز اطلاعاتی ثبت نشده است') {
+  return '<div class="empty"><i class="fa-regular fa-folder-open"></i>' + esc(msg) + '</div>';
+}
+function table(headers, rows) {
+  if (!rows.length) return empty();
+  return '<table><thead><tr>' + headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>' + rows.join('') + '</tbody></table>';
+}
+function td(label, html) { return '<td data-label="' + label + '">' + html + '</td>'; }
+function statusBadge(s) {
+  let c = s === 'تمام شده' ? 'done' : s === 'در حال انجام' ? 'progress' : s === 'لغو' ? 'cancel' : 'pending';
+  return '<span class="badge ' + c + '">' + esc(s || 'در انتظار') + '</span>';
+}
+function getCustomer(id) { return db.customers.find(x => x.id === id); }
+function getDriver(id) { return db.drivers.find(x => x.id === id); }
+function customerName(id) { const c = getCustomer(id); return c ? (c.name + (c.company ? ' · ' + c.company : '')) : '—'; }
+function driverName(id) { const d = getDriver(id); return d ? d.name : '—'; }
+function orderProfit(o) { return (Number(o.income) || 0) - (Number(o.driverCost) || 0); }
+function sum(a, f) { return a.reduce((s, x) => s + (Number(f(x)) || 0), 0); }
+function inDateRange(date, from, to) {
+  if (!date) return false;
+  if (from && date < from) return false;
+  if (to && date > to) return false;
+  return true;
+}
+function openMap(lat, lng) {
+  window.open('https://www.google.com/maps?q=' + lat + ',' + lng, '_blank', 'noopener');
+}
+
+/* ========== Navigation ========== */
+function navigate(view) {
+  $$('.view').forEach(x => x.classList.toggle('active', x.id === 'view-' + view));
+  $$('#nav button').forEach(x => x.classList.toggle('active', x.dataset.view === view));
+  const titles = {
+    dashboard: ['داشبورد', 'نمای کلی کسب‌وکار شما در یک نگاه'],
+    customers: ['مشتریان', 'مدیریت ارتباط با مشتریان'],
+    drivers: ['رانندگان', 'اطلاعات رانندگان و تسویه‌ها'],
+    orders: ['سفارشات', 'مدیریت عملیات اجاره و حمل'],
+    invoices: ['فاکتور', 'صدور و چاپ فاکتور خدمات A5'],
+    accounting: ['حسابداری', 'دریافتی‌ها، پرداختی‌ها و گزارش مالی'],
+    settings: ['تنظیمات', 'پیکربندی اطلاعات Crane 24']
+  };
+  $('#pageHeading').textContent = titles[view][0];
+  $('#pageSub').textContent = titles[view][1];
+  $('#sidebar').classList.remove('open');
+  if (view === 'invoices' && !currentInvoice) prepareInvoice();
+  renderAll();
+}
+
+/* ========== Modal ========== */
+function openModal(title, fields, initial = {}, onSave, submit = 'ذخیره') {
+  modalSave = onSave;
+  $('#modalTitle').textContent = title;
+  $('#modalSubmit').textContent = submit;
+  let html = '<div class="form-grid">';
+  fields.forEach(f => {
+    let val = initial[f.name] ?? f.value ?? '';
+    let cls = f.full ? 'full' : '';
+    let inp = '';
+    if (f.type === 'select') {
+      inp = '<select name="' + f.name + '"' + (f.required ? ' required' : '') + '>' +
+        (f.options || []).map(o => {
+          let v = typeof o === 'string' ? o : o.value;
+          let t = typeof o === 'string' ? o : o.label;
+          return '<option value="' + esc(v) + '"' + (String(v) === String(val) ? ' selected' : '') + '>' + esc(t) + '</option>';
+        }).join('') + '</select>';
+    } else if (f.type === 'textarea') {
+      inp = '<textarea name="' + f.name + '" placeholder="' + esc(f.placeholder || '') + '">' + esc(val) + '</textarea>';
+    } else if (f.type === 'html') {
+      inp = val;
+    } else {
+      inp = '<input name="' + f.name + '" type="' + (f.type || 'text') + '" value="' + esc(val) + '" placeholder="' + esc(f.placeholder || '') + '"' +
+        (f.required ? ' required' : '') +
+        (f.min !== undefined ? ' min="' + f.min + '"' : '') +
+        (f.step ? ' step="' + f.step + '"' : '') + '>';
+    }
+    html += '<div class="field ' + cls + '"><label>' + esc(f.label) + (f.required ? ' *' : '') + '</label>' + inp + '</div>';
+  });
+  html += '</div>';
+  $('#modalBody').innerHTML = html;
+  $('#modalBackdrop').classList.add('show');
+  setTimeout(() => { const inp = $('#modalBody input'); if (inp) inp.focus(); }, 40);
+}
+
+function closeModal() {
+  $('#modalBackdrop').classList.remove('show');
+  modalSave = null;
+  window.__tempPhotos = [];
+}
+
+/* ========== Confirm Delete ========== */
+function confirmDelete(what, cb) {
+  if (confirm('آیا از حذف ' + what + ' مطمئن هستید؟ این عملیات قابل بازگشت نیست.')) {
+    cb();
+    saveDB();
+    renderAll();
+    toast('حذف انجام شد.');
+  }
+}
+
+/* ========== Balances ========== */
+function customerBalance(id) {
+  const billed = sum(db.invoices.filter(i => i.customerId === id), i => i.finalTotal);
+  const paid = sum(db.transactions.filter(t => t.partyType === 'customer' && t.partyId === id && t.kind === 'receipt'), t => t.amount);
+  return billed - paid;
+}
+function driverBalance(id) {
+  const cost = sum(db.orders.filter(o => o.driverId === id), o => o.driverCost);
+  const paid = sum(db.transactions.filter(t => t.partyType === 'driver' && t.partyId === id && t.kind === 'payment'), t => t.amount);
+  return cost - paid;
+}
+
+/* ========== Customers ========== */
+function renderCustomers() {
+  const q = ($('#customerSearch')?.value || '').toLowerCase();
+  const list = db.customers.filter(c => ([c.name, c.company, c.mobile, c.phone, c.address, c.location].join(' ').toLowerCase()).includes(q));
+  $('#customersTable').innerHTML = table(
+    ['مشتری', 'موبایل', 'تلفن ثابت', 'موقعیت', 'سابقه', 'مانده حساب', 'عملیات'],
+    list.map(c => '<tr>' +
+      td('مشتری', '<b>' + esc(c.name) + '</b><div class="muted">' + esc(c.company || '') + '</div>') +
+      td('موبایل', esc(c.mobile || '—')) +
+      td('تلفن ثابت', esc(c.phone || '—')) +
+      td('موقعیت', c.lat ? '<span class="gps-badge"><i class="fa-solid fa-location-dot"></i>ثبت شده</span>' : '—') +
+      td('سابقه', faDigits(db.orders.filter(o => o.customerId === c.id).length) + ' سفارش') +
+      td('مانده حساب', '<span class="badge ' + (customerBalance(c.id) > 0 ? 'debt' : 'credit') + '">' + money(Math.abs(customerBalance(c.id))) + ' ' + (customerBalance(c.id) > 0 ? 'بدهکار' : customerBalance(c.id) < 0 ? 'بستانکار' : '') + '</span>') +
+      td('عملیات', '<div class="table-actions">' +
+        (c.lat ? '<button class="icon-btn" title="مشاهده روی نقشه" onclick="openMap(\'' + c.lat + '\',\'' + c.lng + '\')"><i class="fa-solid fa-map-location-dot"></i></button>' : '') +
+        '<button class="icon-btn" title="سابقه" onclick="historyCustomer(\'' + c.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
+        '<button class="icon-btn" title="ویرایش" onclick="editCustomer(\'' + c.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
+        '<button class="icon-btn del" title="حذف" onclick="deleteCustomer(\'' + c.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+        '</div>') +
+      '</tr>')
+  );
+}
+
+function customerFields() {
+  return [
+    { name: 'name', label: 'نام و نام خانوادگی', required: true },
+    { name: 'company', label: 'نام شرکت' },
+    { name: 'mobile', label: 'موبایل / واتساپ', type: 'tel' },
+    { name: 'phone', label: 'تلفن ثابت', type: 'tel' },
+    { name: 'national', label: 'کد ملی / اقتصادی' },
+    { name: 'email', label: 'ایمیل', type: 'email' },
+    { name: 'address', label: 'آدرس', full: true },
+    {
+      name: 'location', label: 'موقعیت جغرافیایی (GPS)', type: 'html', full: true,
+      value: '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="location-btn" onclick="getGPS()"><i class="fa-solid fa-location-crosshairs"></i> دریافت موقعیت فعلی</button><span id="gpsStatus" class="muted" style="font-size:12px">موقعیتی ثبت نشده</span></div><input type="hidden" name="lat" id="gpsLat"><input type="hidden" name="lng" id="gpsLng">'
+    },
+    { name: 'notes', label: 'یادداشت', type: 'textarea', full: true }
+  ];
+}
+
+function getGPS() {
+  if (!navigator.geolocation) { toast('مرورگر شما از موقعیت‌یاب پشتیبانی نمی‌کند.', true); return; }
+  const st = $('#gpsStatus');
+  if (st) st.textContent = 'در حال دریافت...';
+  navigator.geolocation.getCurrentPosition(
+    p => {
+      $('#gpsLat').value = p.coords.latitude.toFixed(6);
+      $('#gpsLng').value = p.coords.longitude.toFixed(6);
+      if (st) st.innerHTML = '<i class="fa-solid fa-check" style="color:var(--green)"></i> ثبت شد (' + p.coords.latitude.toFixed(4) + ', ' + p.coords.longitude.toFixed(4) + ')';
+      toast('موقعیت ثبت شد.');
+    },
+    err => {
+      if (st) st.textContent = 'خطا در دریافت موقعیت';
+      toast('دسترسی به موقعیت داده نشد.', true);
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
+
+function addCustomer() {
+  openModal('افزودن مشتری', customerFields(), {}, d => {
+    db.customers.push({ id: uid(), ...d, created: dateStamp() });
+    toast('مشتری ثبت شد.');
+  });
+}
+function editCustomer(id) {
+  let c = getCustomer(id);
+  if (c) openModal('ویرایش مشتری', customerFields(), c, d => {
+    Object.assign(c, d);
+    toast('اطلاعات مشتری به‌روزرسانی شد.');
+  });
+}
+function deleteCustomer(id) {
+  if (db.orders.some(o => o.customerId === id) || db.invoices.some(i => i.customerId === id)) {
+    toast('این مشتری سابقه سفارش یا فاکتور دارد.', true); return;
+  }
+  confirmDelete('مشتری', () => db.customers = db.customers.filter(x => x.id !== id));
+}
+function historyCustomer(id) {
+  let c = getCustomer(id);
+  const orders = db.orders.filter(o => o.customerId === id);
+  alert('سابقه ' + (c?.name || 'مشتری') + '\nتعداد سفارش‌ها: ' + orders.length + '\nمانده حساب: ' + money(customerBalance(id)) + '\n\n' +
+    orders.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | سود: ' + money(orderProfit(o))).join('\n'));
+}
+
+/* ========== Drivers ========== */
+function renderDrivers() {
+  const q = ($('#driverSearch')?.value || '').toLowerCase();
+  const list = db.drivers.filter(d => ([d.name, d.mobile, d.craneType, d.plate].join(' ').toLowerCase()).includes(q));
+  $('#driversTable').innerHTML = table(
+    ['راننده', 'موبایل', 'وسیله / تناژ', 'پلاک', 'بدهی به راننده', 'عملیات'],
+    list.map(d => '<tr>' +
+      td('راننده', '<b>' + esc(d.name) + '</b>') +
+      td('موبایل', esc(d.mobile || '—')) +
+      td('وسیله / تناژ', esc(d.craneType || '—')) +
+      td('پلاک', esc(d.plate || '—')) +
+      td('بدهی به راننده', '<span class="badge ' + (driverBalance(d.id) > 0 ? 'debt' : 'credit') + '">' + money(Math.max(0, driverBalance(d.id))) + '</span>') +
+      td('عملیات', '<div class="table-actions">' +
+        '<button class="icon-btn" title="سابقه" onclick="historyDriver(\'' + d.id + '\')"><i class="fa-solid fa-clock-rotate-left"></i></button>' +
+        '<button class="icon-btn" title="ویرایش" onclick="editDriver(\'' + d.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
+        '<button class="icon-btn del" title="حذف" onclick="deleteDriver(\'' + d.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+        '</div>') +
+      '</tr>')
+  );
+}
+
+function driverFields() {
+  return [
+    { name: 'name', label: 'نام راننده', required: true },
+    { name: 'mobile', label: 'موبایل', type: 'tel' },
+    { name: 'craneType', label: 'نوع جرثقیل و تناژ' },
+    { name: 'plate', label: 'شماره پلاک' },
+    { name: 'iban', label: 'شبا / کارت' },
+    { name: 'notes', label: 'یادداشت', type: 'textarea', full: true }
+  ];
+}
+function addDriver() {
+  openModal('افزودن راننده', driverFields(), {}, d => {
+    db.drivers.push({ id: uid(), ...d });
+    toast('راننده ثبت شد.');
+  });
+}
+function editDriver(id) {
+  let d = getDriver(id);
+  if (d) openModal('ویرایش راننده', driverFields(), d, x => Object.assign(d, x));
+}
+function deleteDriver(id) {/* ========== Orders ========== */
+function updateOrderFilters() {
+  const c = $('#orderCustomerFilter'), d = $('#orderDriverFilter');
+  if (!c || !d) return;
+  const cv = c.value, dv = d.value;
+  c.innerHTML = '<option value="">همه مشتریان</option>' + db.customers.map(x => '<option value="' + x.id + '">' + esc(x.name) + '</option>').join('');
+  d.innerHTML = '<option value="">همه رانندگان</option>' + db.drivers.map(x => '<option value="' + x.id + '">' + esc(x.name) + '</option>').join('');
+  c.value = cv; d.value = dv;
+}
+
+function renderOrders() {
+  updateOrderFilters();
+  const q = ($('#orderSearch')?.value || '').toLowerCase();
+  const cf = $('#orderCustomerFilter')?.value || '';
+  const df = $('#orderDriverFilter')?.value || '';
+  const sf = $('#orderStatusFilter')?.value || '';
+  const dfr = $('#orderDateFrom')?.value || '';
+  const dto = $('#orderDateTo')?.value || '';
+  const list = db.orders.filter(o =>
+    (o.location || '' + ' ' + (o.service || '') + ' ' + (o.craneType || '')).toLowerCase().includes(q) &&
+    (!cf || o.customerId === cf) &&
+    (!df || o.driverId === df) &&
+    (!sf || o.status === sf) &&
+    (!dfr && !dto || inDateRange(o.date, dfr, dto))
+  ).sort((a, b) => b.createdAt - a.createdAt);
+  $('#ordersTable').innerHTML = table(
+    ['تاریخ / شماره', 'مشتری', 'راننده / وسیله', 'محل کار', 'کرایه مشتری', 'پرداخت راننده', 'سود', 'وضعیت', 'عملیات'],
+    list.map(o => '<tr>' +
+      td('تاریخ / شماره', esc(o.date) + '<div class="muted">' + esc(o.id.slice(-5)) + '</div>') +
+      td('مشتری', esc(customerName(o.customerId))) +
+      td('راننده / وسیله', esc(driverName(o.driverId)) + '<div class="muted">' + esc(o.craneType || o.service || '') + '</div>') +
+      td('محل کار', esc(o.location || '—')) +
+      td('کرایه مشتری', money(o.income)) +
+      td('پرداخت راننده', money(o.driverCost)) +
+      td('سود', '<b>' + money(orderProfit(o)) + '</b>') +
+      td('وضعیت', statusBadge(o.status)) +
+      td('عملیات', '<div class="table-actions">' +
+        (o.photos && o.photos.length ? '<button class="icon-btn" title="عکس‌ها" onclick="viewPhotos(\'' + o.id + '\')"><i class="fa-solid fa-image"></i></button>' : '') +
+        '<button class="icon-btn" onclick="editOrder(\'' + o.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
+        '<button class="icon-btn del" onclick="deleteOrder(\'' + o.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+        '</div>') +
+      '</tr>')
+  );
+}
+
+function orderFields(o = {}) {
+  const photoHTML = (o.photos && o.photos.length) ? '<div style="margin-top:10px"><small class="muted">عکس‌های ذخیره‌شده:</small><div class="photo-grid">' + o.photos.map(p => '<img src="' + p + '" class="photo-thumb" onclick="viewPhotos(\'' + o.id + '\')">').join('') + '</div></div>' : '';
+  return [
+    { name: 'date', label: 'تاریخ شمسی', value: dateStamp(), required: true },
+    { name: 'time', label: 'ساعت شروع', type: 'time' },
+    { name: 'customerId', label: 'مشتری', type: 'select', required: true, options: db.customers.map(c => ({ value: c.id, label: c.name + (c.company ? ' - ' + c.company : '') })) },
+    { name: 'driverId', label: 'راننده', type: 'select', options: db.drivers.map(d => ({ value: d.id, label: d.name })) },
+    { name: 'craneType', label: 'نوع وسیله / تناژ', placeholder: 'مثلاً جرثقیل ۵۰ تن' },
+    { name: 'location', label: 'محل کار / پروژه' },
+    { name: 'rateType', label: 'نوع نرخ', type: 'select', options: ['ساعتی', 'روزانه', 'ماهانه', 'تک‌قلابه'] },
+    { name: 'calcDescription', label: 'شرح محاسبه', placeholder: 'مثلاً ۵ ساعت × مبلغ ساعتی', full: true },
+    { name: 'income', label: 'کرایه دریافتی از مشتری (تومان)', type: 'number', min: 0, required: true },
+    { name: 'driverCost', label: 'کرایه پرداختی به راننده (تومان)', type: 'number', min: 0, required: true },
+    { name: 'status', label: 'وضعیت', type: 'select', options: ['در انتظار', 'در حال انجام', 'تمام شده', 'لغو'] },
+    { name: 'service', label: 'شرح خدمات' },
+    {
+      name: 'photos', label: 'عکس‌های کارگاه', type: 'html', full: true,
+      value: '<div><button type="button" class="photo-btn" onclick="openPhotoInput()"><i class="fa-solid fa-camera"></i> افزودن عکس از کارگاه</button><input type="file" id="photoInput" accept="image/*" capture="environment" class="hidden" onchange="addPhoto(event)"><div class="photo-grid" id="photoGrid"></div>' + photoHTML + '</div>'
+    },
+    { name: 'notes', label: 'توضیحات', type: 'textarea', full: true }
+  ];
+}
+
+function openPhotoInput() { const el = $('#photoInput'); if (el) el.click(); }
+
+function addPhoto(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      let w = img.width, h = img.height;
+      const max = 900;
+      if (w > max || h > max) {
+        if (w > h) { h = h * max / w; w = max; }
+        else { w = w * max / h; h = max; }
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const data = canvas.toDataURL('image/jpeg', 0.65);
+      window.__tempPhotos = window.__tempPhotos || [];
+      window.__tempPhotos.push(data);
+      const g = $('#photoGrid');
+      if (g) g.innerHTML += '<img src="' + data + '" class="photo-thumb">';
+      toast('عکس فشرده و اضافه شد.');
+    };
+    img.src = r.result;
+  };
+  r.readAsDataURL(f);
+}
+
+function viewPhotos(orderId) {
+  const o = db.orders.find(x => x.id === orderId);
+  if (!o || !o.photos) return;
+  const w = window.open('', '_blank');
+  if (w) {
+    w.document.write('<html><head><title>عکس‌های کارگاه</title><style>body{background:#111;margin:0;padding:20px;font-family:sans-serif;direction:rtl}img{max-width:100%;display:block;margin:20px auto;border-radius:12px}h2{color:#F5B800;text-align:center}</style></head><body><h2>Crane 24 - عکس‌های کارگاه</h2>' + o.photos.map(p => '<img src="' + p + '">').join('') + '</body></html>');
+  }
+}
+
+function addOrder() {
+  if (!db.customers.length) { toast('ابتدا یک مشتری ثبت کنید.', true); navigate('customers'); return; }
+  window.__tempPhotos = [];
+  openModal('ثبت سفارش جدید', orderFields(), { date: dateStamp(), status: 'در انتظار', rateType: 'ساعتی' }, d => {
+    d.income = num(d.income);
+    d.driverCost = num(d.driverCost);
+    if (window.__tempPhotos && window.__tempPhotos.length) d.photos = [...window.__tempPhotos];
+    window.__tempPhotos = [];
+    db.orders.push({ id: uid(), ...d, createdAt: Date.now() });
+    toast('سفارش ثبت شد.');
+  });
+}
+
+function editOrder(id) {
+  const o = db.orders.find(x => x.id === id);
+  if (!o) return;
+  window.__tempPhotos = o.photos ? [...o.photos] : [];
+  openModal('ویرایش سفارش', orderFields(o), o, d => {
+    d.income = num(d.income);
+    d.driverCost = num(d.driverCost);
+    if (window.__tempPhotos && window.__tempPhotos.length) d.photos = [...window.__tempPhotos];
+    window.__tempPhotos = [];
+    Object.assign(o, d);
+  });
+}
+
+function deleteOrder(id) {
+  confirmDelete('سفارش', () => db.orders = db.orders.filter(o => o.id !== id));
+}
+
+function renderRecent() {
+  const list = [...db.orders].sort((a, b) => b.createdAt - a.createdAt).slice(0, 5);
+  $('#recentOrders').innerHTML = table(
+    ['تاریخ', 'مشتری', 'خدمات / محل', 'سود', 'وضعیت'],
+    list.map(o => '<tr>' +
+      td('تاریخ', esc(o.date)) +
+      td('مشتری', esc(customerName(o.customerId))) +
+      td('خدمات / محل', esc(o.service || o.craneType || 'خدمات') + '<div class="muted">' + esc(o.location || '') + '</div>') +
+      td('سود', '<b>' + money(orderProfit(o)) + '</b>') +
+      td('وضعیت', statusBadge(o.status)) +
+      '</tr>')
+  );
+}
+
+/* ========== Dashboard ========== */
+function renderChart() {
+  const now = jalaali(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate());
+  const months = [];
+  for (let i = 5; i >= 0; i--) {
+    let m = now[1] - i, y = now[0];
+    while (m <= 0) { m += 12; y--; }
+    const key = y + '/' + String(m).padStart(2, '0');
+    const os = db.orders.filter(o => (o.date || '').startsWith(key) && o.status !== 'لغو');
+    months.push({ label: monthNames[m - 1], income: sum(os, o => o.income), cost: sum(os, o => o.driverCost) });
+  }
+  const max = Math.max(1, ...months.flatMap(x => [x.income, x.cost]));
+  $('#chart').innerHTML = months.map(m =>
+    '<div class="chart-col"><div class="bars">' +
+    '<div class="bar" title="درآمد ' + money(m.income) + '" style="height:' + Math.max(2, m.income / max * 100) + '%"></div>' +
+    '<div class="bar cost" title="هزینه ' + money(m.cost) + '" style="height:' + Math.max(2, m.cost / max * 100) + '%"></div>' +
+    '</div><span>' + m.label + '</span></div>'
+  ).join('');
+}
+
+function renderAlerts() {
+  const unpaid = db.invoices.filter(i => !i.paid && i.finalTotal > 0);
+  const debts = db.customers.map(c => ({ c, b: customerBalance(c.id) })).filter(x => x.b > 0).sort((a, b) => b.b - a.b).slice(0, 3);
+  let html = unpaid.slice(0, 3).map(i =>
+    '<div class="alert"><i class="fa-solid fa-file-circle-exclamation"></i><div><strong>فاکتور شماره ' + faDigits(i.number) + ' پرداخت نشده</strong><small>' + esc(i.customerName || 'بدون نام') + ' · ' + money(i.finalTotal) + '</small></div></div>'
+  ).join('');
+  html += debts.map(x =>
+    '<div class="alert"><i class="fa-solid fa-circle-exclamation"></i><div><strong>مانده مشتری: ' + esc(x.c.name) + '</strong><small>' + money(x.b) + ' بدهی</small></div></div>'
+  ).join('');
+  $('#alerts').innerHTML = html || empty('هشدار مالی ثبت نشده است.');
+}
+
+function renderDashboard() {
+  const today = dateStamp(), month = today.slice(0, 7);
+  const valid = db.orders.filter(o => o.status !== 'لغو');
+  $('#statToday').textContent = money(sum(valid.filter(o => o.date === today), orderProfit));
+  $('#statJobs').textContent = faDigits(valid.filter(o => o.date === today).length);
+  $('#statMonth').textContent = money(sum(valid.filter(o => (o.date || '').startsWith(month)), orderProfit));
+  $('#statDebt').textContent = money(sum(db.customers, c => Math.max(0, customerBalance(c.id))));
+  renderChart();
+  renderAlerts();
+  renderRecent();
+}
+
+/* ========== Invoices ========== */
+function defaultLogo() {
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160"><rect width="320" height="160" fill="white"/><path d="M90 18 A65 65 0 1 0 90 142 L90 118 A42 42 0 1 1 90 42Z" fill="#F5B800"/><path d="M88 18 L88 67 L123 42 L141 61 L125 102 L111 102 L111 123 L88 123" fill="#F5B800"/><circle cx="91" cy="98" r="38" fill="#1A1A1A" stroke="#F5B800" stroke-width="5"/><text x="91" y="108" text-anchor="middle" font-family="Arial" font-size="39" font-weight="bold" fill="#E53935">24</text><text x="145" y="111" font-family="Arial" font-size="42" fill="#1A1A1A">RANE</text></svg>'
+  );
+}
+
+function prepareInvoice(orderId) {
+  const order = orderId ? db.orders.find(o => o.id === orderId) : null;
+  const customer = order ? getCustomer(order.customerId) : null;
+  currentInvoice = {
+    id: uid(),
+    number: db.settings.nextInvoice,
+    date: dateStamp(),
+    customerId: customer?.id || '',
+    customerName: customer?.name || '',
+    customerCompany: customer?.company || '',
+    phone: customer?.mobile || '',
+    location: order?.location || '',
+    description: order ? [
+      order.service || order.craneType || 'خدمات جرثقیل',
+      order.calcDescription || '',
+      order.notes || ''
+    ].filter(Boolean).join('\n') : '',
+    total: order ? Number(order.income) || 0 : 0,
+    taxRate: Number(db.settings.tax) || 0,
+    finalTotal: 0,
+    paid: false,
+    createdAt: Date.now()
+  };
+  currentInvoice.finalTotal = currentInvoice.total * (1 + currentInvoice.taxRate / 100);
+  renderInvoice(currentInvoice);
+}
+
+function renderInvoice(i) {
+  if (!i) return;
+  const s = db.settings;
+  $('#invLogo').src = s.logo || defaultLogo();
+  $('#invLogo').style.display = 'block';
+  $('#invCompany').textContent = s.name;
+  $('#invSlogan').textContent = s.slogan;
+  $('#invSite').textContent = s.website;
+  $('#invNumber').textContent = faDigits(i.number);
+  $('#invDate').textContent = faDigits(i.date);
+  $('#invCustomer').textContent = [i.customerName, i.customerCompany].filter(Boolean).join(' / ') || 'نام مشتری / نام شرکت';
+  $('#invPhone').textContent = faDigits(i.phone || '—');
+  $('#invLocation').textContent = i.location || '—';
+  $('#invDescription').textContent = i.description || 'شرح خدمات ارائه‌شده در این قسمت درج می‌شود.';
+  $('#invTotal').textContent = faDigits(Math.round(i.total).toLocaleString('en-US'));
+  $('#invTaxRate').textContent = faDigits(i.taxRate);
+  $('#invTax').textContent = faDigits(Math.round(i.total * i.taxRate / 100).toLocaleString('en-US'));
+  $('#invFinal').textContent = faDigits(Math.round(i.finalTotal).toLocaleString('en-US'));
+  $('#invWords').textContent = amountWords(i.finalTotal) + ' تومان';
+  $('#invBank1Name').textContent = s.bank1Name;
+  $('#invBank1Iban').textContent = s.bank1Iban;
+  $('#invBank1Card').textContent = s.bank1Card;
+  $('#invBank2Name').textContent = s.bank2Name;
+  $('#invBank2Iban').textContent = s.bank2Iban;
+  $('#invBank2Card').textContent = s.bank2Card;
+  $('#invAddress').textContent = s.address;
+  $('#invPhones').textContent = faDigits(s.phone1) + ' · ' + faDigits(s.phone2);
+  $('#invWebBottom').textContent = s.website;
+  $('#invContactPromo').textContent = faDigits(s.phone1) + '   |   ' + faDigits(s.phone2);
+  $('#invPromoWeb').textContent = s.website;
+  const sb = $('#invStampBox');
+  if (s.stamp) { sb.innerHTML = '<img src="' + s.stamp + '" alt="مهر">'; sb.style.border = 'none'; }
+  else { sb.innerHTML = 'محل مهر و امضا'; sb.style.border = '1px dashed #9CA3AF'; }
+}
+
+function saveInvoice() {
+  if (!currentInvoice) { prepareInvoice(); return; }
+  const found = db.invoices.find(x => x.id === currentInvoice.id);
+  if (found) Object.assign(found, currentInvoice);
+  else {
+    db.invoices.push({ ...currentInvoice });
+    db.settings.nextInvoice = Math.max(Number(db.settings.nextInvoice) || 1001, Number(currentInvoice.number) + 1);
+  }
+  saveDB();
+  renderInvoices();
+  toast('فاکتور ذخیره شد.');
+}
+
+function renderInvoices() {
+  const list = [...db.invoices].sort((a, b) => b.createdAt - a.createdAt);
+  $('#invoicesTable').innerHTML = table(
+    ['شماره', 'تاریخ', 'مشتری', 'مبلغ نهایی', 'وضعیت', 'عملیات'],
+    list.map(i => '<tr>' +
+      td('شماره', faDigits(i.number)) +
+      td('تاریخ', faDigits(i.date)) +
+      td('مشتری', esc(i.customerName || '—')) +
+      td('مبلغ نهایی', money(i.finalTotal)) +
+      td('وضعیت', i.paid ? '<span class="badge done">پرداخت شده</span>' : '<span class="badge pending">پرداخت نشده</span>') +
+      td('عملیات', '<div class="table-actions">' +
+        '<button class="icon-btn" title="نمایش" onclick="loadInvoice(\'' + i.id + '\')"><i class="fa-solid fa-eye"></i></button>' +
+        '<button class="icon-btn" title="وضعیت پرداخت" onclick="toggleInvoicePaid(\'' + i.id + '\')"><i class="fa-solid fa-check"></i></button>' +
+        '<button class="icon-btn del" title="حذف" onclick="deleteInvoice(\'' + i.id + '\')"><i class="fa-solid fa-trash"></i></button>' +
+        '</div>') +
+      '</tr>')
+  );
+}
+
+function loadInvoice(id) {
+  currentInvoice = db.invoices.find(x => x.id === id);
+  if (currentInvoice) {
+    renderInvoice(currentInvoice);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    toast('فاکتور برای پیش‌نمایش بارگذاری شد.');
+  }
+}
+
+function toggleInvoicePaid(id) {
+  const i = db.invoices.find(x => x.id === id);
+  if (i) {
+    i.paid = !i.paid;
+    if (i.paid) {
+      db.transactions.push({
+        id: uid(), date: dateStamp(), kind: 'receipt',
+        partyType: 'customer', partyId: i.customerId, partyName: i.customerName,
+        amount: i.finalTotal, method: 'ثبت از فاکتور',
+        description: 'تسویه فاکتور ' + i.number
+      });
+    }
+    saveDB();
+    renderAll();
+    toast(i.paid ? 'فاکتور تسویه‌شده ثبت شد.' : 'وضعیت پرداخت فاکتور تغییر کرد.');
+  }
+}
+
+function deleteInvoice(id) {
+  confirmDelete('فاکتور', () => db.invoices = db.invoices.filter(i => i.id !== id));
+}/* ========== Accounting ========== */
+function renderAccounting() {
+  const rec = db.transactions.filter(t => t.kind === 'receipt');
+  const pay = db.transactions.filter(t => t.kind === 'payment');
+  $('#accReceipts').textContent = money(sum(rec, t => t.amount));
+  $('#accPayments').textContent = money(sum(pay, t => t.amount));
+  $('#accProfit').textContent = money(sum(db.orders.filter(o => o.status !== 'لغو'), orderProfit));
+  $('#accDebt').textContent = money(sum(db.customers, c => Math.max(0, customerBalance(c.id))));
+
+  const dfr = $('#txDateFrom')?.value || '';
+  const dto = $('#txDateTo')?.value || '';
+  const kf = $('#txKindFilter')?.value || '';
+
+  const list = [...db.transactions]
+    .filter(t => ((!dfr && !dto) || inDateRange(t.date, dfr, dto)) && (!kf || t.kind === kf))
+    .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+  $('#txCount').textContent = faDigits(list.length) + ' تراکنش';
+  $('#transactionsTable').innerHTML = table(
+    ['تاریخ', 'نوع', 'طرف حساب', 'روش', 'شرح', 'مبلغ', 'عملیات'],
+    list.map(t => '<tr>' +
+      td('تاریخ', esc(t.date)) +
+      td('نوع', t.kind === 'receipt' ? '<span class="badge done">دریافتی</span>' : '<span class="badge pending">پرداختی</span>') +
+      td('طرف حساب', esc(t.partyName || '—')) +
+      td('روش', esc(t.method || '—')) +
+      td('شرح', esc(t.description || '—')) +
+      td('مبلغ', money(t.amount)) +
+      td('عملیات', '<button class="icon-btn del" onclick="deleteTransaction(\'' + t.id + '\')"><i class="fa-solid fa-trash"></i></button>') +
+      '</tr>')
+  );
+}
+
+function transactionForm(kind) {
+  const isR = kind === 'receipt';
+  const fields = [
+    { name: 'date', label: 'تاریخ', value: dateStamp(), required: true },
+    { name: 'amount', label: 'مبلغ (تومان)', type: 'number', min: 1, required: true },
+    { name: 'partyType', label: 'نوع طرف حساب', type: 'select', options: [{ value: 'customer', label: 'مشتری' }, { value: 'driver', label: 'راننده' }, { value: 'other', label: 'سایر' }] },
+    { name: 'partyId', label: 'انتخاب طرف حساب', type: 'select', options: [...db.customers.map(c => ({ value: c.id, label: 'مشتری: ' + c.name })), ...db.drivers.map(d => ({ value: d.id, label: 'راننده: ' + d.name })), { value: '', label: 'بدون انتخاب' }] },
+    { name: 'method', label: 'روش پرداخت', type: 'select', options: isR ? ['نقدی', 'کارت', 'شبا', 'ثبت از فاکتور'] : ['نقدی', 'کارت', 'شبا', 'چک'] },
+    { name: 'partyName', label: 'نام طرف حساب (در صورت نیاز)' },
+    { name: 'description', label: 'شرح', type: 'textarea', full: true }
+  ];
+  openModal(
+    isR ? 'ثبت دریافتی از مشتری' : 'ثبت پرداختی به راننده',
+    fields,
+    { date: dateStamp(), partyType: isR ? 'customer' : 'driver', method: isR ? 'نقدی' : 'شبا' },
+    d => {
+      const party = d.partyType === 'customer' ? getCustomer(d.partyId) : getDriver(d.partyId);
+      d.amount = num(d.amount);
+      db.transactions.push({
+        id: uid(), ...d, kind,
+        partyName: d.partyName || party?.name || 'سایر',
+        createdAt: Date.now()
+      });
+      toast('تراکنش مالی ثبت شد.');
+    }
+  );
+}
+
+function deleteTransaction(id) {
+  confirmDelete('تراکنش مالی', () => db.transactions = db.transactions.filter(t => t.id !== id));
+}
+
+/* ========== Settings ========== */
+function renderSettings() {
+  const s = db.settings;
+  const business = [
+    ['name', 'نام شرکت', 'text'],
+    ['slogan', 'شعار', 'text'],
+    ['phone1', 'تلفن ۱', 'tel'],
+    ['phone2', 'تلفن ۲', 'tel'],
+    ['website', 'وب‌سایت', 'text'],
+    ['address', 'آدرس', 'text'],
+    ['economic', 'کد اقتصادی', 'text'],
+    ['tax', 'درصد مالیات بر ارزش افزوده', 'number'],
+    ['nextInvoice', 'شماره فاکتور بعدی', 'number']
+  ];
+  $('#businessSettings').innerHTML = business.map(([n, l, t]) =>
+    '<div class="field"><label>' + l + '</label><input data-setting="' + n + '" type="' + t + '" value="' + esc(s[n] ?? '') + '"' + (n === 'tax' ? ' min="0" max="100" step="0.1"' : '') + '></div>'
+  ).join('');
+
+  const banks = [
+    ['bank1Name', 'نام بانک ۱'],
+    ['bank1Iban', 'شبا بانک ۱'],
+    ['bank1Card', 'شماره کارت بانک ۱'],
+    ['bank2Name', 'نام بانک ۲'],
+    ['bank2Iban', 'شبا بانک ۲'],
+    ['bank2Card', 'شماره کارت بانک ۲']
+  ];
+  $('#bankSettings').innerHTML = banks.map(([n, l]) =>
+    '<div class="field"><label>' + l + '</label><input data-setting="' + n + '" value="' + esc(s[n] || '') + '"></div>'
+  ).join('');
+
+  $('#settingsLogoPreview').src = s.logo || defaultLogo();
+  $('#settingsStampPreview').src = s.stamp || 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><rect width="100" height="80" fill="#F9FAFB" stroke="#E5E7EB" stroke-dasharray="4"/><text x="50" y="44" text-anchor="middle" font-family="Tahoma" font-size="10" fill="#9CA3AF">پیش‌نمایش مهر</text></svg>'
+  );
+}
+
+function saveSettings() {
+  $$('[data-setting]').forEach(el => {
+    const n = el.dataset.setting;
+    db.settings[n] = ['tax', 'nextInvoice'].includes(n) ? num(el.value) : el.value;
+  });
+  db.settings.tax = Math.max(0, Math.min(100, Number(db.settings.tax) || 0));
+  db.settings.nextInvoice = Math.max(1001, Number(db.settings.nextInvoice) || 1001);
+  saveDB();
+  renderAll();
+  toast('تنظیمات ذخیره شد.');
+}
+
+function uploadImage(file, key) {
+  if (!file) return;
+  if (file.size > 1500000) { toast('حجم تصویر باید کمتر از ۱٫۵ مگابایت باشد.', true); return; }
+  const r = new FileReader();
+  r.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      let w = img.width, h = img.height;
+      const max = key === 'logo' ? 500 : 400;
+      if (w > max || h > max) {
+        if (w > h) { h = h * max / w; w = max; }
+        else { w = w * max / h; h = max; }
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const data = canvas.toDataURL('image/png');
+      db.settings[key] = data;
+      saveDB();
+      renderSettings();
+      renderInvoice(currentInvoice);
+      toast('تصویر فشرده و ذخیره شد.');
+    };
+    img.src = r.result;
+  };
+  r.readAsDataURL(file);
+}
+
+function exportCSV() {
+  const rows = [
+    ['تاریخ', 'نوع', 'طرف حساب', 'روش', 'شرح', 'مبلغ'],
+    ...db.transactions.map(t => [t.date, t.kind === 'receipt' ? 'دریافتی' : 'پرداختی', t.partyName, t.method, t.description, t.amount])
+  ];
+  const csv = '\uFEFF' + rows.map(r => r.map(x => '"' + String(x ?? '').replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  downloadBlob(csv, 'crane24-transactions.csv', 'text/csv;charset=utf-8');
+  toast('فایل CSV آماده شد.');
+}
+
+function downloadBlob(content, name, type) {
+  const blob = new Blob([content], { type }), url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function backup() {
+  downloadBlob(JSON.stringify(db, null, 2), 'crane24-backup-' + dateStamp().replaceAll('/', '-') + '.json', 'application/json');
+  toast('پشتیبان دانلود شد.');
+}
+
+function restore(file) {
+  if (!file) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const d = JSON.parse(r.result);
+      if (!d || !d.settings || !Array.isArray(d.customers)) throw Error();
+      if (confirm('با بازیابی، اطلاعات فعلی با اطلاعات پشتیبان جایگزین می‌شود. ادامه می‌دهید؟')) {
+        db = { ...makeDefault(), ...d, settings: { ...makeDefault().settings, ...d.settings } };
+        saveDB();
+        renderAll();
+        toast('پشتیبان بازیابی شد.');
+      }
+    } catch (e) { toast('فایل پشتیبان معتبر نیست.', true); }
+  };
+  r.readAsText(file);
+}
+
+/* ========== Invoice Actions ========== */
+function invoiceText() {
+  const i = currentInvoice || {};
+  return db.settings.name + '\n' + db.settings.slogan + '\n' + db.settings.website +
+    '\nفاکتور شماره: ' + (i.number || '') +
+    '\nتاریخ: ' + (i.date || dateStamp()) +
+    '\nدرخواست‌کننده: ' + (i.customerName || '') + ' ' + (i.customerCompany || '') +
+    '\nتلفن: ' + (i.phone || '') +
+    '\nمحل پروژه: ' + (i.location || '') +
+    '\nشرح خدمات:\n' + (i.description || '') +
+    '\nجمع: ' + Math.round(i.total || 0).toLocaleString('en-US') + ' تومان' +
+    '\nمالیات: ' + Math.round((i.total || 0) * (i.taxRate || 0) / 100).toLocaleString('en-US') + ' تومان' +
+    '\nمبلغ نهایی: ' + Math.round(i.finalTotal || 0).toLocaleString('en-US') + ' تومان' +
+    '\nبه حروف: ' + amountWords(i.finalTotal || 0) + ' تومان' +
+    '\n' + db.settings.bank1Name + ': شبا ' + db.settings.bank1Iban + ' | کارت ' + db.settings.bank1Card +
+    '\n' + db.settings.bank2Name + ': شبا ' + db.settings.bank2Iban + ' | کارت ' + db.settings.bank2Card +
+    '\nآدرس: ' + db.settings.address +
+    '\nتماس: ' + db.settings.phone1 + ' - ' + db.settings.phone2 +
+    '\n' + db.settings.website;
+}
+
+async function copyInvoice() {
+  try {
+    await navigator.clipboard.writeText(invoiceText());
+    toast('متن فاکتور کپی شد.');
+  } catch (e) {
+    const t = document.createElement('textarea');
+    t.value = invoiceText();
+    document.body.append(t); t.select(); document.execCommand('copy'); t.remove();
+    toast('متن فاکتور کپی شد.');
+  }
+}
+
+function whatsappInvoice() {
+  const c = currentInvoice?.phone || '';
+  const phone = enDigits(c).replace(/\D/g, '');
+  window.open('https://wa.me/' + (phone.startsWith('0') ? '98' + phone.slice(1) : phone) + '?text=' + encodeURIComponent(invoiceText()), '_blank', 'noopener');
+}
+
+async function shareInvoice() {
+  if (navigator.share) {
+    try { await navigator.share({ title: 'فاکتور Crane 24', text: invoiceText() }); } catch (e) {}
+  } else copyInvoice();
+}
+
+/* ========== Render All ========== */
+function renderAll() {
+  renderDashboard();
+  renderCustomers();
+  renderDrivers();
+  renderOrders();
+  renderInvoices();
+  renderAccounting();
+  renderSettings();
+  if (currentInvoice) renderInvoice(currentInvoice);
+}
+
+/* ============================================================
+   Event Handlers (با چک کردن وجود عنصر - امن)
+   ============================================================ */
+function safeBind(id, event, handler) {
+  const el = document.getElementById(id);
+  if (el) {
+    if (event === 'click') el.onclick = handler;
+    else el.addEventListener(event, handler);
+  }
+}
+
+function bindAllEvents() {
+  // Navigation
+  const nav = $('#nav');
+  if (nav) nav.addEventListener('click', e => {
+    const b = e.target.closest('button[data-view]');
+    if (b) navigate(b.dataset.view);
+  });
+
+  $$('[data-goto]').forEach(b => b.addEventListener('click', () => navigate(b.dataset.goto)));
+
+  // Menu
+  safeBind('menuToggle', 'click', () => $('#sidebar').classList.toggle('open'));
+
+  // Quick Order
+  safeBind('quickOrder', 'click', () => { navigate('orders'); setTimeout(addOrder, 100); });
+
+  // Add buttons
+  safeBind('addCustomer', 'click', addCustomer);
+  safeBind('addDriver', 'click', addDriver);
+  safeBind('addOrder', 'click', addOrder);
+  safeBind('newInvoice', 'click', () => { prepareInvoice(); toast('پیش‌نویس فاکتور جدید آماده است.'); });
+
+  // Searches
+  safeBind('customerSearch', 'input', renderCustomers);
+  safeBind('driverSearch', 'input', renderDrivers);
+  safeBind('orderSearch', 'input', renderOrders);
+
+  // Order filters
+  ['orderCustomerFilter', 'orderDriverFilter', 'orderStatusFilter', 'orderDateFrom', 'orderDateTo'].forEach(id => {
+    safeBind(id, 'input', renderOrders);
+    safeBind(id, 'change', renderOrders);
+  });
+  safeBind('orderDateClear', 'click', () => {
+    const f = document.getElementById('orderDateFrom'), t = document.getElementById('orderDateTo');
+    if (f) f.value = ''; if (t) t.value = '';
+    renderOrders();
+  });
+
+  // Transaction filters
+  ['txDateFrom', 'txDateTo', 'txKindFilter'].forEach(id => {
+    safeBind(id, 'input', renderAccounting);
+    safeBind(id, 'change', renderAccounting);
+  });
+  safeBind('txDateClear', 'click', () => {
+    const f = document.getElementById('txDateFrom'), t = document.getElementById('txDateTo'), k = document.getElementById('txKindFilter');
+    if (f) f.value = ''; if (t) t.value = ''; if (k) k.value = '';
+    renderAccounting();
+  });
+
+  // Invoice actions
+  safeBind('printInvoice', 'click', () => window.print());
+  safeBind('saveInvoice', 'click', saveInvoice);
+  safeBind('whatsappInvoice', 'click', whatsappInvoice);
+  safeBind('shareInvoice', 'click', shareInvoice);
+  safeBind('copyInvoice', 'click', copyInvoice);
+
+  // Accounting
+  safeBind('addReceipt', 'click', () => transactionForm('receipt'));
+  safeBind('addPayment', 'click', () => transactionForm('payment'));
+  safeBind('exportCsv', 'click', exportCSV);
+
+  // Settings
+  safeBind('saveSettings', 'click', saveSettings);
+  safeBind('logoUpload', 'change', e => uploadImage(e.target.files[0], 'logo'));
+  safeBind('stampUpload', 'change', e => uploadImage(e.target.files[0], 'stamp'));
+  safeBind('backupBtn', 'click', backup);
+  safeBind('restoreBtn', 'click', () => { const el = document.getElementById('restoreFile'); if (el) el.click(); });
+  safeBind('restoreFile', 'change', e => restore(e.target.files[0]));
+  safeBind('clearData', 'click', () => {
+    if (confirm('تمام اطلاعات Crane 24 از این مرورگر حذف شود؟')) {
+      localStorage.removeItem(DB_KEY);
+      db = makeDefault();
+      currentInvoice = null;
+      saveDB();
+      prepareInvoice();
+      renderAll();
+      toast('داده‌ها پاک شدند.');
+    }
+  });
+
+  // Modal
+  safeBind('modalClose', 'click', closeModal);
+  safeBind('modalCancel', 'click', closeModal);
+
+  const backdrop = document.getElementById('modalBackdrop');
+  if (backdrop) {
+    backdrop.addEventListener('click', e => {
+      if (e.target === backdrop) closeModal();
+    });
+  }
+
+  const form = document.getElementById('modalForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!modalSave) return;
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const htmlData = {};
+      $$('#modalBody [data-extra]').forEach(el => { htmlData[el.dataset.extra] = el.dataset.value || ''; });
+      modalSave({ ...data, ...htmlData });
+      closeModal();
+      saveDB();
+      renderAll();
+    });
+  }
+
+  // ESC closes modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const mb = document.getElementById('modalBackdrop');
+      if (mb && mb.classList.contains('show')) closeModal();
+    }
+  });
+}
+
+/* ========== Init ========== */
+function init() {
+  if (!db.settings.logo) db.settings.logo = defaultLogo();
+  $('#todayText').textContent = faDigits(todayJ());
+  $('#sideYear').textContent = faDigits(todayJ().slice(0, 4));
+  $('#invDate').textContent = faDigits(todayJ());
+
+  bindAllEvents();
+
+  renderSettings();
+  prepareInvoice();
+  renderAll();
+  saveDB();
+
+  console.log('✅ Crane 24 آماده شد');
+}
+
+// اجرای init بعد از لود DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(r => console.log('✅ SW registered'))
+      .catch(e => console.warn('SW error', e));
+  });
+}
+</script>
+</body>
+</html>
+
+  if (db.orders.some(o => o.driverId === id)) {
+    toast('این راننده سابقه سفارش دارد.', true); return;
+  }
+  confirmDelete('راننده', () => db.drivers = db.drivers.filter(x => x.id !== id));
+}
+function historyDriver(id) {
+  let d = getDriver(id), os = db.orders.filter(o => o.driverId === id);
+  alert('سابقه ' + (d?.name || 'راننده') + '\nتعداد سفارش‌ها: ' + os.length + '\nبدهی باقی‌مانده: ' + money(driverBalance(id)) + '\n\n' +
+    os.map(o => o.date + ' | ' + (o.service || o.craneType || 'خدمات') + ' | کرایه راننده: ' + money(o.driverCost)).join('\n'));
+}
